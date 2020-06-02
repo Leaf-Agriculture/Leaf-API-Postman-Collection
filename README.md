@@ -1,4 +1,4 @@
-# How to query & access operations and satellite images via Leaf
+# How to query & access operations & satellite images via Leaf
 ## This is Leaf's onboarding Postman Collection
 
 
