@@ -1,5 +1,4 @@
-# Onboarding Postman Collection on 
-How to query & access operations and satellite images via Leaf
+# Onboarding Postman Collection on How to query & access operations and satellite images via Leaf
 
 
 1. Import Postman Collection
