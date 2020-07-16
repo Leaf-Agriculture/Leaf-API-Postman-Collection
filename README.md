@@ -1,4 +1,9 @@
 # Leaf's quickstart Postman collection
+
+Food and Agriculture developers use Leaf's API to access clean, standardized, and aggregated Farm data from all major sources. 
+This [Postman](https://www.postman.com/) collection is intended to help you get started with Leaf and explore our API. 
+This is the same collection that we use in all of our demos. If you'd like to schedule a demo [please contact us!](mailto:connect@leafagriculture.com.br) 
+
 ## Overview
 
 
