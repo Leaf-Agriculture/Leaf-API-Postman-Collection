@@ -1,0 +1,3252 @@
+{
+	"info": {
+		"_postman_id": "a0ecc320-8ddc-4e37-b1f7-e85b92eba057",
+		"name": "Leaf API",
+		"description": "Leaf onboarding Postman Collection on How to query & access operations and satellite images\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\nThe included Postman Collection contains the following folders:\nLeaf Auth\nClimate Field View Auth\nJohn Deere Auth\nLeaf User\nQuery Operations by Field\nGet Operation Files\nMerge Operation Files\nSatellite\n\nThis document is divided into topics with the exact same structure as the folders in the collection.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Getting started",
+			"item": [
+				{
+					"name": "Get your Leaf Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0f49574-ed1f-40ab-b17c-b664fe7180be",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"leaf_token\", jsonData.id_token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}"
+						},
+						"url": {
+							"raw": "https://{{leaf_api_url}}/api/authenticate",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all fields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"fields",
+								"api",
+								"fields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all operation files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29da7286-ef5b-4444-b328-b0dccaf0e359",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/operations/api/files",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"operations",
+								"api",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get operation file by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"operations",
+								"api",
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get operation file summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}/summary",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"operations",
+								"api",
+								"files",
+								"{{file_id}}",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get operation file images",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}/images",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"operations",
+								"api",
+								"files",
+								"{{file_id}}",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get merged operation file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "521edd30-c113-40ff-bbf2-f5c6328b9275",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/operations/api/files?origin=merged",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"operations",
+								"api",
+								"files"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "merged"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get satellite images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "db0ca0f0-3bf0-4555-ab69-39f991c8290f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"satellite",
+								"api",
+								"fields",
+								"{{sat_external_id}}",
+								"processes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Leaf Auth\nGet Leaf Token\nAfter registering with Leaf, you can get your Leaf token, which must be included in all requests to Leaf’s API as an authorization header.\n\tHow to get your Leaf Yoken:\nUpdate current value of \"leaf_email\" variable to your Leaf account email\nUpdate current value of \"leaf_pass\" variable to your Leaf account password\nHit \"Send\"\n\nAn \"id_token\" should be returned. It will be automatically transferred to the current value of \"leaf_token\" to be used in all calls to Leaf's API\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0ef43b41-b6d4-4afa-98f4-bf33b8db619c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f50da800-d098-4bd9-98c6-e1f06ea9f46f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "API Reference",
+			"item": [
+				{
+					"name": "Leaf auth",
+					"item": [
+						{
+							"name": "Get your Leaf Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7959d611-895a-4930-99d9-25924c0e5eaa",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"leaf_token\", jsonData.id_token);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/api/authenticate",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"api",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Leaf Auth\nGet Leaf Token\nAfter registering with Leaf, you can get your Leaf token, which must be included in all requests to Leaf’s API as an authorization header.\n\tHow to get your Leaf Yoken:\nUpdate current value of \"leaf_email\" variable to your Leaf account email\nUpdate current value of \"leaf_pass\" variable to your Leaf account password\nHit \"Send\"\n\nAn \"id_token\" should be returned. It will be automatically transferred to the current value of \"leaf_token\" to be used in all calls to Leaf's API\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f8ee473f-c289-4793-852d-dcd820758d9d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "189030d4-697f-4d48-b108-d0f2ed1a7820",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Providers auth",
+					"item": [
+						{
+							"name": "JohnDeere auth",
+							"item": [
+								{
+									"name": "1. Get John Deere auth URL",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8714bcc4-6a8a-4814-843c-90c128413ce3",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"client_key\": \"{{jd_client_key}}\",\n    \"client_secret\": \"{{jd_client_secret}}\",\n    \"callback_url\": \"{{jd_redirect_url}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_jd}}/api/get_url",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_jd}}"
+											],
+											"path": [
+												"api",
+												"get_url"
+											]
+										},
+										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
+									},
+									"response": []
+								},
+								{
+									"name": "2. Get John Deere Tokens",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c8539d3a-2631-4cb6-ab56-74db0d27c905",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"jd_token_id\", jsonData.token_id);",
+													"pm.environment.set(\"jd_token_secret\", jsonData.token_secret_key);",
+													"// pm.environment.set(\"jd_oauth_token\", jsonData.token.oauth_token);",
+													"// pm.environment.set(\"jd_oauth_token_secret\", jsonData.token.oauth_token_secret);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "{{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"client_key\": \"{{jd_client_key}}\",\n    \"client_secret\": \"{{jd_client_secret}}\",\n    \"response_url\": \"{{jd_response_url}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_jd}}/api/get_token",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_jd}}"
+											],
+											"path": [
+												"api",
+												"get_token"
+											]
+										},
+										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
+									},
+									"response": []
+								},
+								{
+									"name": "3. Add John Deere Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "31a63f21-19da-48a0-a0e5-2855b4ec4ede",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"jd_credentials_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"clientKey\": \"{{jd_client_key}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"tokenId\": \"{{jd_token_id}}\",\n    \"tokenSecretKey\": \"{{jd_token_secret}}\"\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/john-deere-credentials",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"john-deere-credentials"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "John Deere Auth\nTo get a better sense of the authentication process with John Deere and the results, check our Medium Post (https://medium.com/leaf-agriculture/how-to-use-leafs-api-to-retrieve-machinery-data-from-john-deere-fb1ba331d089)\n1. Get John Deere auth URL\nIn Step 1 we will be generating tokens from John Deere. The goal In step 2 is we will get our john deere token_id and token_secret\n\nToken Verifier\nIn step 1 we will get a temporary \"token verifier\" from John Deere that confirms a user’s authentication of your application to access their John Deere data and generate credentials. We get that verifier by going through their authentication flow (oauth2).\nBefore generating the authentication URL, please:\nUpdate current value of \"jd_client_key\" to your app's client key on John Deere\nUpdate current value of \"jd_client_secret\" to your app's client secret on John Deere\nUpdate current value of \"jd_callback_url\" to your app's callback_url on John Deere\n\nThen, to generate the authentication URL your application will send to your user so they can authorize access to their account files you can use the included step 2 in the Postman Collection. Change \"client_key\" and \"client_secret\" variables to yours received from John Deere when you created an app on your developer account with them and redirect_uri to a uri the \"token verifier\" will be sent after the user authorizes your application.\nHit \"Send\".\nRedirect your user to the url included in the response.\nThey will authenticate and be redirected to the redirect_url\nCopy the entire url you were redirected to. It looks like:\nhttps://leafagriculture.com.br/?oauth_token=TOKEN&oauth_verifier=CODE\nPaste it in the environment variable \"jd_response_url\"\n2. Get John Deere Tokens\nAfter updating the “jd_response_url” in Postman you can submit your credentials and receive your tokens:\nHit \"Send\"\n\n\"token_id\" and \"token_secret_key\" will be automatically transferred to \"jd_token_id\" and \"jd_token_secret\" environment variables and will be used in the next step.\n\n3. Add John Deere ID\nNow we can create a Developer-User pair credentials ID that will allow you to access your user’s John Deere data. We first add the John Deere credentials to Leaf API, just:\nHit \"Send\"\nAll the info needed has already been filled automatically in Step 2.\n\nAn \"id\" for the credentials you just created will be returned. This \"id\" will be automatically transferred to the value of \"jd_credentials_id\" to be used in the next step.\n",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "2e641bb6-c290-43e3-a29e-a4ef07e0ba6e",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "997ab253-8543-4ef3-b310-243997dfdbae",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "ClimateFieldView auth",
+							"item": [
+								{
+									"name": "1. Get CFV auth URL",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "7ba7f0e5-bf88-4557-a904-756a6f47a0a5",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"client_id\": \"{{cfv_client_id}}\",\n\t\"redirect_uri\": \"{{cfv_redirect_url}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_cfv}}/url",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_cfv}}"
+											],
+											"path": [
+												"url"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "2. Get CFV Tokens",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c400f490-8aff-41a0-a96a-46323ef53cad",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"cfv_access_token\", jsonData.access_token);",
+													"pm.environment.set(\"cfv_refresh_token\", jsonData.refresh_token);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "468c9d2d-5ada-40e9-a37a-8847920d88d9",
+												"exec": [
+													"// Here we calculate the Authorization Header, it is calculated as:",
+													"// Basic {base64_encode($clientId:$clientSecret)} ",
+													"",
+													"var id = pm.environment.get('cfv_client_id');",
+													"var sec = pm.environment.get('cfv_client_secret');",
+													"",
+													"var id_sec = id + \":\" + sec;",
+													"var id_sec_64 = btoa(id_sec);  // encodes to Base64",
+													"",
+													"var cfv_auth_header = \"Basic \";",
+													"var cfv_auth_header = cfv_auth_header + id_sec_64;",
+													"",
+													"pm.environment.set('cfv_auth_header', cfv_auth_header);",
+													"",
+													"// to see if it's working, check that ",
+													"// clientId being Aladdin and clientSecret being OpenSesame, ",
+													"// will generate the Authorization Header below",
+													"// Basic QWxhZGRpbjpPcGVuU2VzYW1l"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{cfv_auth_header}}",
+												"description": "Basic base64(clientId:clientSecret)",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "code",
+													"value": "{{cfv_code}}",
+													"description": "get code from redirect url and put here",
+													"type": "text"
+												},
+												{
+													"key": "redirect_uri",
+													"value": "{{cfv_redirect_url}}",
+													"description": "same as when on the url you sent to user ",
+													"type": "text"
+												},
+												{
+													"key": "grant_type",
+													"value": "authorization_code",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://api.climate.com/api/oauth/token",
+											"protocol": "https",
+											"host": [
+												"api",
+												"climate",
+												"com"
+											],
+											"path": [
+												"api",
+												"oauth",
+												"token"
+											]
+										},
+										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
+									},
+									"response": []
+								},
+								{
+									"name": "3. Add CFV credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5ad020c7-b5c8-43f2-bb45-1a6f6e67ed02",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"cfv_credentials_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"clientId\": \"{{cfv_client_id}}\",\n  \"clientSecret\": \"{{cfv_client_secret}}\",\n  \"apiKey\": \"{{cfv_api_key}}\",\n  \"refreshToken\": \"{{cfv_refresh_token}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/climate-field-view-credentials",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"climate-field-view-credentials"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Climate Field View Auth\nTo get a better sense of the authentication process with Climate Field View and the results, check our Medium Post (https://medium.com/leaf-agriculture/how-to-use-leafs-api-to-retrieve-machinery-data-from-climate-fieldview-dda921f40291)\n\n1. Get CFV auth URL\nWe will be generating a url to redirect your user to authenticate with Climate.\nUpdate environment variables \"cfv_client_id\" and \"cfv_client_secret\" to your CFV developer account credentials\nUpdate environment variable \"cfv_redirect_url\" to your application's backend\nRedirect your user to the script's output url.\nThey will authenticate and be redirected to the redirect_uri\nA code will be sent to that cfv_redirect_url. We will need this code Step 2.\nCopy the code value \nNote: this code expires after 1 minute.\n\nPaste code value to environment variable \"cfv_code\"\n\n2. Get CFV tokens\nHit \"Send\"\n\nA lot of information will be returned. The important ones are \"access_token\" and \"refresh_token. These will be automatically transferred to \"cfv_access_token\" and \"cfv_refresh_token\" environment variables and will be used in the next step.\n\t\n3. Add CFV credentials\nNow we can create a Developer-User pair credentials ID that will allow you to access your user’s Climate data. We first add the Climate credentials to Leaf API, to do that:\nHit \"Send\"\n\nAn \"id\" for the credentials you just created will be returned. This \"id\" will be automatically transferred to the value of \"cfv_credentials_id\" to be used in the next step.",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "c916316d-92f0-40e0-ba7b-4761655c5455",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "fa11bd2e-9cdc-4f10-94ab-552285a09586",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Trimble auth",
+							"item": [
+								{
+									"name": "Add Trimble Credential",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "984e3989-298a-4860-9a3a-0b4f4ba2461f",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"trimble-credentials-id\", jsonData.id);",
+													"",
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "  {\n    \"userName\": \"string\",\n    \"password\": \"string\",\n    \"applicationName\": \"string\",\n    \"serviceIdentityId\": \"string\"\n  }"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"trimble-credentials"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Trimble Credential",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f2e1fb3e-d82c-408f-8e5f-235e7b1bfff6",
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble-credentials-id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"trimble-credentials",
+												"{{trimble-credentials-id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Trimble Credential",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0906dde4-ba02-4ce4-904a-e0835aa4ab33",
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble-credentials-id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"trimble-credentials",
+												"{{trimble-credentials-id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all Trimble Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "50719302-19ea-471f-8789-00ddf8c5c92b",
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"trimble-credentials",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Leaf User Trimble",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4396a37b-18f3-4eca-8132-5c17fa90f9b3",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "CNHi auth",
+							"item": [
+								{
+									"name": "Add CNHi Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "05835f78-fbfe-43f9-83ee-6a328a6a050b",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"cnhi-credentials-id\", jsonData.id);",
+													"",
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"clientId\": \"\",\n  \"clientSecret\": \"\",\n  \"refreshToken\": \"\"\n}"
+										},
+										"url": {
+											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials",
+											"protocol": "https",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"cn-hi-credentials"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get CNHi Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8c0169f8-77ca-4d29-b23e-937481008b67",
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
+											"protocol": "https",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"cn-hi-credentials",
+												"{{cnhi-credentials-id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete CNHi Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2d914015-c613-4ee9-a595-1ac2d3d57c31",
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
+											"protocol": "https",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"cn-hi-credentials",
+												"{{cnhi-credentials-id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all CNHi Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e8a4bd9b-1705-498b-b64f-b9a5c0acec07",
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials/",
+											"protocol": "https",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"cn-hi-credentials",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Leaf User CNHi",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9c00ddce-1a94-4f00-877a-8b3fc7a478e0",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"cnhiCredentials\": \n\t{\n\t  \"id\": \"{{cnhi-credentials-id}}\"\n    }\n}"
+										},
+										"url": {
+											"raw": "https://{{url}}/services/usermanagement/api/users/",
+											"protocol": "https",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Leaf User",
+					"item": [
+						{
+							"name": "Create Leaf User",
+							"item": [
+								{
+									"name": "With CFV and JD",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "eb75c090-dc48-49af-9f40-0be3d7e87f75",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "0ed25389-dea0-42b8-afa5-78d38da9c9ef",
+												"exec": [
+													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"JohnHopkinsTest\",\n  \"email\": \"JohnHopkinsTest@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"leaf-users",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "With only CFV",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b9211f56-28fe-47c9-8415-5b953c00e69e",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "12bece8c-16a6-492f-ace6-ef42862db0d0",
+												"exec": [
+													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"TEST AUTO MERGE CFV\",\n  \"email\": \"{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n\t\"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"leaf-users",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "With only JD",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a3a884b5-7a41-46f1-b65e-59da1e5e4d17",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "ebc3dc45-b9f3-4aa0-983c-583066127c5f",
+												"exec": [
+													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"leaf-users",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Without credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "186b5112-8705-4bdc-80fe-de21cb9deac0",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "d3b485fb-88cb-46ba-94d3-982690d8c71a",
+												"exec": [
+													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"usermanagement",
+												"api",
+												"leaf-users",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Get all Leaf Users",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7339a1a6-710a-4537-acff-d76841abefec",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "ef6c968c-9ea9-436a-950d-c4b0d895cf22",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"leaf-users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get specific Leaf User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/{{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"leaf-users",
+										"{{leaf_user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Leaf User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "93c8151b-d957-4cde-8c29-8d4b239f82a9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  }\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"leaf-users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Leaf User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8c1550ed-bfc9-45d4-98d6-d0ba4606033c",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/leaf-users/{{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"leaf-users",
+										"{{leaf_user_id}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Leaf User \t\nCreate Leaf User\nNow we have to attach credentials to a Leaf User. To do so, we can create a Leaf user and attach our John Deere and/or Climate Field View credentials via the credentials id. We can also attach credentials from other companies to this same user to query all available data by Grower/Farm/Field regardless of brand. \nUpdate (optional) fields \"address\", \"email\", \"name\" and \"phone\" with your user's information.\nWe have automatically included our “jd_credentials_id” to this call and attached it to this user.\nHit \"Send\" \n\n\tAlong with other information returned, there is an \"id\". This \"id\" is the leaf_user_id that will be used in the next (final) Step to query and access files.\n\nUpdate Leaf User\n\tTo update a Leaf User, let's say to add another provider credentials or change the user's address, we can use this PUT request. Since this method overwrites, remember to send all the user's information along with the information you want to add or update. For example, if you want to add John Deere credentials to a user that already has ClimateFieldView credentials, remember to specify both credentials ids.\n\nGet specific Leaf User\n\tWith this endpoint you can query all information on a specific Leaf User, such as their address, email, credentials, etc. To do so, update the value of the environment variable \"leaf_user_id\" to the Leaf User id you want to query.\n\nGet all Leaf Users\n\tWith this endpoint you can query all information on all your Leaf Users, such as their address, email, credentials, etc. Just hit 'send'.\n\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c6c660d3-e7ca-40dc-b4b2-5afda9c66461",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0125acfa-f6b3-4e3d-8c6f-504afe0d4e82",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Fields",
+					"item": [
+						{
+							"name": "Create Field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b345e20f-8411-4797-8f71-d9a57edc76ec",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d2b2ad3d-dbf8-4284-b4fb-6a59dfbf2bfe",
+										"exec": [
+											"var uuid = require('uuid')",
+											"var myUUID = uuid.v4()",
+											"",
+											"pm.environment.set(\"field_external_id\", myUUID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"leafUserId\": \"{{leaf_user_id}}\",\n  \"externalId\": \"{{field_external_id}}\",\n  \"geometry\": {\n    \"coordinates\": [\n      [\n        [\n          [-89.83063513420132,39.719755905345345],\n          [-89.83238721264806,39.71984399784825],\n          [-89.83235241268284,39.72668620674723],\n          [-89.83143210262952,39.727128201303934],\n          [-89.83142598757857,39.727130372296585],\n          [-89.82993736543959,39.72739398390608],\n          [-89.83002048040561,39.719804750072434],\n          [-89.83002509504868,39.719801901798874],\n          [-89.83002989039419,39.719799142290256],\n          [-89.83063513420132,39.719755905345345]\n        ]\n      ]\n    ],\n    \"type\": \"MultiPolygon\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all fields",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"fields"
+									],
+									"query": [
+										{
+											"key": "leafUser",
+											"value": null,
+											"description": "your Leaf User id",
+											"disabled": true
+										},
+										{
+											"key": "operationType",
+											"value": "",
+											"description": "Supported values: applied, harvested, planted, other",
+											"disabled": true
+										},
+										{
+											"key": "operationStartTime",
+											"value": "",
+											"description": "ISO 8601 date-time instant that filters operations that started at it or after it (must be in the past or present)",
+											"disabled": true
+										},
+										{
+											"key": "operationEndTime",
+											"value": "",
+											"description": "ISO 8601 date-time instant that filters operations that ended at it or before it (must be in the past or present)",
+											"disabled": true
+										},
+										{
+											"key": "operationCrop",
+											"value": "",
+											"description": "Provider crop code/number of the operation. Requires `operationProvider`",
+											"disabled": true
+										},
+										{
+											"key": "operationVariety",
+											"value": "",
+											"description": "Name of the crop variety used by the provider. Requires `operationProvider`. (e.g. \"Corn\" for \"JohnDeere\").",
+											"disabled": true
+										},
+										{
+											"key": "operationProvider",
+											"value": "",
+											"description": "The name of the company provider of the operations. Supported values: ClimateFieldView, CNHI, JohnDeere, Trimble",
+											"disabled": true
+										},
+										{
+											"key": "organizationId",
+											"value": "",
+											"description": "Grower's organization id from the provider (string)",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a field & its operations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/{{field_external_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"fields",
+										"{{field_external_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all farms",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "46608f38-1c95-407b-8c2e-a1e9030578ea",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/farms",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"farms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all growers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5361b478-87d9-461f-ae8a-ba9227f645e6",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/growers",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"growers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Field by geometry query",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "62cdcc50-649a-40de-b5b6-eff34f185c55",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   }\n }\n"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/query/intersects",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"fields",
+										"query",
+										"intersects"
+									]
+								},
+								"description": "If there are fields that intersect with the given geometry, they will be returned."
+							},
+							"response": []
+						},
+						{
+							"name": "Update field",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"{{your_field_id}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{your_leaf_user_is}}\",\n    \"sources\": [],\n    \"files\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete field",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"fields",
+										"{{field_id}}"
+									]
+								},
+								"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
+							},
+							"response": []
+						}
+					],
+					"description": "Query Operations by Field\nTo query all operations that happened in a specific field (step 2), we first need to create that field (step 1). Then, Leaf will automatically detect operations of that field based on the operations' and on the field's coordinates. This process usually takes about 30 minutes.\n1. Create Field\nHere we need to specify a leafUserId (that will be the Leaf User owner of that field), a externalId (that will be the name we give to the field) and the geojson geometry of the field (location). After creating the field we can query it (step 2) \n2. Get operations' ids by Field\nTo query all operations that happened in a specific field, just update the environment variable \"field_external_id\" to the field id you want to query files\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "65f3ff90-c28d-4345-a0fb-6f90220bad71",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e56709dc-aa80-4e11-97ab-be10b8aefd3b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Operation files",
+					"item": [
+						{
+							"name": "Get all files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ca3c4e16-72d3-422b-936b-3f4c9c267505",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{leaf_user_id}}",
+											"description": "filter by leaf_user",
+											"disabled": true
+										},
+										{
+											"key": "provider",
+											"value": "ClimateFieldView",
+											"description": "JohnDeere, ClimateFieldView, Leaf, CNHi or Trimble",
+											"disabled": true
+										},
+										{
+											"key": "origin",
+											"value": "provider",
+											"description": "provider, merged or automerged",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "processed",
+											"description": "processed, processing or failed",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "400",
+											"description": "maximum number of files returned per page (default is 20)",
+											"disabled": true
+										},
+										{
+											"key": "createdTime",
+											"value": "2018-10-22T20:25",
+											"description": "(iso 8601 date-time) get files that were processed by Leaf after \"createdTime\"",
+											"disabled": true
+										},
+										{
+											"key": "operationStart",
+											"value": "2018-10-22T20:25",
+											"description": "(iso 8601 date-time) get operations that started after operationStart",
+											"disabled": true
+										},
+										{
+											"key": "operationEnd",
+											"value": "2019-10-22T20:25",
+											"description": "(iso 8601 date-time) get operations that ended before operationEnd",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get specific file by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files",
+										"{{file_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get file images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}/images",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files",
+										"{{file_id}}",
+										"images"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get file summary",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}/summary",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files",
+										"{{file_id}}",
+										"summary"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload operation file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/gmbueno/Downloads/054de61b-553a-4a25-81ee-0952e96158f3.json"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files?leafUserId={{leaf_user_id}}&provider=Leaf&fileFormat=GEOJSON",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}"
+										},
+										{
+											"key": "provider",
+											"value": "Leaf"
+										},
+										{
+											"key": "fileFormat",
+											"value": "GEOJSON"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Merge opeartion files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "800727ae-2379-438e-b1cd-c21eb9686024",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"merged_file_id\", jsonData.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ids\": [\n    \"{{operation_1_id}}\",\n    \"{{operation_2_id}}\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files/merge",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files",
+										"merge"
+									]
+								},
+								"description": "Make sure you are merging operations of the \n- same operationType (PLANTED, HARVESTED or APPLIED)\n- same Leaf User"
+							},
+							"response": []
+						}
+					],
+					"description": "Get Operation Files\n1. Query & access all files\nWith this endpoint you can query all files of all your users (or you can filter by user as well, or by provider, by operation_date and much more). Select and update which params (filters) you want to apply before querying files and just hit \"send\"\n2. Query & access specific file\nTo query for a specific operation file, you just have to update the value of the environment variable \"file_id\" and hit \"send\"\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cd581fdb-7086-4a6c-9317-93c489a64ea1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "93ae7aa7-37e0-4b6d-a992-056e8d5eae5a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Satellite",
+					"item": [
+						{
+							"name": "Create sat-monitored field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "47fb1b14-d25c-46c6-995b-9b1eb958c3bb",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [[[\n      [-49.06625032424927,-25.548385005795673],\n      [-49.06766653060913,-25.565129864816026],\n      [-49.06225919723511,-25.5663106278052],\n      [-49.06152963638306,-25.556844839775874],\n      [-49.06401872634888,-25.556399600245143],\n      [-49.063353538513184,-25.5490045104699],\n      [-49.06625032424927,-25.548385005795673]\n    ]]]\n  }\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get sat images of field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "51ab7dc8-460c-4f87-9352-75b258a11ffd",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}",
+										"processes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get sat-monitored field geometry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "82fe861e-3202-4086-8cbe-638cea546806",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all sat-monitored fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "450d008a-bd4f-4c6f-99e4-78f521d70bb7",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit a sat-monitored field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "efa323d5-ab2e-4883-b089-05cbdb421ca7",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [[[\n      [-52.13101744651794, -29.35923066122932],\n      [-52.13136076927183, -29.359773009401106],\n      [-52.1286678314209, -29.36134393263556],\n      [-52.12814211845397, -29.360605227704085],\n      [-52.128571271896356, -29.360427563693463],\n      [-52.13101744651794, -29.35923066122932]\n    ]]]\n  }\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}"
+									]
+								},
+								"description": "Maybe you wish to expand your field but don't want to lose the images that it had before. You can do exactly that with this endpoint."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete sat-monitored field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d40ceb23-09ac-4577-a8ee-0b438b1b3ca3",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Converters",
+					"item": [
+						{
+							"name": "Convert Shapefile to GeoJSON",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "You should select your file before running",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/converters/api/shapefile-geojson?leafUserId=leaf_user_id",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"shapefile-geojson"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "leaf_user_id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Convert CN1 to GeoJSON",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/douglas/Downloads/sample.cn1.zip"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/converters/api/cn1-geojson?leafUserId=leaf_user_id",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"cn1-geojson"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "leaf_user_id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Convert DAT to GeoJSON",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/douglas/Downloads/growmark_asPlanted_id.dat"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/converters/api/datclimate-geojson?leafUserId=leaf_user_id",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"datclimate-geojson"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "leaf_user_id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Convert Trimble to GeoJSON",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/douglas/Downloads/TMX_AgData.zip"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/converters/api/trimble-geojson?leafUserId=leaf_user_id",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"trimble-geojson"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "leaf_user_id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Convert GeoJSON to Shapefile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{url}}/services/converters/api/geojson-shapefile?leafUserId={{leaf-user-id}}",
+									"protocol": "https",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"geojson-shapefile"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf-user-id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Convert GeoJSON to ISO11783",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "sample.geojson"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-iso11783?leafUserId={{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"geojson-iso11783"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Convert GeoJSON to PNG",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-png?leafUserId={{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"converters",
+										"api",
+										"geojson-png"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Monitor your API usage",
+					"item": [
+						{
+							"name": "Get save-file",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{url}}/services/usagemonitoring/api/events/days?operation=save-file",
+									"protocol": "https",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"services",
+										"usagemonitoring",
+										"api",
+										"events",
+										"days"
+									],
+									"query": [
+										{
+											"key": "operation",
+											"value": "save-file"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get save-field",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{url}}/services/usagemonitoring/api/events/days?operation=save-field",
+									"protocol": "https",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"services",
+										"usagemonitoring",
+										"api",
+										"events",
+										"days"
+									],
+									"query": [
+										{
+											"key": "operation",
+											"value": "save-field"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "488feac6-5c17-4f23-a38f-5d4bf282bf54",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d00dbb32-edcb-4b79-8384-a1aa227fb8f5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "252e4d4e-9ebf-4c61-9b8e-da698e909a24",
+			"key": "leaf_api_url",
+			"value": "api-withleaf.io"
+		},
+		{
+			"id": "c5093420-2b9e-4fa3-9cf0-abe1277e9c99",
+			"key": "leaf_auth_jd",
+			"value": "mj489gvqm0.execute-api.us-west-2.amazonaws.com"
+		},
+		{
+			"id": "172187b6-3a04-437c-b6d0-1184b4cfafa5",
+			"key": "leaf_auth_cfv",
+			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
