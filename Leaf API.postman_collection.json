@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Getting started",
+			"name": "Quickstart",
 			"item": [
 				{
 					"name": "Get your Leaf Token",
@@ -2464,7 +2464,7 @@
 											"key": "file",
 											"description": "select your file",
 											"type": "file",
-											"src": "sample.geojson"
+											"src": []
 										}
 									]
 								},
@@ -3278,17 +3278,17 @@
 	],
 	"variable": [
 		{
-			"id": "273f3d28-34dd-4658-b6ed-0cdaed256c08",
+			"id": "4248276c-d6e9-4680-906b-380447bfd2fe",
 			"key": "leaf_api_url",
 			"value": "api.withleaf.io"
 		},
 		{
-			"id": "64713d3e-f29d-4a4f-bb75-32d89768c731",
+			"id": "339368fc-fad3-4ba1-a7ad-7cebf4395ad7",
 			"key": "leaf_auth_jd",
 			"value": "mj489gvqm0.execute-api.us-west-2.amazonaws.com"
 		},
 		{
-			"id": "431a7ceb-e902-4549-9610-465c51317631",
+			"id": "640ee022-cd10-4d97-a4c1-ea2f37846dd9",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
 		}
