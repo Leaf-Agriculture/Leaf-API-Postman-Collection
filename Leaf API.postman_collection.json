@@ -2894,7 +2894,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/shapefile-geojson?leafUserId=leaf_user_id",
+									"raw": "https://{{leaf_api_url}}/services/converters/api/shapefile-geojson",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2908,7 +2908,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "leaf_user_id"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
@@ -2942,7 +2943,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/cn1-geojson?leafUserId=leaf_user_id",
+									"raw": "https://{{leaf_api_url}}/services/converters/api/cn1-geojson",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2956,7 +2957,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "leaf_user_id"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
@@ -2984,7 +2986,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/datclimate-geojson?leafUserId=leaf_user_id",
+									"raw": "https://{{leaf_api_url}}/services/converters/api/datclimate-geojson",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2998,7 +3000,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "leaf_user_id"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
@@ -3026,7 +3029,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/trimble-geojson?leafUserId=leaf_user_id",
+									"raw": "https://{{leaf_api_url}}/services/converters/api/trimble-geojson",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -3040,7 +3043,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "leaf_user_id"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
@@ -3068,7 +3072,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{url}}/services/converters/api/geojson-shapefile?leafUserId={{leaf-user-id}}",
+									"raw": "https://{{url}}/services/converters/api/geojson-shapefile",
 									"protocol": "https",
 									"host": [
 										"{{url}}"
@@ -3082,7 +3086,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "{{leaf-user-id}}"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
@@ -3110,7 +3115,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-iso11783?leafUserId={{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-iso11783",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -3124,7 +3129,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "{{leaf_user_id}}"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
@@ -3152,7 +3158,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-png?leafUserId={{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-png",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -3166,7 +3172,8 @@
 									"query": [
 										{
 											"key": "leafUserId",
-											"value": "{{leaf_user_id}}"
+											"value": "{{leaf_user_id}}",
+											"disabled": true
 										}
 									]
 								}
