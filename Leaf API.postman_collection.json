@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "a0ecc320-8ddc-4e37-b1f7-e85b92eba057",
 		"name": "Leaf API",
-		"description": "Leaf onboarding Postman Collection on How to query & access operations and satellite images\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\nThe included Postman Collection contains the following folders:\nLeaf Auth\nClimate Field View Auth\nJohn Deere Auth\nLeaf User\nQuery Operations by Field\nGet Operation Files\nMerge Operation Files\nSatellite\n\nThis document is divided into topics with the exact same structure as the folders in the collection.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
+		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -257,6 +257,50 @@
 									"key": "origin",
 									"value": "merged"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all sat-monitored fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "febd509d-d4d4-4d53-a0fd-e8a6bc489470",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{leaf_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
+							"protocol": "https",
+							"host": [
+								"{{leaf_api_url}}"
+							],
+							"path": [
+								"services",
+								"satellite",
+								"api",
+								"fields"
 							]
 						}
 					},
@@ -2418,8 +2462,9 @@
 									"formdata": [
 										{
 											"key": "file",
+											"description": "select your file",
 											"type": "file",
-											"src": "/Users/gmbueno/Downloads/054de61b-553a-4a25-81ee-0952e96158f3.json"
+											"src": "sample.geojson"
 										}
 									]
 								},
@@ -2587,6 +2632,50 @@
 							"response": []
 						},
 						{
+							"name": "Get all sat-monitored fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "450d008a-bd4f-4c6f-99e4-78f521d70bb7",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Get sat images of field",
 							"event": [
 								{
@@ -2672,50 +2761,6 @@
 										"api",
 										"fields",
 										"{{sat_external_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all sat-monitored fields",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "450d008a-bd4f-4c6f-99e4-78f521d70bb7",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"satellite",
-										"api",
-										"fields"
 									]
 								}
 							},
@@ -3233,17 +3278,17 @@
 	],
 	"variable": [
 		{
-			"id": "252e4d4e-9ebf-4c61-9b8e-da698e909a24",
+			"id": "273f3d28-34dd-4658-b6ed-0cdaed256c08",
 			"key": "leaf_api_url",
-			"value": "api-withleaf.io"
+			"value": "api.withleaf.io"
 		},
 		{
-			"id": "c5093420-2b9e-4fa3-9cf0-abe1277e9c99",
+			"id": "64713d3e-f29d-4a4f-bb75-32d89768c731",
 			"key": "leaf_auth_jd",
 			"value": "mj489gvqm0.execute-api.us-west-2.amazonaws.com"
 		},
 		{
-			"id": "172187b6-3a04-437c-b6d0-1184b4cfafa5",
+			"id": "431a7ceb-e902-4549-9610-465c51317631",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
 		}
