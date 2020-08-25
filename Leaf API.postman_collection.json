@@ -1590,7 +1590,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/lusers/",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
 											"protocol": "https",
 											"host": [
 												"{{leaf_api_url}}"
@@ -1599,7 +1599,7 @@
 												"services",
 												"usermanagement",
 												"api",
-												"lusers",
+												"users",
 												""
 											]
 										}
