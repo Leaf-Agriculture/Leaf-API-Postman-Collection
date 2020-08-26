@@ -9,15 +9,15 @@ in all of our demos.
 
 For more details on how to use Leaf's API, [check our full documentation](https://docs.withleaf.io)
 
-## Getting Started
+## Quickstart
 
-
-1. Import Postman Collection
-1. Import Environment Variables
+To follow Leaf Quickstart with our Postman collection, first:
+1. On Postman, import our Postman Collection and Environment Variables
 1. Register with Leaf
+1. [Folow this brief tutorial on our docs](https://leaf-agriculture.github.io/docs/docs/quickstart)
 
 The included Postman Collection contains the following folders:  
-- Getting Started
+- Quickstart
 - API Reference
 	- Leaf Auth
 	- Providers auth
@@ -29,5 +29,5 @@ The included Postman Collection contains the following folders:
 	- Monitor your API usage
 
 
-If have any doubts or suggestions [please contact our support email](mailto:help@withleaf.io)
-If you'd like to schedule a demo [please contact our commercial email](mailto:connect@withleaf.io)
+For any doubts or suggestions [feel free to contact our support email](mailto:help@withleaf.io)  
+And if you'd like to schedule a demo [please contact our commercial email](mailto:connect@withleaf.io)
