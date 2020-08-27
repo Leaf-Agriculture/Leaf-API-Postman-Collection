@@ -35,9 +35,7 @@
 						],
 						"body": {
 							"mode": "raw",
-
 							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
-
 						},
 						"url": {
 							"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -412,11 +410,7 @@
 								],
 								"body": {
 									"mode": "raw",
-
-									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}"
-
 									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true \n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
-
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/api/authenticate",
