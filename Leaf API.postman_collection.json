@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "712977f4-2ceb-4660-a0c4-83d49a581d84",
+		"_postman_id": "f23af971-8c5c-41af-98a0-bf68b90f12b0",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -15,7 +15,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "467d108c-c985-4bc0-9f1b-abe894da5b0b",
+								"id": "b3d02d9c-06eb-4859-8515-90fed1b5d2c1",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -35,7 +35,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
+							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}"
 						},
 						"url": {
 							"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -83,7 +83,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f224720b-0807-4fff-b65c-2d02acbca31e",
+								"id": "5505354b-fe12-444a-ac3e-258620ab64ec",
 								"exec": [
 									""
 								],
@@ -220,7 +220,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a22ed427-dc35-4422-ae76-7e4e15facef7",
+								"id": "a98ec133-b819-4140-9b36-5dce3e99031d",
 								"exec": [
 									""
 								],
@@ -268,7 +268,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "aeb0721a-9f76-43b6-b6a9-3b5ccc390af8",
+								"id": "f32f2f13-d9d8-4273-9995-f52695ec772f",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -312,7 +312,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "05923467-f007-43c8-b50b-dd113c7de87b",
+								"id": "752157ec-22da-4763-a433-b5340a1f3919",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -358,7 +358,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b37f82bd-2d10-49cf-81a9-48cdabac65a8",
+						"id": "1f165d83-55a2-4e61-b687-0836b8df2fd7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -368,7 +368,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e2830e47-3c46-4ece-8ce8-c52f784d0cf3",
+						"id": "1be6f1fa-feb3-46f2-a825-2dce3a4053a8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -390,7 +390,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ac3fd8cf-aa44-471d-a2f6-693ae803896c",
+										"id": "91827da9-2758-4638-b756-e3a3e8d300bc",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -410,7 +410,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true \n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
+									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -432,7 +432,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "25c3c294-0f30-41c2-90ca-3b9d8a219e83",
+								"id": "9c5669b1-8571-4467-ace9-452f7030eda7",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -442,7 +442,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e652f647-30af-4c41-8978-7cbc4bbe91ce",
+								"id": "70efd9af-2a60-471f-88ad-316e1caec93d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -465,7 +465,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "032c4a29-7ea9-4a8e-a516-e4d769981399",
+												"id": "eb2e90b3-adb4-4b29-a3ae-894830b4ebbd",
 												"exec": [
 													""
 												],
@@ -506,7 +506,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "ae612360-27a0-4eb5-a71d-14bf740e1801",
+												"id": "5429bc3b-c280-41a9-b7ec-749b9fe8a36b",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_token_id\", jsonData.token_id);",
@@ -557,7 +557,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "683b3580-44e8-429d-8ff6-5fa541da5353",
+												"id": "2230e815-7911-40ec-8aa4-7edef55a3f6d",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_credentials_id\", jsonData.id);"
@@ -604,7 +604,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b4c35902-10da-4e85-999d-2c301ba7c2dc",
+										"id": "d6b5d0d9-252e-41ff-b87e-252b85967aba",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -614,7 +614,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "288c8f91-f3da-47b9-b475-7ce81e30179b",
+										"id": "d9a49083-1639-4dc0-bf3f-40fdb8561d14",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -634,7 +634,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "947fa33c-4f28-46bc-a9fe-4782718f0283",
+												"id": "cdadee91-053a-4b00-93b6-68c1d24b309f",
 												"exec": [
 													""
 												],
@@ -673,7 +673,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "554abd8e-f231-45cd-8d2d-1f083d942d38",
+												"id": "f8523982-fadf-4875-bd72-fba479b76718",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_access_token\", jsonData.access_token);",
@@ -685,7 +685,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "28a2935a-9fc5-453d-8802-c2d766092f53",
+												"id": "8d0fe926-7b8d-4d35-b6ba-39ccb4356223",
 												"exec": [
 													"// Here we calculate the Authorization Header, it is calculated as:",
 													"// Basic {base64_encode($clientId:$clientSecret)} ",
@@ -766,7 +766,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "adb21278-2ea7-4f3c-b32e-d5b2662ad5ed",
+												"id": "29aadacb-d010-4941-a127-33c2e4c3bf56",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_credentials_id\", jsonData.id);"
@@ -815,7 +815,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d090de62-a83e-4080-bdec-8ab74f83495e",
+										"id": "803832ef-2bec-4955-b6dc-062b3be6d6c9",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -825,7 +825,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cccc1c52-2df4-43c3-a7e8-ac599db03dac",
+										"id": "510e1f04-04fa-4414-9403-c65a9506d9fe",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -845,7 +845,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "a8776a20-6f2d-4cda-bcab-8e5ff2394093",
+												"id": "ec59acf0-03a0-460d-8a9e-7a13f707e172",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"trimble-credentials-id\", jsonData.id);",
@@ -872,7 +872,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "  {\n    \"userName\": \"string\",\n    \"password\": \"string\",\n    \"applicationName\": \"string\",\n    \"serviceIdentityId\": \"string\"\n  }"
+											"raw": "  {\n    \"userName\": \"luiz@leafagriculture.com.br\",\n    \"password\": \"r4r_hwUrKKMeEpi\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"5d09348ad37e381fd4a2edff\"\n  }"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
@@ -896,7 +896,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d5a94d43-582e-48ac-a68f-81653da2ad63",
+												"id": "532b8c04-82f5-41c6-9790-301cfbfb9048",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -948,7 +948,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "b821206d-1db0-4dd1-b6f6-7829e9b7d6d6",
+												"id": "f31f8484-f38e-4d49-9410-31cc7a61227e",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
@@ -997,7 +997,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "b55a1c48-a497-485b-b8df-6bf50d7d0e8d",
+												"id": "de5386fe-bf2e-4e1d-9767-127e86a598be",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1049,7 +1049,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "1a79ba8d-c029-4f83-9e54-684f0ac11f97",
+												"id": "b78d720e-771b-4d64-8d15-ebecf279e6cb",
 												"exec": [
 													""
 												],
@@ -1066,12 +1066,12 @@
 											},
 											{
 												"key": "Authorization",
-												"value": "Bearer {{token}}"
+												"value": "Bearer {{leaf_token }}"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"ericsegala\",\n    \"email\": \"eric@withleaf.io\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1103,7 +1103,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "69d0097b-a549-4ea6-9b94-ea4438d4c780",
+												"id": "040251df-dc72-4306-b9bc-1886439937d4",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"cnhi-credentials-id\", jsonData.id);",
@@ -1121,7 +1121,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{token}}"
+												"value": "Bearer {{leaf_token}}"
 											},
 											{
 												"key": "Content-Type",
@@ -1154,7 +1154,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "e48088f5-5dd1-4688-a8c9-bed66c70c817",
+												"id": "682535b4-fc84-40b5-a5bc-6ba7912a71ce",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -1206,7 +1206,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "bc1c26d0-9bc6-4ef6-aadc-833c1d4a7d74",
+												"id": "8391bc9c-e7fa-4c69-a5dc-d97fc0667c8a",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
@@ -1255,7 +1255,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d7eaaf3e-bd80-474c-8d3d-62c28a359cff",
+												"id": "632f34a7-1766-4918-be1f-544e79d7f5cf",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -1307,7 +1307,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "478ba38d-9c94-4ce5-8a16-bfd260c793b4",
+												"id": "772b319d-6088-4ff8-8b09-cc679547d465",
 												"exec": [
 													""
 												],
@@ -1368,7 +1368,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d3c89c4a-9138-47ad-99f3-3888d5b53e44",
+												"id": "f1c2ae03-2f05-4ba8-ac08-c7fc70d74b81",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1379,7 +1379,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "8827df2b-f9e1-4d9c-9763-761f8d7ef52c",
+												"id": "8651a290-e1b4-4150-891e-d029d8b60674",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1429,7 +1429,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "f34e32b0-ec51-48c4-9037-360b68453963",
+												"id": "5f3038ba-4d0c-4c34-89a6-2610b48c08bb",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1440,7 +1440,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "d96d2e30-a81b-466b-ae9a-5cfcc94d78b2",
+												"id": "55d7b0c2-b9e8-4c05-81e8-05e5e9f5494f",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1490,7 +1490,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "38d59767-17c5-4ea9-aaf5-6c6408d6d869",
+												"id": "248a017f-12ca-491d-8e47-a859f1f40c39",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1501,7 +1501,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "0c77b81c-8012-48bc-bf28-8aa8269c65c9",
+												"id": "aa11b198-764b-425d-9a74-3520d4f8139f",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1551,7 +1551,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "5d22f37a-db4f-4687-a8c7-5d9ec9e4d475",
+												"id": "5199a7f0-0b31-43f4-a782-35278e73b8b4",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1562,7 +1562,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "99cea377-c2d3-400d-b662-f8ecd2bd982d",
+												"id": "6c64ad62-7b1b-444c-94d0-14063e4430cc",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1616,7 +1616,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0201a400-b722-4c23-bd8a-98edc4bab070",
+										"id": "adeeb5b5-280b-4ea3-a905-5b5580cc05a8",
 										"exec": [
 											""
 										],
@@ -1626,7 +1626,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "034bb0db-619d-4b2c-9315-82d285928a1e",
+										"id": "c0e65d49-682c-4c10-9eab-173dc1083583",
 										"exec": [
 											""
 										],
@@ -1700,7 +1700,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1c84ae2b-9339-44dc-906f-d760a560b16f",
+										"id": "7d8fa10e-4b49-4a16-a754-b654e84db375",
 										"exec": [
 											""
 										],
@@ -1722,7 +1722,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  }\n}"
+									"raw": "    {\n        \"id\": \"88884444-a7d1-4eed-ab34-bdb877f655ba\",\n        \"apiOwnerUsername\": \"user_name\",\n        \"name\": \"your_name\",\n        \"email\": \"some_email@email.io\",\n        \"phone\": \"(xx)xxxxxxxx\",\n        \"address\": \"XXX, Some street\",\n        \"somarCredentials\": null,\n        \"trimbleCredentials\": null,\n        \"cnhiCredentials\": null,\n        \"johnDeereCredentials\": null,\n        \"ravenCredentials\": null,\n        \"climatempoCredentials\": null,\n        \"climateFieldViewCredentials\":null\n    }\n"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1747,7 +1747,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "db9b97b9-9be5-443e-99cb-49e45a0094ed",
+										"id": "9376edba-4921-4437-84a2-c93d397fb7bf",
 										"exec": [
 											""
 										],
@@ -1768,7 +1768,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/37845f49-3f74-42f1-86c9-6a42a02c439c",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -1778,7 +1778,7 @@
 										"usermanagement",
 										"api",
 										"users",
-										"{{leaf_user_id}}"
+										"37845f49-3f74-42f1-86c9-6a42a02c439c"
 									],
 									"query": [
 										{
@@ -1797,7 +1797,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6d1655ae-d15e-43e4-9cd2-12daef459371",
+								"id": "b3c14d9f-5c37-45ca-ba86-d0c738ee5779",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1807,7 +1807,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6e335fac-53f1-487c-a218-fb3b0534b1a8",
+								"id": "d47fa2e4-df02-4c57-bdcf-d5abf9f5dfa4",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1827,7 +1827,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a7de8418-3ff8-4470-917f-cdb3e8f0a4d3",
+										"id": "78ece467-8716-4d16-ad33-9f1a02e6d079",
 										"exec": [
 											""
 										],
@@ -1837,7 +1837,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "afc2767c-6bba-4ef3-bfe2-6a3492eeae82",
+										"id": "c5bac2ee-02c5-4695-afbc-53e6b9770f8d",
 										"exec": [
 											"var uuid = require('uuid')",
 											"var myUUID = uuid.v4()",
@@ -1858,7 +1858,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"leafUserId\": \"{{leaf_user_id}}\",\n  \"externalId\": \"{{field_external_id}}\",\n  \"geometry\": {\n    \"coordinates\": [\n      [\n        [\n          [-89.83063513420132,39.719755905345345],\n          [-89.83238721264806,39.71984399784825],\n          [-89.83235241268284,39.72668620674723],\n          [-89.83143210262952,39.727128201303934],\n          [-89.83142598757857,39.727130372296585],\n          [-89.82993736543959,39.72739398390608],\n          [-89.83002048040561,39.719804750072434],\n          [-89.83002509504868,39.719801901798874],\n          [-89.83002989039419,39.719799142290256],\n          [-89.83063513420132,39.719755905345345]\n        ]\n      ]\n    ],\n    \"type\": \"MultiPolygon\"\n  }\n}",
+									"raw": "{\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [\n      [\n        [\n          [-93.48821327980518, 41.77137549568163],\n          [-93.48817333680519, 41.77143534378164],\n          [-93.48821327390516, 41.76068857977987],\n          [-93.48821327980518, 41.77137549568163]\n        ]\n      ]\n    ]\n  }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1866,7 +1866,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/eric",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -1875,7 +1875,10 @@
 										"services",
 										"fields",
 										"api",
-										"fields"
+										"users",
+										"{{leaf_user_id}}",
+										"fields",
+										"eric"
 									]
 								}
 							},
@@ -1911,7 +1914,7 @@
 									],
 									"query": [
 										{
-											"key": "leafUserId",
+											"key": "leafUser",
 											"value": null,
 											"description": "your Leaf User id",
 											"disabled": true
@@ -1992,7 +1995,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/{{field_external_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_external_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2001,6 +2004,8 @@
 										"services",
 										"fields",
 										"api",
+										"users",
+										"{{leaf_user_id}}",
 										"fields",
 										"{{field_external_id}}"
 									]
@@ -2014,7 +2019,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e93085cd-73c5-4ac2-9a2b-71e23153b920",
+										"id": "bcf7d99b-fb86-4d5f-ae83-8b050ee9dc45",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2058,7 +2063,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "babcf055-86ad-4dfc-9a26-b4785d2f993c",
+										"id": "8c3d44fa-40ba-4e43-b1a9-0cefe798eb90",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2102,7 +2107,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1c9ba847-f3de-454d-bf20-351b62bd9efc",
+										"id": "95a9958a-39d5-44d9-b870-edf298e7a29d",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2165,7 +2170,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"{{field_external_id}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{leaf_user_id}}\",\n    \"sources\": [],\n    \"files\": []\n}",
+									"raw": "{\n   \"ID\": \"{{YOUR_FIELD_ID}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{leaf_user_id}}\",\n    \"sources\": [],\n    \"files\": []\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2207,7 +2212,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_external_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2219,7 +2224,7 @@
 										"users",
 										"{{leaf_user_id}}",
 										"fields",
-										"{{field_external_id}}"
+										"{{field_id}}"
 									]
 								},
 								"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
@@ -2232,7 +2237,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "4ca626f2-3b80-4a40-8d14-102692343b36",
+								"id": "0e12a9ac-a130-40f5-b07c-9cc670523489",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2242,7 +2247,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8dbcc805-ea0e-4c33-998f-17417f573605",
+								"id": "a93b4ffe-9053-4bb6-9d7b-964ed472e3a1",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2262,7 +2267,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6c892df5-00b4-4db4-ae3e-cd5995827c94",
+										"id": "a3a5908c-5ac7-4b9a-83dc-ac964eb2907a",
 										"exec": [
 											""
 										],
@@ -2296,7 +2301,7 @@
 									],
 									"query": [
 										{
-											"key": "leafUserId",
+											"key": "userId",
 											"value": "{{leaf_user_id}}",
 											"description": "filter by leaf_user",
 											"disabled": true
@@ -2504,7 +2509,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f28bf32e-952f-42e8-b504-f81134854ea9",
+										"id": "a92c8ff1-197a-4c5f-9c13-03aa958e12ba",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"merged_file_id\", jsonData.id);",
@@ -2559,7 +2564,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "7ddff358-9528-44fd-9f8f-00571453e98e",
+								"id": "98fbc3cf-bb59-4d2f-a4a8-85c0d4dfea4e",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2569,7 +2574,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cd617ca4-a238-4ee5-bc33-7c33ee06f8d9",
+								"id": "f72d82b0-2080-481c-bc0e-fec9d6bb3a27",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2589,7 +2594,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c2ff5d11-e478-4b5d-8b6e-35b287251a54",
+										"id": "9a98eae2-b298-4149-a37c-c06e0960d43c",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -2637,7 +2642,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "39352471-5edf-417b-b87e-431517f83f67",
+										"id": "b1e42d0e-9a30-42a6-b883-3e95a1ad8f4b",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2681,7 +2686,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7b816728-d8c1-4f68-83c2-34cf3295ee9b",
+										"id": "36a5512c-aaeb-4f89-a16e-9fbd600799e6",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2727,7 +2732,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1d521e8c-05e7-42f3-87e0-ac6fd3fcccf4",
+										"id": "5600831e-434b-48fc-83ab-c41a6757d566",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2772,7 +2777,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d83c0979-8a7b-445d-949a-bcae4e443270",
+										"id": "0c82bf2c-8cf1-4edc-b932-9051e0a0cb52",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2828,7 +2833,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2b37dae1-1233-45d1-884f-0c74203a6c0e",
+										"id": "2436eea9-a905-438e-8dbd-bc46bd562415",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2878,7 +2883,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "58ad1d26-c86e-4e8f-a3f7-f3e85eb9906d",
+										"id": "21c2efc7-9b21-4e12-ab19-79f02750d988",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2935,7 +2940,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"body": {
@@ -2979,10 +2984,9 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									},
 									{
-										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
 										"key": "Content-Type",
 										"value": "application/json",
 										"type": "text"
@@ -3028,7 +3032,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"body": {
@@ -3071,7 +3075,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"body": {
@@ -3114,7 +3118,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"body": {
@@ -3157,7 +3161,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"body": {
@@ -3200,7 +3204,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}"
+										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"body": {
@@ -3239,79 +3243,6 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Monitor your API usage",
-					"item": [
-						{
-							"name": "Get save-file",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/usagemonitoring/api/events/days?operation=save-file",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"usagemonitoring",
-										"api",
-										"events",
-										"days"
-									],
-									"query": [
-										{
-											"key": "operation",
-											"value": "save-file"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get save-field",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/usagemonitoring/api/events/days?operation=save-field",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"usagemonitoring",
-										"api",
-										"events",
-										"days"
-									],
-									"query": [
-										{
-											"key": "operation",
-											"value": "save-field"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -3321,7 +3252,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2b661166-fa5f-46f0-900c-870f63a28dae",
+				"id": "8fddfb0d-15e0-4742-b369-e91649822ab4",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3331,7 +3262,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "5c9ad5d5-e333-4ec9-a76b-3ad819005bcf",
+				"id": "7d5e6369-d660-4953-a47d-c08172295f57",
 				"type": "text/javascript",
 				"exec": [
 					""
