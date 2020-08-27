@@ -1133,10 +1133,10 @@
 											"raw": "{\n  \"clientId\": \"\",\n  \"clientSecret\": \"\",\n  \"refreshToken\": \"\"\n}"
 										},
 										"url": {
-											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials",
 											"protocol": "https",
 											"host": [
-												"{{url}}"
+												"{{leaf_api_url}}"
 											],
 											"path": [
 												"services",
@@ -1184,10 +1184,10 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
 											"protocol": "https",
 											"host": [
-												"{{url}}"
+												"{{leaf_api_url}}"
 											],
 											"path": [
 												"services",
@@ -1233,10 +1233,10 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
 											"protocol": "https",
 											"host": [
-												"{{url}}"
+												"{{leaf_api_url}}"
 											],
 											"path": [
 												"services",
@@ -1285,10 +1285,10 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{url}}/services/usermanagement/api/cn-hi-credentials/",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/",
 											"protocol": "https",
 											"host": [
-												"{{url}}"
+												"{{leaf_api_url}}"
 											],
 											"path": [
 												"services",
@@ -1332,10 +1332,10 @@
 											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"cnhiCredentials\": \n\t{\n\t  \"id\": \"{{cnhi-credentials-id}}\"\n    }\n}"
 										},
 										"url": {
-											"raw": "https://{{url}}/services/usermanagement/api/users/",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
 											"protocol": "https",
 											"host": [
-												"{{url}}"
+												"{{leaf_api_url}}"
 											],
 											"path": [
 												"services",
