@@ -1,10 +1,6 @@
 {
 	"info": {
-<<<<<<< HEAD
-		"_postman_id": "712977f4-2ceb-4660-a0c4-83d49a581d84",
-=======
 		"_postman_id": "8c29bfae-38d6-4bb6-8e75-205e01030cd0",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -19,11 +15,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "467d108c-c985-4bc0-9f1b-abe894da5b0b",
-=======
 								"id": "44b473e2-7e05-4ab4-8743-36643b8e8936",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -91,11 +83,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "f224720b-0807-4fff-b65c-2d02acbca31e",
-=======
 								"id": "151928fc-667e-4650-b288-87e7da4064fd",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"exec": [
 									""
 								],
@@ -232,11 +220,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "a22ed427-dc35-4422-ae76-7e4e15facef7",
-=======
 								"id": "e5d9cdf2-0193-41eb-b538-8c70ecbb116e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"exec": [
 									""
 								],
@@ -284,11 +268,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "aeb0721a-9f76-43b6-b6a9-3b5ccc390af8",
-=======
 								"id": "4a051dfa-f571-4bca-ac05-bb3f4c71fa51",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -332,11 +312,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "05923467-f007-43c8-b50b-dd113c7de87b",
-=======
 								"id": "f88799d5-99b0-42d1-82d6-a993b9d8e3ba",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -382,11 +358,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-<<<<<<< HEAD
-						"id": "b37f82bd-2d10-49cf-81a9-48cdabac65a8",
-=======
 						"id": "c88fe476-6b1b-48b9-9c58-bfb71286dee2",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -396,11 +368,7 @@
 				{
 					"listen": "test",
 					"script": {
-<<<<<<< HEAD
-						"id": "e2830e47-3c46-4ece-8ce8-c52f784d0cf3",
-=======
 						"id": "a4e59542-952a-433b-8b6b-ff67cd8b5ca4",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -422,11 +390,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "ac3fd8cf-aa44-471d-a2f6-693ae803896c",
-=======
 										"id": "a842a294-fcad-4487-bb31-3b885c1c4884",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -468,11 +432,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-<<<<<<< HEAD
-								"id": "25c3c294-0f30-41c2-90ca-3b9d8a219e83",
-=======
 								"id": "e9770926-dcb6-4e1f-be59-6558207208f6",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -482,11 +442,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "e652f647-30af-4c41-8978-7cbc4bbe91ce",
-=======
 								"id": "28e5ca1c-de1c-49ca-b4ff-3215f2e07e5e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -509,11 +465,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "032c4a29-7ea9-4a8e-a516-e4d769981399",
-=======
 												"id": "00441cbd-7d77-4cf0-b5c9-77517b7485c4",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													""
 												],
@@ -554,11 +506,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "ae612360-27a0-4eb5-a71d-14bf740e1801",
-=======
 												"id": "9454a0ad-9ff1-427e-9c01-4f4984877171",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_token_id\", jsonData.token_id);",
@@ -609,11 +557,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "683b3580-44e8-429d-8ff6-5fa541da5353",
-=======
 												"id": "99b978ff-878d-4489-a77f-feee4d655fbd",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_credentials_id\", jsonData.id);"
@@ -660,11 +604,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-<<<<<<< HEAD
-										"id": "b4c35902-10da-4e85-999d-2c301ba7c2dc",
-=======
 										"id": "3ded131f-33d8-4a4d-b3c4-5f328f901928",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -674,11 +614,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "288c8f91-f3da-47b9-b475-7ce81e30179b",
-=======
 										"id": "24ed9e8b-69b7-4501-9120-f5e9dd6e329b",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -698,11 +634,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-<<<<<<< HEAD
-												"id": "947fa33c-4f28-46bc-a9fe-4782718f0283",
-=======
 												"id": "d951a2ba-2ddc-498d-a852-4f9085cff37c",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													""
 												],
@@ -741,11 +673,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "554abd8e-f231-45cd-8d2d-1f083d942d38",
-=======
 												"id": "415fe143-15c2-48ac-91d0-02ab2c42ce08",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_access_token\", jsonData.access_token);",
@@ -757,11 +685,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-<<<<<<< HEAD
-												"id": "28a2935a-9fc5-453d-8802-c2d766092f53",
-=======
 												"id": "7d2379cc-bf15-4170-9b66-6e5c7f8b8f84",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"// Here we calculate the Authorization Header, it is calculated as:",
 													"// Basic {base64_encode($clientId:$clientSecret)} ",
@@ -842,11 +766,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "adb21278-2ea7-4f3c-b32e-d5b2662ad5ed",
-=======
 												"id": "e07fde71-473c-41cf-a878-aa4a12e60be8",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_credentials_id\", jsonData.id);"
@@ -895,11 +815,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-<<<<<<< HEAD
-										"id": "d090de62-a83e-4080-bdec-8ab74f83495e",
-=======
 										"id": "0fae80b9-4992-4674-978a-5b99be522d8a",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -909,11 +825,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "cccc1c52-2df4-43c3-a7e8-ac599db03dac",
-=======
 										"id": "118ed6a2-8505-4285-87e4-42b887d405ac",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -933,11 +845,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "a8776a20-6f2d-4cda-bcab-8e5ff2394093",
-=======
 												"id": "2e0e9057-e5df-42af-961b-0dde16e1361d",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"trimble-credentials-id\", jsonData.id);",
@@ -964,7 +872,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "  {\n    \"userName\": \"string\",\n    \"password\": \"string\",\n    \"applicationName\": \"string\",\n    \"serviceIdentityId\": \"string\"\n  }"
+											"raw": "  {\n    \"userName\": \"luiz@leafagriculture.com.br\",\n    \"password\": \"r4r_hwUrKKMeEpi\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"5d09348ad37e381fd4a2edff\"\n  }"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
@@ -988,11 +896,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "d5a94d43-582e-48ac-a68f-81653da2ad63",
-=======
 												"id": "cb928ba7-e75f-437d-ac53-e062bbff09e0",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -1044,11 +948,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "b821206d-1db0-4dd1-b6f6-7829e9b7d6d6",
-=======
 												"id": "ad359dda-1e88-43b5-a7ba-7694ae3f8c79",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
@@ -1097,11 +997,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "b55a1c48-a497-485b-b8df-6bf50d7d0e8d",
-=======
 												"id": "72cea4c4-06b2-431a-ba19-ce45575c9fba",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1153,11 +1049,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "1a79ba8d-c029-4f83-9e54-684f0ac11f97",
-=======
 												"id": "bafb8af9-b14c-4626-b7d1-9835e815982f",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													""
 												],
@@ -1174,12 +1066,12 @@
 											},
 											{
 												"key": "Authorization",
-												"value": "Bearer {{token}}"
+												"value": "Bearer {{leaf_token }}"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"ericsegala\",\n    \"email\": \"eric@withleaf.io\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1211,11 +1103,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "69d0097b-a549-4ea6-9b94-ea4438d4c780",
-=======
 												"id": "8b0f7e44-3b48-4ca2-b630-410dc98ba39e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"cnhi-credentials-id\", jsonData.id);",
@@ -1233,7 +1121,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{token}}"
+												"value": "Bearer {{leaf_token}}"
 											},
 											{
 												"key": "Content-Type",
@@ -1266,11 +1154,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "e48088f5-5dd1-4688-a8c9-bed66c70c817",
-=======
 												"id": "a62cae6e-d09e-477d-a5ab-e19741a63e10",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -1322,11 +1206,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "bc1c26d0-9bc6-4ef6-aadc-833c1d4a7d74",
-=======
 												"id": "fb45eff9-0452-4d1c-a9ef-db093102f11e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
@@ -1375,11 +1255,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "d7eaaf3e-bd80-474c-8d3d-62c28a359cff",
-=======
 												"id": "81596307-fd26-4f45-8c0b-937163523402",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -1431,11 +1307,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "478ba38d-9c94-4ce5-8a16-bfd260c793b4",
-=======
 												"id": "f867cad0-1197-45c6-91c1-d774c5d229c9",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													""
 												],
@@ -1496,11 +1368,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "d3c89c4a-9138-47ad-99f3-3888d5b53e44",
-=======
 												"id": "892ef937-e806-4bc5-b483-ff8e432ae9f5",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1511,11 +1379,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-<<<<<<< HEAD
-												"id": "8827df2b-f9e1-4d9c-9763-761f8d7ef52c",
-=======
 												"id": "18c23d54-f6c1-43ef-8064-35df207f4630",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1537,7 +1401,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
+											"raw": "{\n  \"name\": \"Carl Sagan{{random_name}}\",\n  \"email\": \"CarlSagan{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1565,11 +1429,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "f34e32b0-ec51-48c4-9037-360b68453963",
-=======
 												"id": "7eea889a-a223-4120-adcb-3cd40271c77f",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1580,11 +1440,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-<<<<<<< HEAD
-												"id": "d96d2e30-a81b-466b-ae9a-5cfcc94d78b2",
-=======
 												"id": "4deb8844-f6a2-4211-8f16-6cb5248bcdf7",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1634,11 +1490,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "38d59767-17c5-4ea9-aaf5-6c6408d6d869",
-=======
 												"id": "5b267214-eeda-41ca-a824-6caa65df05da",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1649,11 +1501,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-<<<<<<< HEAD
-												"id": "0c77b81c-8012-48bc-bf28-8aa8269c65c9",
-=======
 												"id": "63d1914c-ec60-413c-88dc-2216808eb7b5",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1675,7 +1523,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
+											"raw": "{\n  \"name\": \"Charles Darwin{{random_name}}\",\n  \"email\": \"CharlesDarwin{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1703,11 +1551,7 @@
 										{
 											"listen": "test",
 											"script": {
-<<<<<<< HEAD
-												"id": "5d22f37a-db4f-4687-a8c7-5d9ec9e4d475",
-=======
 												"id": "9d719acb-fa3c-4614-9a4c-544ffc10138d",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1718,11 +1562,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-<<<<<<< HEAD
-												"id": "99cea377-c2d3-400d-b662-f8ecd2bd982d",
-=======
 												"id": "ea1dd3cf-bb29-458f-b8fb-f02273cc485f",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1744,7 +1584,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}",
+											"raw": "{\n  \"name\": \"Ada Lovelace{{random_name}}\",\n  \"email\": \"AdaLovelace{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1776,11 +1616,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-<<<<<<< HEAD
-										"id": "0201a400-b722-4c23-bd8a-98edc4bab070",
-=======
 										"id": "9311929b-067c-4d8c-96ba-dd5a77a00a94",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											""
 										],
@@ -1790,11 +1626,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "034bb0db-619d-4b2c-9315-82d285928a1e",
-=======
 										"id": "6d39f491-24ef-4424-a916-4e990408e232",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											""
 										],
@@ -1868,11 +1700,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "1c84ae2b-9339-44dc-906f-d760a560b16f",
-=======
 										"id": "eba54e1a-59d3-4621-b0a0-8b36fa5f0dbf",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											""
 										],
@@ -1919,11 +1747,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "db9b97b9-9be5-443e-99cb-49e45a0094ed",
-=======
 										"id": "7e787983-c4f7-4642-a05c-9f40a8b1f00e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											""
 										],
@@ -1944,7 +1768,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/37845f49-3f74-42f1-86c9-6a42a02c439c",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -1954,7 +1778,7 @@
 										"usermanagement",
 										"api",
 										"users",
-										"{{leaf_user_id}}"
+										"37845f49-3f74-42f1-86c9-6a42a02c439c"
 									],
 									"query": [
 										{
@@ -1973,11 +1797,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-<<<<<<< HEAD
-								"id": "6d1655ae-d15e-43e4-9cd2-12daef459371",
-=======
 								"id": "5e687361-d855-49b2-9f0b-39b8587d5bbd",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1987,11 +1807,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "6e335fac-53f1-487c-a218-fb3b0534b1a8",
-=======
 								"id": "bc687be5-a3fb-463c-975b-06390f106be0",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2011,12 +1827,10 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "a7de8418-3ff8-4470-917f-cdb3e8f0a4d3",
-=======
 										"id": "77021ac8-0b67-4515-a76b-9264526f4674",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"field_id\", jsonData.id);",
 											""
 										],
 										"type": "text/javascript"
@@ -2025,16 +1839,9 @@
 								{
 									"listen": "prerequest",
 									"script": {
-<<<<<<< HEAD
-										"id": "afc2767c-6bba-4ef3-bfe2-6a3492eeae82",
-=======
 										"id": "1acf7b60-acf1-46e2-a726-9f4ac631ac4e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
-											"var uuid = require('uuid')",
-											"var myUUID = uuid.v4()",
-											"",
-											"pm.environment.set(\"field_external_id\", myUUID);"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -2050,7 +1857,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"leafUserId\": \"{{leaf_user_id}}\",\n  \"externalId\": \"{{field_external_id}}\",\n  \"geometry\": {\n    \"coordinates\": [\n      [\n        [\n          [-89.83063513420132,39.719755905345345],\n          [-89.83238721264806,39.71984399784825],\n          [-89.83235241268284,39.72668620674723],\n          [-89.83143210262952,39.727128201303934],\n          [-89.83142598757857,39.727130372296585],\n          [-89.82993736543959,39.72739398390608],\n          [-89.83002048040561,39.719804750072434],\n          [-89.83002509504868,39.719801901798874],\n          [-89.83002989039419,39.719799142290256],\n          [-89.83063513420132,39.719755905345345]\n        ]\n      ]\n    ],\n    \"type\": \"MultiPolygon\"\n  }\n}",
+									"raw": "{\n  \"geometry\": {\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]],\n    \"type\": \"MultiPolygon\"\n  }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2058,7 +1865,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2067,6 +1874,8 @@
 										"services",
 										"fields",
 										"api",
+										"users",
+										"{{leaf_user_id}}",
 										"fields"
 									]
 								}
@@ -2103,7 +1912,7 @@
 									],
 									"query": [
 										{
-											"key": "leafUserId",
+											"key": "leafUser",
 											"value": null,
 											"description": "your Leaf User id",
 											"disabled": true
@@ -2184,7 +1993,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/{{field_external_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2193,8 +2002,10 @@
 										"services",
 										"fields",
 										"api",
+										"users",
+										"{{leaf_user_id}}",
 										"fields",
-										"{{field_external_id}}"
+										"{{field_id}}"
 									]
 								}
 							},
@@ -2206,11 +2017,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "e93085cd-73c5-4ac2-9a2b-71e23153b920",
-=======
 										"id": "92910c69-a409-4474-ba15-b7497bdd8c14",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2254,11 +2061,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "babcf055-86ad-4dfc-9a26-b4785d2f993c",
-=======
 										"id": "534335b9-0c8a-434e-8b5d-2c1cc59b2af5",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2302,11 +2105,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "1c9ba847-f3de-454d-bf20-351b62bd9efc",
-=======
 										"id": "b97371a3-c224-450a-8b20-0a7253cc7fc1",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2369,7 +2168,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"{{field_external_id}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{leaf_user_id}}\",\n    \"sources\": [],\n    \"files\": []\n}",
+									"raw": "{\n    \"id\": \"{{field_id}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{leaf_user_id}}\",\n    \"sources\": [],\n    \"files\": []\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2411,7 +2210,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_external_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2423,7 +2222,7 @@
 										"users",
 										"{{leaf_user_id}}",
 										"fields",
-										"{{field_external_id}}"
+										"{{field_id}}"
 									]
 								},
 								"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
@@ -2436,11 +2235,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-<<<<<<< HEAD
-								"id": "4ca626f2-3b80-4a40-8d14-102692343b36",
-=======
 								"id": "36870f36-3e2f-4e08-89e9-b14e75d3283c",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2450,11 +2245,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "8dbcc805-ea0e-4c33-998f-17417f573605",
-=======
 								"id": "30d07cc4-1852-4895-8b06-8960a691cc1e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2474,11 +2265,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "6c892df5-00b4-4db4-ae3e-cd5995827c94",
-=======
 										"id": "db9039d0-8744-4e97-9dc6-9f638d67f20e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											""
 										],
@@ -2512,7 +2299,7 @@
 									],
 									"query": [
 										{
-											"key": "leafUserId",
+											"key": "userId",
 											"value": "{{leaf_user_id}}",
 											"description": "filter by leaf_user",
 											"disabled": true
@@ -2720,11 +2507,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "f28bf32e-952f-42e8-b504-f81134854ea9",
-=======
 										"id": "0f4582c8-a1ac-494d-8866-0dbc78dcf62b",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"merged_file_id\", jsonData.id);",
@@ -2779,11 +2562,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-<<<<<<< HEAD
-								"id": "7ddff358-9528-44fd-9f8f-00571453e98e",
-=======
 								"id": "1d10c88c-526d-44f6-97ed-ddd2d2acb27d",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2793,11 +2572,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "cd617ca4-a238-4ee5-bc33-7c33ee06f8d9",
-=======
 								"id": "81fe456b-b603-4d0b-a227-13dab7ff63af",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2817,11 +2592,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "c2ff5d11-e478-4b5d-8b6e-35b287251a54",
-=======
 										"id": "21822b62-4127-479e-99ac-1d3f9bd3ad02",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -2845,7 +2616,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [[[\n      [-49.06625032424927,-25.548385005795673],\n      [-49.06766653060913,-25.565129864816026],\n      [-49.06225919723511,-25.5663106278052],\n      [-49.06152963638306,-25.556844839775874],\n      [-49.06401872634888,-25.556399600245143],\n      [-49.063353538513184,-25.5490045104699],\n      [-49.06625032424927,-25.548385005795673]\n    ]]]\n  }\n}"
+									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
@@ -2869,11 +2640,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "39352471-5edf-417b-b87e-431517f83f67",
-=======
 										"id": "ba38c3bb-0d88-4493-87b0-9cfc7e494be5",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2917,11 +2684,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "7b816728-d8c1-4f68-83c2-34cf3295ee9b",
-=======
 										"id": "86af9406-8d2a-4803-a481-dd344678059e",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2967,11 +2730,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "1d521e8c-05e7-42f3-87e0-ac6fd3fcccf4",
-=======
 										"id": "a5db3b43-aa58-4ac9-82e3-86f13e836759",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3016,11 +2775,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "d83c0979-8a7b-445d-949a-bcae4e443270",
-=======
 										"id": "76d52ff6-c409-4954-9c4b-3a6086456451",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3076,11 +2831,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "2b37dae1-1233-45d1-884f-0c74203a6c0e",
-=======
 										"id": "0d832d61-e5b5-4746-a296-17ac8f557240",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3130,11 +2881,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "58ad1d26-c86e-4e8f-a3f7-f3e85eb9906d",
-=======
 										"id": "49151742-744f-485f-9774-83715af96d1f",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3504,11 +3251,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-<<<<<<< HEAD
-				"id": "2b661166-fa5f-46f0-900c-870f63a28dae",
-=======
 				"id": "511e05b9-1f4f-423a-a5b1-4d94266cf07a",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3518,11 +3261,7 @@
 		{
 			"listen": "test",
 			"script": {
-<<<<<<< HEAD
-				"id": "5c9ad5d5-e333-4ec9-a76b-3ad819005bcf",
-=======
 				"id": "fd8fa15f-85d9-4574-89ad-a3eb8bd3b354",
->>>>>>> 721dc11... update: removed folder for usage monitoring
 				"type": "text/javascript",
 				"exec": [
 					""
