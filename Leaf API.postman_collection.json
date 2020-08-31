@@ -1401,7 +1401,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
+											"raw": "{\n  \"name\": \"Carl Sagan{{random_name}}\",\n  \"email\": \"CarlSagan{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1523,7 +1523,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
+											"raw": "{\n  \"name\": \"Charles Darwin{{random_name}}\",\n  \"email\": \"CharlesDarwin{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1584,7 +1584,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}",
+											"raw": "{\n  \"name\": \"Ada Lovelace{{random_name}}\",\n  \"email\": \"AdaLovelace{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1722,7 +1722,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "    {\n        \"id\": \"49477343-a7d1-4eed-ab0c-bdb877f655ba\",\n        \"apiOwnerUsername\": \"eric@withleaf.io\",\n        \"name\": \"ericsegala\",\n        \"email\": \"eric@withleaf.io\",\n        \"phone\": \"(11)999656653\",\n        \"address\": \"rua professora\",\n        \"somarCredentials\": null,\n        \"trimbleCredentials\": \n        {\n          \"id\":\"53c84cfd-3fca-4ee6-8e9e-65941531ecf3\"\n        },\n        \"cnhiCredentials\": null,\n        \"johnDeereCredentials\": {\n            \"id\": \"1226f6cd-6a37-4cc6-9e97-ace71d1f0780\",\n            \"apiOwnerUsername\": \"eric@withleaf.io\",\n            \"clientKey\": \"johndeere-RW3iDkR2DfMVE26lf3Gk8ozG4UuRk3GLivsmFhBj\",\n            \"clientSecret\": \"43e664bb8b83dd70582c660d6241836b0d993e5c44e74d4f8826b0d623c57c69\",\n            \"tokenId\": \"e99ab9f7-e66f-4f0e-aeb1-a3229492f8a7\",\n            \"tokenSecretKey\": \"+cnguNDUPaYQRKniGZNfe6+ei5n83Ps+bgoysumPVQolSXxiRTli/8BRiqA5w129IN53aGxUknn5zd7DEuEfpgQrf02UJaxFoHEUi9fQj98=\"\n        },\n        \"ravenCredentials\": null,\n        \"climatempoCredentials\": null,\n        \"climateFieldViewCredentials\": \n        {\n            \"id\": \"259de504-a4c9-4b97-ad24-7b3340dd9eea\",\n            \"apiOwnerUsername\": \"eric@withleaf.io\",\n            \"clientId\": \"partner-horusaeronaves\",\n            \"clientSecret\": \"s7j2qcejm6dm884ip24d201t62\",\n            \"apiKey\": \"partner-horusaeronaves-db31f3ab-4fb2-466a-a6bd-d3515dd9b60c\",\n            \"refreshToken\": \"38f0f8a7-93de-34ee-8028-2bd8fb9ca108\"\n        }\n    }\n"
+									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  }\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1829,6 +1829,8 @@
 									"script": {
 										"id": "77021ac8-0b67-4515-a76b-9264526f4674",
 										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"field_id\", jsonData.id);",
 											""
 										],
 										"type": "text/javascript"
@@ -1839,10 +1841,7 @@
 									"script": {
 										"id": "1acf7b60-acf1-46e2-a726-9f4ac631ac4e",
 										"exec": [
-											"var uuid = require('uuid')",
-											"var myUUID = uuid.v4()",
-											"",
-											"pm.environment.set(\"field_external_id\", myUUID);"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1858,7 +1857,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"leafUserId\": \"{{leaf_user_id}}\",\n  \"externalId\": \"{{field_external_id}}\",\n  \"geometry\": {\n    \"coordinates\": [\n      [\n        [\n          [-89.83063513420132,39.719755905345345],\n          [-89.83238721264806,39.71984399784825],\n          [-89.83235241268284,39.72668620674723],\n          [-89.83143210262952,39.727128201303934],\n          [-89.83142598757857,39.727130372296585],\n          [-89.82993736543959,39.72739398390608],\n          [-89.83002048040561,39.719804750072434],\n          [-89.83002509504868,39.719801901798874],\n          [-89.83002989039419,39.719799142290256],\n          [-89.83063513420132,39.719755905345345]\n        ]\n      ]\n    ],\n    \"type\": \"MultiPolygon\"\n  }\n}",
+									"raw": "{\n  \"geometry\": {\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]],\n    \"type\": \"MultiPolygon\"\n  }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1866,7 +1865,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -1875,6 +1874,8 @@
 										"services",
 										"fields",
 										"api",
+										"users",
+										"{{leaf_user_id}}",
 										"fields"
 									]
 								}
@@ -1992,7 +1993,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_external_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2004,7 +2005,7 @@
 										"users",
 										"{{leaf_user_id}}",
 										"fields",
-										"{{field_external_id}}"
+										"{{field_id}}"
 									]
 								}
 							},
@@ -2167,7 +2168,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"{{field_external_id}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{leaf_user_id}}\",\n    \"sources\": [],\n    \"files\": []\n}",
+									"raw": "{\n    \"id\": \"{{field_id}}\",\n    \"geometry\": {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [\n       [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n       [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n     ]\n   },\n    \"leafUserId\": \"{{leaf_user_id}}\",\n    \"sources\": [],\n    \"files\": []\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2209,7 +2210,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_external_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2221,7 +2222,7 @@
 										"users",
 										"{{leaf_user_id}}",
 										"fields",
-										"{{field_external_id}}"
+										"{{field_id}}"
 									]
 								},
 								"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
@@ -2615,7 +2616,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [[[\n      [-49.06625032424927,-25.548385005795673],\n      [-49.06766653060913,-25.565129864816026],\n      [-49.06225919723511,-25.5663106278052],\n      [-49.06152963638306,-25.556844839775874],\n      [-49.06401872634888,-25.556399600245143],\n      [-49.063353538513184,-25.5490045104699],\n      [-49.06625032424927,-25.548385005795673]\n    ]]]\n  }\n}"
+									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
