@@ -840,7 +840,7 @@
 							"name": "Trimble auth",
 							"item": [
 								{
-									"name": "Add Trimble Credential",
+									"name": "Create Trimble Credential",
 									"event": [
 										{
 											"listen": "test",
@@ -848,7 +848,7 @@
 												"id": "2e0e9057-e5df-42af-961b-0dde16e1361d",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"trimble-credentials-id\", jsonData.id);",
+													"postman.setEnvironmentVariable(\"trimble_credentials_id\", jsonData.id);",
 													"",
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -872,7 +872,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "  {\n    \"userName\": \"luiz@leafagriculture.com.br\",\n    \"password\": \"r4r_hwUrKKMeEpi\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"5d09348ad37e381fd4a2edff\"\n  }"
+											"raw": "  {\n    \"userName\": \"your users username\",\n    \"password\": \"your users password\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"your apps identity id\"\n  }"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
@@ -926,7 +926,7 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble-credentials-id}}",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
 											"protocol": "https",
 											"host": [
 												"{{leaf_api_url}}"
@@ -936,7 +936,7 @@
 												"usermanagement",
 												"api",
 												"trimble-credentials",
-												"{{trimble-credentials-id}}"
+												"{{trimble_credentials_id}}"
 											]
 										}
 									},
@@ -975,7 +975,7 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble-credentials-id}}",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
 											"protocol": "https",
 											"host": [
 												"{{leaf_api_url}}"
@@ -985,7 +985,7 @@
 												"usermanagement",
 												"api",
 												"trimble-credentials",
-												"{{trimble-credentials-id}}"
+												"{{trimble_credentials_id}}"
 											]
 										}
 									},
@@ -1098,7 +1098,7 @@
 							"name": "CNHi auth",
 							"item": [
 								{
-									"name": "Add CNHi Credentials",
+									"name": "Create CNHi Credentials",
 									"event": [
 										{
 											"listen": "test",
@@ -1106,7 +1106,7 @@
 												"id": "8b0f7e44-3b48-4ca2-b630-410dc98ba39e",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"cnhi-credentials-id\", jsonData.id);",
+													"postman.setEnvironmentVariable(\"cnhi_credentials_id\", jsonData.id);",
 													"",
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([201]);",
@@ -1130,7 +1130,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"clientId\": \"\",\n  \"clientSecret\": \"\",\n  \"refreshToken\": \"\"\n}"
+											"raw": "{\n  \"clientId\": \"your apps clientid\",\n  \"clientSecret\": \"your apps client secret\",\n  \"refreshToken\": \"after your apps oauth with your user\"\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials",
@@ -1184,7 +1184,7 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi_credentials_id}}",
 											"protocol": "https",
 											"host": [
 												"{{leaf_api_url}}"
@@ -1194,7 +1194,7 @@
 												"usermanagement",
 												"api",
 												"cn-hi-credentials",
-												"{{cnhi-credentials-id}}"
+												"{{cnhi_credentials_id}}"
 											]
 										}
 									},
@@ -1233,7 +1233,7 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi-credentials-id}}",
+											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi_credentials_id}}",
 											"protocol": "https",
 											"host": [
 												"{{leaf_api_url}}"
@@ -1243,7 +1243,7 @@
 												"usermanagement",
 												"api",
 												"cn-hi-credentials",
-												"{{cnhi-credentials-id}}"
+												"{{cnhi_credentials_id}}"
 											]
 										}
 									},
