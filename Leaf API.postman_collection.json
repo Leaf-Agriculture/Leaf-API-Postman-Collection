@@ -1912,8 +1912,8 @@
 									],
 									"query": [
 										{
-											"key": "leafUser",
-											"value": null,
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}",
 											"description": "your Leaf User id",
 											"disabled": true
 										},
@@ -1967,7 +1967,7 @@
 										},
 										{
 											"key": "size",
-											"value": "",
+											"value": "100",
 											"description": "Pagination parameter that specifies the size of each page (integer)",
 											"disabled": true
 										},
@@ -2299,7 +2299,7 @@
 									],
 									"query": [
 										{
-											"key": "userId",
+											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
 											"description": "filter by leaf_user",
 											"disabled": true
