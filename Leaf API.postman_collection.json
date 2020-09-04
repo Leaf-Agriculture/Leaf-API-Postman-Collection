@@ -1912,8 +1912,8 @@
 									],
 									"query": [
 										{
-											"key": "leafUser",
-											"value": null,
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}",
 											"description": "your Leaf User id",
 											"disabled": true
 										},
@@ -1967,7 +1967,7 @@
 										},
 										{
 											"key": "size",
-											"value": "",
+											"value": "100",
 											"description": "Pagination parameter that specifies the size of each page (integer)",
 											"disabled": true
 										},
@@ -1983,7 +1983,7 @@
 							"response": []
 						},
 						{
-							"name": "Get a field & its operations",
+							"name": "Get a field",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -2006,6 +2006,36 @@
 										"{{leaf_user_id}}",
 										"fields",
 										"{{field_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get operations of a field",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"fields",
+										"{{field_id}}",
+										"operations"
 									]
 								}
 							},
@@ -2299,7 +2329,7 @@
 									],
 									"query": [
 										{
-											"key": "userId",
+											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
 											"description": "filter by leaf_user",
 											"disabled": true
