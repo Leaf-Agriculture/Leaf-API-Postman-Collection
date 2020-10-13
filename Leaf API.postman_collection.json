@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8c29bfae-38d6-4bb6-8e75-205e01030cd0",
+		"_postman_id": "14ee18f1-03f0-406d-b862-7239c6621e49",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -35,7 +35,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
+							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h.",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -410,7 +413,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true \n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
+									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true \n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h.",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -576,7 +582,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}"
+											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/john-deere-credentials",
@@ -736,7 +745,10 @@
 													"value": "authorization_code",
 													"type": "text"
 												}
-											]
+											],
+											"options": {
+												"urlencoded": {}
+											}
 										},
 										"url": {
 											"raw": "https://api.climate.com/api/oauth/token",
@@ -868,7 +880,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "  {\n    \"userName\": \"your users username\",\n    \"password\": \"your users password\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"your apps identity id\"\n  }"
+											"raw": "  {\n    \"userName\": \"your users username\",\n    \"password\": \"your users password\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"your apps identity id\"\n  }",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
@@ -919,7 +934,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": ""
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
@@ -968,7 +986,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": ""
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
@@ -1020,7 +1041,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": ""
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/",
@@ -1067,7 +1091,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"ericsegala\",\n    \"email\": \"eric@withleaf.io\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"ericsegala\",\n    \"email\": \"eric@withleaf.io\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1126,7 +1153,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"clientId\": \"your apps clientid\",\n  \"clientSecret\": \"your apps client secret\",\n  \"refreshToken\": \"after your apps oauth with your user\"\n}"
+											"raw": "{\n  \"clientId\": \"your apps clientid\",\n  \"clientSecret\": \"your apps client secret\",\n  \"refreshToken\": \"after your apps oauth with your user\"\n}",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials",
@@ -1177,7 +1207,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": ""
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi_credentials_id}}",
@@ -1226,7 +1259,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": ""
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi_credentials_id}}",
@@ -1278,7 +1314,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": ""
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/",
@@ -1325,7 +1364,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"cnhiCredentials\": \n\t{\n\t  \"id\": \"{{cnhi-credentials-id}}\"\n    }\n}"
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"cnhiCredentials\": \n\t{\n\t  \"id\": \"{{cnhi-credentials-id}}\"\n    }\n}",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1397,7 +1439,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"Charles Darwin{{random_name}}\",\n  \"email\": \"CharlesDarwin{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
+											"raw": "{\n  \"name\": \"Albert Einstein{{random_name}}\",\n  \"email\": \"Albert Einstein{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1718,7 +1760,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  }\n}"
+									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  }\n}",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1779,7 +1824,7 @@
 									"query": [
 										{
 											"key": "",
-											"value": null,
+											"value": "",
 											"disabled": true
 										}
 									]
@@ -1834,7 +1879,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/fields?leafUserId={{leaf_user_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -1849,8 +1894,7 @@
 										{
 											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
-											"description": "your Leaf User id",
-											"disabled": true
+											"description": "your Leaf User id"
 										},
 										{
 											"key": "operationType",
@@ -1884,7 +1928,7 @@
 										},
 										{
 											"key": "operationProvider",
-											"value": "",
+											"value": "JohnDeere",
 											"description": "The name of the company provider of the operations. Supported values: ClimateFieldView, CNHI, JohnDeere, Trimble",
 											"disabled": true
 										},
@@ -1902,7 +1946,7 @@
 										},
 										{
 											"key": "size",
-											"value": "100",
+											"value": "1000",
 											"description": "Pagination parameter that specifies the size of each page (integer)",
 											"disabled": true
 										},
@@ -1947,7 +1991,7 @@
 							"response": []
 						},
 						{
-							"name": "Create Field",
+							"name": "Create a Field",
 							"event": [
 								{
 									"listen": "test",
@@ -2008,7 +2052,177 @@
 							"response": []
 						},
 						{
-							"name": "Delete field",
+							"name": "Get all operations of a field",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"fields",
+										"{{field_id}}",
+										"operations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation of a field",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations/{{file_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"fields",
+										"{{field_id}}",
+										"operations",
+										"{{file_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Fields by geometry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b97371a3-c224-450a-8b20-0a7253cc7fc1",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n   }\n }\n",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/query/intersects",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"fields",
+										"query",
+										"intersects"
+									]
+								},
+								"description": "If there are fields that intersect with the given geometry, they will be returned."
+							},
+							"response": []
+						},
+						{
+							"name": "Get intersection of fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8be8e05-393f-4573-a174-c65e217b10d6",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"{{field_id}}\", \"{{field_id}}\"]\n\n// [\"field1 id\", \"field2 id\", \"fieldN id\"]\n\n",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/intersect",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"fields",
+										"intersect"
+									]
+								},
+								"description": "If there are fields that intersect with the given geometry, they will be returned."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a field",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -2044,199 +2258,23 @@
 							"response": []
 						},
 						{
-							"name": "Get operations of a field",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"{{field_id}}",
-										"operations"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get operations of a field Copy",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations/{{operation_1_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"{{field_id}}",
-										"operations",
-										"{{operation_1_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Fields by geometry query",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b97371a3-c224-450a-8b20-0a7253cc7fc1",
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n   }\n }\n"
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/query/intersects",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"fields",
-										"query",
-										"intersects"
-									]
-								},
-								"description": "If there are fields that intersect with the given geometry, they will be returned."
-							},
-							"response": []
-						},
-						{
-							"name": "Get geometry of interct of fields",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b8be8e05-393f-4573-a174-c65e217b10d6",
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\"{{field_id}}\", \"{{field_id}}\"]\n\n// [\"field1 id\", \"field2 id\", \"fieldN id\"]\n\n"
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/intersect",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"intersect"
-									]
-								},
-								"description": "If there are fields that intersect with the given geometry, they will be returned."
-							},
-							"response": []
-						},
-						{
 							"name": "Get all farms",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "92910c69-a409-4474-ba15-b7497bdd8c14",
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Content-Type",
+										"type": "text",
 										"value": "application/json"
 									},
 									{
 										"key": "Authorization",
+										"type": "text",
 										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/farms",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/farms?leafUserId={{leaf_user_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2246,6 +2284,54 @@
 										"fields",
 										"api",
 										"farms"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}",
+											"description": "your Leaf User id"
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "30",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a farm",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/farms/{{farm_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"farms",
+										"{{farm_id}}"
 									]
 								}
 							},
@@ -2253,34 +2339,22 @@
 						},
 						{
 							"name": "Get all growers",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "534335b9-0c8a-434e-8b5d-2c1cc59b2af5",
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Content-Type",
+										"type": "text",
 										"value": "application/json"
 									},
 									{
 										"key": "Authorization",
+										"type": "text",
 										"value": "Bearer {{leaf_token}}"
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/growers",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/growers?leafUserId={{leaf_user_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2290,6 +2364,52 @@
 										"fields",
 										"api",
 										"growers"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}",
+											"description": "your Leaf User id"
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "30",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a grower",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/fields/api/growers/{{grower_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"fields",
+										"api",
+										"growers",
+										"{{grower_id}}"
 									]
 								}
 							},
@@ -2352,7 +2472,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/operations/api/files?leafUserId={{leaf_user_id}}&status=processed&size=30",
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files?leafUserId={{leaf_user_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2384,12 +2504,14 @@
 										{
 											"key": "status",
 											"value": "processed",
-											"description": "processed, processing or failed"
+											"description": "processed, processing or failed",
+											"disabled": true
 										},
 										{
 											"key": "size",
 											"value": "30",
-											"description": "maximum number of files returned per page (default is 20)"
+											"description": "maximum number of files returned per page (default is 20)",
+											"disabled": true
 										},
 										{
 											"key": "createdTime",
@@ -2532,7 +2654,10 @@
 											"type": "file",
 											"src": []
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/operations/api/files?leafUserId={{leaf_user_id}}&provider=Leaf&fileFormat=GEOJSON",
@@ -2679,7 +2804,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}"
+									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
@@ -2924,7 +3052,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": ""
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}",
@@ -2969,7 +3100,10 @@
 											"type": "file",
 											"src": []
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/shapefile-geojson",
@@ -3018,7 +3152,10 @@
 											"type": "file",
 											"src": "/home/douglas/Downloads/sample.cn1.zip"
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/cn1-geojson",
@@ -3061,7 +3198,10 @@
 											"type": "file",
 											"src": "/home/douglas/Downloads/growmark_asPlanted_id.dat"
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/datclimate-geojson",
@@ -3104,7 +3244,10 @@
 											"type": "file",
 											"src": "/home/douglas/Downloads/TMX_AgData.zip"
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/trimble-geojson",
@@ -3147,7 +3290,10 @@
 											"type": "file",
 											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-shapefile",
@@ -3190,7 +3336,10 @@
 											"type": "file",
 											"src": "sample.geojson"
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-iso11783",
@@ -3233,7 +3382,10 @@
 											"type": "file",
 											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
 										}
-									]
+									],
+									"options": {
+										"formdata": {}
+									}
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-png",
@@ -3290,17 +3442,17 @@
 	],
 	"variable": [
 		{
-			"id": "66fa030f-6c8e-423c-87c0-8975c111d86e",
+			"id": "4e39ce45-8d21-4f6c-bb34-89612209263d",
 			"key": "leaf_api_url",
 			"value": "api.withleaf.io"
 		},
 		{
-			"id": "32d711e7-7b38-479c-bf37-3c8739ba1e08",
+			"id": "f3ebbbd5-7bf2-4d04-ae4f-76da256c0844",
 			"key": "leaf_auth_jd",
 			"value": "94kvge1ot0.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "0dc4e4d6-2d58-47ed-8499-7dc1e1c9c7d9",
+			"id": "134572dc-223c-40c5-ae3a-30502f38fe5e",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
 		}
