@@ -413,7 +413,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true \n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h.",
+									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h.",
 									"options": {
 										"raw": {}
 									}
@@ -1895,66 +1895,6 @@
 											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
 											"description": "your Leaf User id"
-										},
-										{
-											"key": "operationType",
-											"value": "",
-											"description": "Supported values: applied, harvested, planted, other",
-											"disabled": true
-										},
-										{
-											"key": "operationStartTime",
-											"value": "",
-											"description": "ISO 8601 date-time instant that filters operations that started at it or after it (must be in the past or present)",
-											"disabled": true
-										},
-										{
-											"key": "operationEndTime",
-											"value": "",
-											"description": "ISO 8601 date-time instant that filters operations that ended at it or before it (must be in the past or present)",
-											"disabled": true
-										},
-										{
-											"key": "operationCrop",
-											"value": "",
-											"description": "Provider crop code/number of the operation. Requires `operationProvider`",
-											"disabled": true
-										},
-										{
-											"key": "operationVariety",
-											"value": "",
-											"description": "Name of the crop variety used by the provider. Requires `operationProvider`. (e.g. \"Corn\" for \"JohnDeere\").",
-											"disabled": true
-										},
-										{
-											"key": "operationProvider",
-											"value": "JohnDeere",
-											"description": "The name of the company provider of the operations. Supported values: ClimateFieldView, CNHI, JohnDeere, Trimble",
-											"disabled": true
-										},
-										{
-											"key": "organizationId",
-											"value": "",
-											"description": "Grower's organization id from the provider (string)",
-											"disabled": true
-										},
-										{
-											"key": "page",
-											"value": "",
-											"description": "Pagination parameter for selecting the page of the result (integer)",
-											"disabled": true
-										},
-										{
-											"key": "size",
-											"value": "1000",
-											"description": "Pagination parameter that specifies the size of each page (integer)",
-											"disabled": true
-										},
-										{
-											"key": "sort",
-											"value": "",
-											"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
-											"disabled": true
 										}
 									]
 								}
@@ -2076,6 +2016,68 @@
 										"fields",
 										"{{field_id}}",
 										"operations"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "provider",
+											"description": "provider, merged or automerged",
+											"disabled": true
+										},
+										{
+											"key": "operationType",
+											"value": "harvested",
+											"description": "Supported values: applied, harvested, planted, other",
+											"disabled": true
+										},
+										{
+											"key": "operationCrop",
+											"value": null,
+											"description": "crop code/number of the operation. Requires `operationProvider`",
+											"disabled": true
+										},
+										{
+											"key": "operationProvider",
+											"value": "JohnDeere",
+											"description": "The name of the company provider of the operations. Supported values: ClimateFieldView, CNHI, JohnDeere, Trimble",
+											"disabled": true
+										},
+										{
+											"key": "operationStartTime",
+											"value": "2018-10-22T20:25",
+											"description": "ISO 8601 date-time instant that filters operations that started at it or after it (must be in the past or present)",
+											"disabled": true
+										},
+										{
+											"key": "operationEndTime",
+											"value": "2018-10-22T20:25",
+											"description": "ISO 8601 date-time instant that filters operations that ended at it or before it (must be in the past or present)",
+											"disabled": true
+										},
+										{
+											"key": "organizationId",
+											"value": null,
+											"description": "Grower's organization id from the provider (string)",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "30",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "asc",
+											"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -2274,7 +2276,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/farms?leafUserId={{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/farms",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2289,7 +2291,8 @@
 										{
 											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
-											"description": "your Leaf User id"
+											"description": "your Leaf User id",
+											"disabled": true
 										},
 										{
 											"key": "page",
@@ -2354,7 +2357,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/growers?leafUserId={{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/fields/api/growers",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2369,7 +2372,8 @@
 										{
 											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
-											"description": "your Leaf User id"
+											"description": "your Leaf User id",
+											"disabled": true
 										},
 										{
 											"key": "page",
@@ -2491,13 +2495,13 @@
 										},
 										{
 											"key": "provider",
-											"value": "JohnDeere",
+											"value": "Leaf",
 											"description": "JohnDeere, ClimateFieldView, Leaf, CNHi or Trimble",
 											"disabled": true
 										},
 										{
 											"key": "origin",
-											"value": "provider",
+											"value": "automerged",
 											"description": "provider, merged or automerged",
 											"disabled": true
 										},
@@ -2509,7 +2513,7 @@
 										},
 										{
 											"key": "size",
-											"value": "30",
+											"value": "20",
 											"description": "maximum number of files returned per page (default is 20)",
 											"disabled": true
 										},
@@ -2529,6 +2533,12 @@
 											"key": "operationEnd",
 											"value": "2019-10-22T20:25",
 											"description": "(iso 8601 date-time) get operations that ended before operationEnd",
+											"disabled": true
+										},
+										{
+											"key": "operationType",
+											"value": "harvested",
+											"description": "planted, applied or harvested",
 											"disabled": true
 										}
 									]
@@ -2632,6 +2642,38 @@
 							"response": []
 						},
 						{
+							"name": "Get file units",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files/{{file_id}}/units",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files",
+										"{{file_id}}",
+										"units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Upload operation file",
 							"request": {
 								"method": "POST",
@@ -2690,7 +2732,7 @@
 							"response": []
 						},
 						{
-							"name": "Merge opeartion files",
+							"name": "Merge operation files",
 							"event": [
 								{
 									"listen": "test",
@@ -2898,7 +2940,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes?size=20",
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes?size=30",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2914,7 +2956,7 @@
 									"query": [
 										{
 											"key": "size",
-											"value": "20"
+											"value": "30"
 										}
 									]
 								}
@@ -3442,17 +3484,17 @@
 	],
 	"variable": [
 		{
-			"id": "4e39ce45-8d21-4f6c-bb34-89612209263d",
+			"id": "cb0af37f-203b-4e45-9e87-ff228d24b269",
 			"key": "leaf_api_url",
 			"value": "api.withleaf.io"
 		},
 		{
-			"id": "f3ebbbd5-7bf2-4d04-ae4f-76da256c0844",
+			"id": "67a3891c-9e44-4bbf-b252-a1ecc2238782",
 			"key": "leaf_auth_jd",
 			"value": "94kvge1ot0.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "134572dc-223c-40c5-ae3a-30502f38fe5e",
+			"id": "e24cade1-42c0-446e-94be-5c5d134588e7",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
 		}
