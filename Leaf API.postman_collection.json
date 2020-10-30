@@ -1091,7 +1091,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"ericsegala\",\n    \"email\": \"eric@withleaf.io\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}",
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"{{random_name}}\",\n    \"email\": \"{{random_number}}@sharklasers.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1147,14 +1147,10 @@
 											}
 										},
 										"url": {
-											"raw": "https://0rtwuz7da8.execute-api.us-east-1.amazonaws.com/get_url",
+											"raw": "https://{{leaf_auth_cnhi}}/get_url",
 											"protocol": "https",
 											"host": [
-												"0rtwuz7da8",
-												"execute-api",
-												"us-east-1",
-												"amazonaws",
-												"com"
+												"{{leaf_auth_cnhi}}"
 											],
 											"path": [
 												"get_url"
@@ -3355,22 +3351,22 @@
 	],
 	"variable": [
 		{
-			"id": "98cc64af-e8f4-48bd-95c8-3d9c7d5ed3ba",
+			"id": "b14f4810-b68c-4d52-8e1d-49f07ed7d0f1",
 			"key": "leaf_api_url",
 			"value": "api.withleaf.io"
 		},
 		{
-			"id": "b0386e48-5e46-4ba0-a078-672a8d6b7e9b",
+			"id": "901c75f7-f4d4-4402-b3c4-49d4e03f57d2",
 			"key": "leaf_auth_jd",
 			"value": "94kvge1ot0.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "0e8fdec9-9530-4384-be67-323c95f781a2",
+			"id": "b958b61d-0197-4bed-8c97-f698c0010808",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "dfb160c2-48ba-4d3a-af10-4edbb7c80c5f",
+			"id": "9b53d110-1617-49a6-acd8-d98ce8fd4421",
 			"key": "leaf_auth_cnhi",
 			"value": "0rtwuz7da8.execute-api.us-east-1.amazonaws.com"
 		}
