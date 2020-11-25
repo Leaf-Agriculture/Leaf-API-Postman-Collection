@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "14ee18f1-03f0-406d-b862-7239c6621e49",
+		"_postman_id": "021ed475-e643-489f-b406-f7fbf503b52d",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -15,7 +15,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "44b473e2-7e05-4ab4-8743-36643b8e8936",
+								"id": "950f079a-96ac-42e1-bcde-a17b6f4bc4f7",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -86,7 +86,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "151928fc-667e-4650-b288-87e7da4064fd",
+								"id": "4ece55d7-94be-44bd-b372-2c04fe3cf5f3",
 								"exec": [
 									""
 								],
@@ -223,7 +223,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e5d9cdf2-0193-41eb-b538-8c70ecbb116e",
+								"id": "ecbe2800-8377-46d9-8f5a-10a5d89fb8fd",
 								"exec": [
 									""
 								],
@@ -271,7 +271,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4a051dfa-f571-4bca-ac05-bb3f4c71fa51",
+								"id": "48d8c692-3ab5-4fa6-85f9-4ca9f3d23af9",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -315,7 +315,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f88799d5-99b0-42d1-82d6-a993b9d8e3ba",
+								"id": "c3dfc481-9781-4fd4-8ca8-274ab2191b64",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -361,7 +361,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c88fe476-6b1b-48b9-9c58-bfb71286dee2",
+						"id": "c404c4f6-2f00-4b1e-8b90-e3d1e881be31",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -371,7 +371,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a4e59542-952a-433b-8b6b-ff67cd8b5ca4",
+						"id": "89bacd02-e4e1-4761-8425-731858ff3cb7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -393,7 +393,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a842a294-fcad-4487-bb31-3b885c1c4884",
+										"id": "37d3cdbd-122e-4e45-8339-1c39191841e8",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -438,7 +438,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e9770926-dcb6-4e1f-be59-6558207208f6",
+								"id": "40d729e4-c54b-4bff-aa1c-a0ade9c20e76",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -448,7 +448,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "28e5ca1c-de1c-49ca-b4ff-3215f2e07e5e",
+								"id": "9d1cb867-41c9-48ae-a3a6-6fdb83b9fc94",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -471,7 +471,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "00441cbd-7d77-4cf0-b5c9-77517b7485c4",
+												"id": "85cfefc1-be67-42f7-ba57-6326164435fb",
 												"exec": [
 													""
 												],
@@ -511,7 +511,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "9454a0ad-9ff1-427e-9c01-4f4984877171",
+												"id": "a40b1dfd-935e-45c1-b711-293437e141b4",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_access_token\", jsonData.access_token);",
@@ -559,7 +559,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "99b978ff-878d-4489-a77f-feee4d655fbd",
+												"id": "0c3dc325-3adf-4e3b-a3be-6565d3047c29",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_credentials_id\", jsonData.id);"
@@ -609,7 +609,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3ded131f-33d8-4a4d-b3c4-5f328f901928",
+										"id": "1b151621-f7db-4bb7-996c-0e3286aaa298",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -619,7 +619,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "24ed9e8b-69b7-4501-9120-f5e9dd6e329b",
+										"id": "fa24ec95-9375-4445-a2ac-9378750ca733",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -639,7 +639,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "d951a2ba-2ddc-498d-a852-4f9085cff37c",
+												"id": "852487a7-b254-468c-ada0-9e1e2850206c",
 												"exec": [
 													""
 												],
@@ -678,7 +678,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "415fe143-15c2-48ac-91d0-02ab2c42ce08",
+												"id": "b3228f2f-a990-4bbb-b480-d608a690bc66",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_access_token\", jsonData.access_token);",
@@ -690,7 +690,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "7d2379cc-bf15-4170-9b66-6e5c7f8b8f84",
+												"id": "68af4a3e-f1f8-4a7a-8dee-5696c00f23fd",
 												"exec": [
 													"// Here we calculate the Authorization Header, it is calculated as:",
 													"// Basic {base64_encode($clientId:$clientSecret)} ",
@@ -774,7 +774,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "e07fde71-473c-41cf-a878-aa4a12e60be8",
+												"id": "f1327396-bd30-48fe-ba30-1b7989abd9ea",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_credentials_id\", jsonData.id);"
@@ -823,7 +823,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0fae80b9-4992-4674-978a-5b99be522d8a",
+										"id": "ac05f8b8-0260-4bd4-81f7-0181f6fc5c36",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -833,7 +833,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "118ed6a2-8505-4285-87e4-42b887d405ac",
+										"id": "707e05c1-da0c-49bf-b092-3dd0c3697ab8",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -853,7 +853,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "2e0e9057-e5df-42af-961b-0dde16e1361d",
+												"id": "b6fc4fa0-73a0-4441-ad26-7610cb9e94fe",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"trimble_credentials_id\", jsonData.id);",
@@ -907,7 +907,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "cb928ba7-e75f-437d-ac53-e062bbff09e0",
+												"id": "c4505780-0f95-40a4-bf9d-263c1414c42d",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -962,7 +962,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "ad359dda-1e88-43b5-a7ba-7694ae3f8c79",
+												"id": "7c1b63c7-5641-4ffc-a335-821d221fcea0",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
@@ -1014,7 +1014,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "72cea4c4-06b2-431a-ba19-ce45575c9fba",
+												"id": "6f68bfc2-77b4-4af6-9c53-a817c9a54694",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1069,7 +1069,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "bafb8af9-b14c-4626-b7d1-9835e815982f",
+												"id": "fc674c98-3db6-42ce-96f5-87be37fa19f6",
 												"exec": [
 													""
 												],
@@ -1091,7 +1091,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"ericsegala\",\n    \"email\": \"eric@withleaf.io\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}",
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"{{random_name}}\",\n    \"email\": \"{{random_number}}@sharklasers.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1121,12 +1121,91 @@
 							"name": "CNHi auth",
 							"item": [
 								{
-									"name": "Create CNHi Credentials",
+									"name": "1. Get CNHI auth URL",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "8b0f7e44-3b48-4ca2-b630-410dc98ba39e",
+												"id": "25e6b51d-16a0-45ee-8c8d-68c0225f9c35",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"client_id\": \"{{cnhi_client_id}}\",\n    \"client_secret\": \"{{cnhi_client_secret}}\",\n    \"client_redirect_url\": \"{{cnhi_client_redirect_url}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_cnhi}}/get_url",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_cnhi}}"
+											],
+											"path": [
+												"get_url"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "2. Get CNHI Refresh Token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "13b73c25-661d-41b1-a538-97b4836dc111",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"cnhi_refresh_token\", jsonData.refresh_token);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"client_id\": \"{{cnhi_client_id}}\",\n    \"client_secret\": \"{{cnhi_client_secret}}\",\n    \"client_redirect_url\": \"{{cnhi_client_redirect_url}}\",\n    \"response_url\": \"{{cnhi_response_url}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_cnhi}}/get_token",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_cnhi}}"
+											],
+											"path": [
+												"get_token"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "3. Add CNHi Credentials",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8201b43f-b517-4cda-b0a0-7dbdfe4ed14c",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"cnhi_credentials_id\", jsonData.id);",
@@ -1153,7 +1232,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"clientId\": \"your apps clientid\",\n  \"clientSecret\": \"your apps client secret\",\n  \"refreshToken\": \"after your apps oauth with your user\"\n}",
+											"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1169,218 +1248,6 @@
 												"usermanagement",
 												"api",
 												"cn-hi-credentials"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get CNHi Credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "a62cae6e-d09e-477d-a5ab-e19741a63e10",
-												"exec": [
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi_credentials_id}}",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"cn-hi-credentials",
-												"{{cnhi_credentials_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete CNHi Credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "fb45eff9-0452-4d1c-a9ef-db093102f11e",
-												"exec": [
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/{{cnhi_credentials_id}}",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"cn-hi-credentials",
-												"{{cnhi_credentials_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get all CNHi Credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "81596307-fd26-4f45-8c0b-937163523402",
-												"exec": [
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"cn-hi-credentials",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Leaf User CNHi",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "f867cad0-1197-45c6-91c1-d774c5d229c9",
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"valid name 341asdada\",\n    \"email\": \"testeeasdasda3121341@gmail.com\",\n\t\"cnhiCredentials\": \n\t{\n\t  \"id\": \"{{cnhi-credentials-id}}\"\n    }\n}",
-											"options": {
-												"raw": {}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"users",
-												""
 											]
 										}
 									},
@@ -1406,7 +1273,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "5b267214-eeda-41ca-a824-6caa65df05da",
+												"id": "d2359f6d-771d-4379-b3e9-46a337e04848",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1417,7 +1284,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "63d1914c-ec60-413c-88dc-2216808eb7b5",
+												"id": "ce5290bf-c998-477f-b19b-cd64e49a1569",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1467,7 +1334,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "7eea889a-a223-4120-adcb-3cd40271c77f",
+												"id": "329a2ac4-cbbb-4cd2-b157-54984fca454b",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1478,7 +1345,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "4deb8844-f6a2-4211-8f16-6cb5248bcdf7",
+												"id": "bee3b299-d9be-4ee7-9365-82845407f707",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1528,7 +1395,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "892ef937-e806-4bc5-b483-ff8e432ae9f5",
+												"id": "a6551f67-41f9-4cb6-8416-75630eafe19a",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1539,7 +1406,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "18c23d54-f6c1-43ef-8064-35df207f4630",
+												"id": "ef414f4d-c530-4509-adff-90b1faeae802",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1589,7 +1456,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "9d719acb-fa3c-4614-9a4c-544ffc10138d",
+												"id": "ccf566b9-bad1-4752-ba22-0f01e97984d6",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1600,7 +1467,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "ea1dd3cf-bb29-458f-b8fb-f02273cc485f",
+												"id": "6346e61a-08ec-4a84-81ff-794bd54712c1",
 												"exec": [
 													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
 												],
@@ -1654,7 +1521,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9311929b-067c-4d8c-96ba-dd5a77a00a94",
+										"id": "cf363918-9fad-4530-b4f3-6ff3957c4e65",
 										"exec": [
 											""
 										],
@@ -1664,7 +1531,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6d39f491-24ef-4424-a916-4e990408e232",
+										"id": "326eedb9-1e55-4747-b086-33eff85f549d",
 										"exec": [
 											""
 										],
@@ -1738,7 +1605,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "eba54e1a-59d3-4621-b0a0-8b36fa5f0dbf",
+										"id": "ed9974c6-a8f3-4aff-97ee-526b951c1661",
 										"exec": [
 											""
 										],
@@ -1760,7 +1627,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  }\n}",
+									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  },\n  \"cnhiCredentials\": {\n  \t\"id\": \"{{cnhi_credentials_id}}\"\n  }\n}",
 									"options": {
 										"raw": {}
 									}
@@ -1788,7 +1655,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7e787983-c4f7-4642-a05c-9f40a8b1f00e",
+										"id": "6a7cd82d-7e03-47e7-81f9-ca6c2431d407",
 										"exec": [
 											""
 										],
@@ -1838,7 +1705,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5e687361-d855-49b2-9f0b-39b8587d5bbd",
+								"id": "ca6f15c2-f8ac-4477-aeb0-d3fbf148101e",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1848,7 +1715,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bc687be5-a3fb-463c-975b-06390f106be0",
+								"id": "439b4314-6421-4b3d-b27f-10f412d5c603",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1936,7 +1803,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "77021ac8-0b67-4515-a76b-9264526f4674",
+										"id": "b177a94b-10d2-4b25-bc60-3a9d90b1681a",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"field_id\", jsonData.id);",
@@ -1948,7 +1815,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1acf7b60-acf1-46e2-a726-9f4ac631ac4e",
+										"id": "3b3a37d0-1305-4d76-912e-f807d2a8b82a",
 										"exec": [
 											""
 										],
@@ -2120,7 +1987,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b97371a3-c224-450a-8b20-0a7253cc7fc1",
+										"id": "439b9816-23e9-40b8-ab77-33be91b13630",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2174,7 +2041,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b8be8e05-393f-4573-a174-c65e217b10d6",
+										"id": "a27e27cd-2e6c-45b9-8fe4-86fa97c56b77",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2425,7 +2292,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "36870f36-3e2f-4e08-89e9-b14e75d3283c",
+								"id": "85299a75-62fe-4d6b-9c9d-78e48123a9a7",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2435,7 +2302,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "30d07cc4-1852-4895-8b06-8960a691cc1e",
+								"id": "9d61075c-d93a-41cb-aa91-1b1c5d5f71db",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2455,7 +2322,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "db9039d0-8744-4e97-9dc6-9f638d67f20e",
+										"id": "ce8b1262-7556-470b-b4d0-9da9061800a9",
 										"exec": [
 											""
 										],
@@ -2476,7 +2343,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/operations/api/files?leafUserId={{leaf_user_id}}",
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2491,7 +2358,8 @@
 										{
 											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
-											"description": "filter by leaf_user"
+											"description": "filter by leaf_user",
+											"disabled": true
 										},
 										{
 											"key": "provider",
@@ -2502,7 +2370,7 @@
 										{
 											"key": "origin",
 											"value": "automerged",
-											"description": "provider, merged or automerged",
+											"description": "provider, uploaded, merged or automerged",
 											"disabled": true
 										},
 										{
@@ -2512,33 +2380,51 @@
 											"disabled": true
 										},
 										{
-											"key": "size",
-											"value": "20",
-											"description": "maximum number of files returned per page (default is 20)",
-											"disabled": true
-										},
-										{
 											"key": "createdTime",
-											"value": "2018-10-22T20:25",
+											"value": "2019-10-22T20:25",
 											"description": "(iso 8601 date-time) get files that were processed by Leaf after \"createdTime\"",
 											"disabled": true
 										},
 										{
-											"key": "operationStart",
+											"key": "operationStartTime",
 											"value": "2018-10-22T20:25",
-											"description": "(iso 8601 date-time) get operations that started after operationStart",
+											"description": "ISO 8601 date. Returns operations from the operationStartTime onward",
 											"disabled": true
 										},
 										{
-											"key": "operationEnd",
+											"key": "operationEndTime",
 											"value": "2019-10-22T20:25",
-											"description": "(iso 8601 date-time) get operations that ended before operationEnd",
+											"description": "ISO 8601 date. Returns operations that ended before operationEndTime",
 											"disabled": true
 										},
 										{
 											"key": "operationType",
 											"value": "harvested",
 											"description": "planted, applied or harvested",
+											"disabled": true
+										},
+										{
+											"key": "minArea",
+											"value": "50000.00",
+											"description": "minimum area of the operation in square meters",
+											"disabled": true
+										},
+										{
+											"key": "organizationId",
+											"value": "123456",
+											"description": "the provider organizationId (only available for John Deere)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "20",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
 											"disabled": true
 										}
 									]
@@ -2737,7 +2623,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0f4582c8-a1ac-494d-8866-0dbc78dcf62b",
+										"id": "e9b57665-ebfa-4a75-839f-e326d1f04dfe",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"merged_file_id\", jsonData.id);",
@@ -2792,7 +2678,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "1d10c88c-526d-44f6-97ed-ddd2d2acb27d",
+								"id": "2b30d803-c693-4ca9-ac1a-4da9be36092e",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2802,7 +2688,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "81fe456b-b603-4d0b-a227-13dab7ff63af",
+								"id": "e122e164-a038-4ab5-b541-7579370ed9fa",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2822,7 +2708,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "21822b62-4127-479e-99ac-1d3f9bd3ad02",
+										"id": "170f47c7-3270-4c8d-bc48-2b13a97781dc",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -2873,7 +2759,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ba38c3bb-0d88-4493-87b0-9cfc7e494be5",
+										"id": "42124a00-77a4-46f8-9d24-d6c44c8b22f2",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2917,7 +2803,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "86af9406-8d2a-4803-a481-dd344678059e",
+										"id": "bddf0ba7-9fa1-43d4-bcae-c9ef178dabb7",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2969,7 +2855,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a5db3b43-aa58-4ac9-82e3-86f13e836759",
+										"id": "5065314d-6bd6-497f-9730-d9b90c83e12b",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3014,7 +2900,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "76d52ff6-c409-4954-9c4b-3a6086456451",
+										"id": "75237698-bad8-4a84-9dc6-a29b5ef8ad15",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3070,7 +2956,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "49151742-744f-485f-9774-83715af96d1f",
+										"id": "6800fb4b-a152-41db-8678-d17e78263c99",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -3464,7 +3350,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "511e05b9-1f4f-423a-a5b1-4d94266cf07a",
+				"id": "0a5ff1e3-e016-4fcb-9518-1864786757f3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3474,7 +3360,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fd8fa15f-85d9-4574-89ad-a3eb8bd3b354",
+				"id": "ea7c7158-1964-4cc9-abf8-0e7f4a753935",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3484,19 +3370,24 @@
 	],
 	"variable": [
 		{
-			"id": "cb0af37f-203b-4e45-9e87-ff228d24b269",
+			"id": "b14f4810-b68c-4d52-8e1d-49f07ed7d0f1",
 			"key": "leaf_api_url",
 			"value": "api.withleaf.io"
 		},
 		{
-			"id": "67a3891c-9e44-4bbf-b252-a1ecc2238782",
+			"id": "901c75f7-f4d4-4402-b3c4-49d4e03f57d2",
 			"key": "leaf_auth_jd",
 			"value": "94kvge1ot0.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "e24cade1-42c0-446e-94be-5c5d134588e7",
+			"id": "b958b61d-0197-4bed-8c97-f698c0010808",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
+		},
+		{
+			"id": "9b53d110-1617-49a6-acd8-d98ce8fd4421",
+			"key": "leaf_auth_cnhi",
+			"value": "0rtwuz7da8.execute-api.us-east-1.amazonaws.com"
 		}
 	],
 	"protocolProfileBehavior": {}
