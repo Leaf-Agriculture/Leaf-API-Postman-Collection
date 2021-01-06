@@ -1762,6 +1762,18 @@
 											"key": "leafUserId",
 											"value": "{{leaf_user_id}}",
 											"description": "your Leaf User id"
+										},
+										{
+											"key": "provider",
+											"value": "Leaf",
+											"description": "filter by provider",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "ORIGINAL",
+											"description": "filter by type",
+											"disabled": true
 										}
 									]
 								}
