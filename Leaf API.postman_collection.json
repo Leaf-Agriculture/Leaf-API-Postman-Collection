@@ -3350,12 +3350,205 @@
 							},
 							"response": []
 						}
+					]
+				},
+				{
+					"name": "Alerts",
+					"item": [
+						{
+							"name": "Register webhook",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+											"});",
+											"var location = pm.response.headers.get('Location');",
+											"var location_split = location.split('/');",
+											"var webhook_id = location_split[location_split.length - 1];",
+											"pm.environment.set(\"webhook_id\", webhook_id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"listener of uploaded files\",\n  \"url\": \"https://webhook.site/cf446e16-79ee-434d-9f59-cd64f2ae82ff\",\n  \"secret\": \"<your secret, for auth>\",\n  \"events\": [\n    \"fieldCreated\"\n  ]\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks"
+									]
+								},
+								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
+							},
+							"response": []
+						},
+						{
+							"name": "Get webhook",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/{{webhook_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks",
+										"{{webhook_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all webhooks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get webhook Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/{{webhook_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks",
+										"{{webhook_id}}"
+									]
+								}
+							},
+							"response": []
+						}
 					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					"description": "Register you server's URL to receive alerts from Leaf services."
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
