@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "021ed475-e643-489f-b406-f7fbf503b52d",
+		"_postman_id": "8f9b5bd4-df9c-47ec-a131-ac6c4275c847",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -15,7 +15,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "950f079a-96ac-42e1-bcde-a17b6f4bc4f7",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -35,10 +34,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h.",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
 						},
 						"url": {
 							"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -86,7 +82,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4ece55d7-94be-44bd-b372-2c04fe3cf5f3",
 								"exec": [
 									""
 								],
@@ -223,7 +218,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ecbe2800-8377-46d9-8f5a-10a5d89fb8fd",
 								"exec": [
 									""
 								],
@@ -271,7 +265,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "48d8c692-3ab5-4fa6-85f9-4ca9f3d23af9",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -315,7 +308,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c3dfc481-9781-4fd4-8ca8-274ab2191b64",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -361,7 +353,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c404c4f6-2f00-4b1e-8b90-e3d1e881be31",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -371,15 +362,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "89bacd02-e4e1-4761-8425-731858ff3cb7",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "API Reference",
@@ -393,7 +382,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "37d3cdbd-122e-4e45-8339-1c39191841e8",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"leaf_token\", jsonData.id_token);",
@@ -413,10 +401,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h.",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/api/authenticate",
@@ -438,7 +423,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "40d729e4-c54b-4bff-aa1c-a0ade9c20e76",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -448,16 +432,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9d1cb867-41c9-48ae-a3a6-6fdb83b9fc94",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Providers auth",
@@ -471,7 +452,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "85cfefc1-be67-42f7-ba57-6326164435fb",
 												"exec": [
 													""
 												],
@@ -511,7 +491,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "a40b1dfd-935e-45c1-b711-293437e141b4",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_access_token\", jsonData.access_token);",
@@ -559,7 +538,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "0c3dc325-3adf-4e3b-a3be-6565d3047c29",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"jd_credentials_id\", jsonData.id);"
@@ -582,10 +560,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/john-deere-credentials",
@@ -609,7 +584,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1b151621-f7db-4bb7-996c-0e3286aaa298",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -619,16 +593,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fa24ec95-9375-4445-a2ac-9378750ca733",
 										"type": "text/javascript",
 										"exec": [
 											""
 										]
 									}
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "ClimateFieldView auth",
@@ -639,7 +610,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "852487a7-b254-468c-ada0-9e1e2850206c",
 												"exec": [
 													""
 												],
@@ -678,7 +648,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "b3228f2f-a990-4bbb-b480-d608a690bc66",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_access_token\", jsonData.access_token);",
@@ -690,7 +659,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "68af4a3e-f1f8-4a7a-8dee-5696c00f23fd",
 												"exec": [
 													"// Here we calculate the Authorization Header, it is calculated as:",
 													"// Basic {base64_encode($clientId:$clientSecret)} ",
@@ -745,10 +713,7 @@
 													"value": "authorization_code",
 													"type": "text"
 												}
-											],
-											"options": {
-												"urlencoded": {}
-											}
+											]
 										},
 										"url": {
 											"raw": "https://api.climate.com/api/oauth/token",
@@ -774,7 +739,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "f1327396-bd30-48fe-ba30-1b7989abd9ea",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cfv_credentials_id\", jsonData.id);"
@@ -823,7 +787,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ac05f8b8-0260-4bd4-81f7-0181f6fc5c36",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -833,16 +796,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "707e05c1-da0c-49bf-b092-3dd0c3697ab8",
 										"type": "text/javascript",
 										"exec": [
 											""
 										]
 									}
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Trimble auth",
@@ -853,7 +813,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "b6fc4fa0-73a0-4441-ad26-7610cb9e94fe",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"trimble_credentials_id\", jsonData.id);",
@@ -880,10 +839,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "  {\n    \"userName\": \"your users username\",\n    \"password\": \"your users password\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"your apps identity id\"\n  }",
-											"options": {
-												"raw": {}
-											}
+											"raw": "  {\n    \"userName\": \"your users username\",\n    \"password\": \"your users password\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"your apps identity id\"\n  }"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
@@ -907,7 +863,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "c4505780-0f95-40a4-bf9d-263c1414c42d",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -934,10 +889,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {}
-											}
+											"raw": ""
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
@@ -962,7 +914,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "7c1b63c7-5641-4ffc-a335-821d221fcea0",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
@@ -986,10 +937,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {}
-											}
+											"raw": ""
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
@@ -1014,7 +962,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "6f68bfc2-77b4-4af6-9c53-a817c9a54694",
 												"exec": [
 													"pm.test(\"Successful POST request\", function () {",
 													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1041,10 +988,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {}
-											}
+											"raw": ""
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/",
@@ -1069,7 +1013,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "fc674c98-3db6-42ce-96f5-87be37fa19f6",
 												"exec": [
 													""
 												],
@@ -1091,10 +1034,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"{{random_name}}\",\n    \"email\": \"{{random_number}}@sharklasers.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"{{random_name}}\",\n    \"email\": \"{{random_number}}@sharklasers.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1113,9 +1053,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "CNHi auth",
@@ -1126,7 +1064,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "25e6b51d-16a0-45ee-8c8d-68c0225f9c35",
 												"exec": [
 													""
 												],
@@ -1165,7 +1102,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "13b73c25-661d-41b1-a538-97b4836dc111",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"cnhi_refresh_token\", jsonData.refresh_token);"
@@ -1205,7 +1141,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "8201b43f-b517-4cda-b0a0-7dbdfe4ed14c",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"postman.setEnvironmentVariable(\"cnhi_credentials_id\", jsonData.id);",
@@ -1232,10 +1167,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials",
@@ -1253,13 +1185,9 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Leaf User",
@@ -1273,7 +1201,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d2359f6d-771d-4379-b3e9-46a337e04848",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1284,9 +1211,8 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "ce5290bf-c998-477f-b19b-cd64e49a1569",
 												"exec": [
-													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
+													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
 												],
 												"type": "text/javascript"
 											}
@@ -1306,10 +1232,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"Albert Einstein{{random_name}}\",\n  \"email\": \"Albert Einstein{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n  \"name\": \"Albert Einstein{{random_number}}\",\n  \"email\": \"Albert Einstein{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1334,7 +1257,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "329a2ac4-cbbb-4cd2-b157-54984fca454b",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1345,9 +1267,8 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "bee3b299-d9be-4ee7-9365-82845407f707",
 												"exec": [
-													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
+													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
 												],
 												"type": "text/javascript"
 											}
@@ -1367,10 +1288,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_name}}\",\n  \"email\": \"JohnHopkins{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n\t\"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n  \"name\": \"JohnHopkins{{random_number}}\",\n  \"email\": \"JohnHopkins{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n\t\"id\":\"{{cfv_credentials_id}}\"\n  }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1395,7 +1313,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "a6551f67-41f9-4cb6-8416-75630eafe19a",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1406,9 +1323,8 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "ef414f4d-c530-4509-adff-90b1faeae802",
 												"exec": [
-													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
+													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
 												],
 												"type": "text/javascript"
 											}
@@ -1428,10 +1344,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"Carl Sagan{{random_name}}\",\n  \"email\": \"CarlSagan{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n  \"name\": \"Carl Sagan{{random_number}}\",\n  \"email\": \"CarlSagan{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1456,7 +1369,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "ccf566b9-bad1-4752-ba22-0f01e97984d6",
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
@@ -1467,9 +1379,8 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "6346e61a-08ec-4a84-81ff-794bd54712c1",
 												"exec": [
-													"pm.environment.set(\"random_name\", _.random(1073741824, 2147483648))"
+													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
 												],
 												"type": "text/javascript"
 											}
@@ -1489,10 +1400,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"Ada Lovelace{{random_name}}\",\n  \"email\": \"AdaLovelace{{random_name}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n  \"name\": \"Ada Lovelace{{random_number}}\",\n  \"email\": \"AdaLovelace{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1511,9 +1419,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Get all Leaf Users",
@@ -1521,7 +1427,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "cf363918-9fad-4530-b4f3-6ff3957c4e65",
 										"exec": [
 											""
 										],
@@ -1531,7 +1436,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "326eedb9-1e55-4747-b086-33eff85f549d",
 										"exec": [
 											""
 										],
@@ -1605,7 +1509,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ed9974c6-a8f3-4aff-97ee-526b951c1661",
 										"exec": [
 											""
 										],
@@ -1627,10 +1530,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"{{random_name}}\",\n  \"email\": \"{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  },\n  \"cnhiCredentials\": {\n  \t\"id\": \"{{cnhi_credentials_id}}\"\n  }\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n  \"id\": \"{{leaf_user_id}}\",\n  \"name\": \"abc{{random_number}}\",\n  \"email\": \"abc{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n  \t\"id\":\"{{cfv_credentials_id}}\"\n  },\n  \"johnDeereCredentials\": {\n  \t\"id\": \"{{jd_credentials_id}}\"\n  },\n  \"cnhiCredentials\": {\n  \t\"id\": \"{{cnhi_credentials_id}}\"\n  }\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
@@ -1655,7 +1555,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6a7cd82d-7e03-47e7-81f9-ca6c2431d407",
 										"exec": [
 											""
 										],
@@ -1705,7 +1604,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ca6f15c2-f8ac-4477-aeb0-d3fbf148101e",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1715,16 +1613,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "439b4314-6421-4b3d-b27f-10f412d5c603",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Fields",
@@ -1815,7 +1710,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b177a94b-10d2-4b25-bc60-3a9d90b1681a",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"field_id\", jsonData.id);",
@@ -1827,7 +1721,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3b3a37d0-1305-4d76-912e-f807d2a8b82a",
 										"exec": [
 											""
 										],
@@ -1911,7 +1804,7 @@
 										},
 										{
 											"key": "operationCrop",
-											"value": null,
+											"value": "",
 											"description": "crop code/number of the operation. Requires `operationProvider`",
 											"disabled": true
 										},
@@ -1935,7 +1828,7 @@
 										},
 										{
 											"key": "organizationId",
-											"value": null,
+											"value": "",
 											"description": "Grower's organization id from the provider (string)",
 											"disabled": true
 										},
@@ -1999,7 +1892,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "439b9816-23e9-40b8-ab77-33be91b13630",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2023,10 +1915,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n   }\n }\n",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n   }\n }\n"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/query/intersects",
@@ -2053,7 +1942,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a27e27cd-2e6c-45b9-8fe4-86fa97c56b77",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2077,10 +1965,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[\"{{field_id}}\", \"{{field_id}}\"]\n\n// [\"field1 id\", \"field2 id\", \"fieldN id\"]\n\n",
-									"options": {
-										"raw": {}
-									}
+									"raw": "[\"{{field_id}}\", \"{{field_id}}\"]\n\n// [\"field1 id\", \"field2 id\", \"fieldN id\"]\n\n"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/intersect",
@@ -2304,7 +2189,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "85299a75-62fe-4d6b-9c9d-78e48123a9a7",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2314,16 +2198,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9d61075c-d93a-41cb-aa91-1b1c5d5f71db",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Operation files",
@@ -2334,7 +2215,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ce8b1262-7556-470b-b4d0-9da9061800a9",
 										"exec": [
 											""
 										],
@@ -2592,15 +2472,12 @@
 											"key": "file",
 											"description": "select your file",
 											"type": "file",
-											"src": []
+											"src": "/Users/gmbueno/Desktop/LEAF/FARLOGS_FILES_MEGATEST/Climate.zip"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/operations/api/files?leafUserId={{leaf_user_id}}&provider=Leaf&fileFormat=GEOJSON",
+									"raw": "https://{{leaf_api_url}}/services/operations/api/batch?leafUserId={{leaf_user_id}}&provider=Other",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -2609,7 +2486,7 @@
 										"services",
 										"operations",
 										"api",
-										"files"
+										"batch"
 									],
 									"query": [
 										{
@@ -2618,12 +2495,70 @@
 										},
 										{
 											"key": "provider",
-											"value": "Leaf"
-										},
-										{
-											"key": "fileFormat",
-											"value": "GEOJSON"
+											"value": "Other"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get batch by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/batch/{{batch_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"batch",
+										"{{batch_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all batches",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/batch/{{batch_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"batch",
+										"{{batch_id}}"
 									]
 								}
 							},
@@ -2635,7 +2570,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e9b57665-ebfa-4a75-839f-e326d1f04dfe",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"pm.environment.set(\"merged_file_id\", jsonData.id);",
@@ -2690,7 +2624,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2b30d803-c693-4ca9-ac1a-4da9be36092e",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2700,16 +2633,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e122e164-a038-4ab5-b541-7579370ed9fa",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Satellite",
@@ -2720,7 +2650,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "170f47c7-3270-4c8d-bc48-2b13a97781dc",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -2744,10 +2673,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
@@ -2771,7 +2697,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "42124a00-77a4-46f8-9d24-d6c44c8b22f2",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2815,7 +2740,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bddf0ba7-9fa1-43d4-bcae-c9ef178dabb7",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2867,7 +2791,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5065314d-6bd6-497f-9730-d9b90c83e12b",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2912,7 +2835,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "75237698-bad8-4a84-9dc6-a29b5ef8ad15",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2968,7 +2890,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6800fb4b-a152-41db-8678-d17e78263c99",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -2992,10 +2913,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {}
-									}
+									"raw": ""
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}",
@@ -3014,9 +2932,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Converters",
@@ -3040,10 +2956,7 @@
 											"type": "file",
 											"src": []
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/shapefile-geojson",
@@ -3092,10 +3005,7 @@
 											"type": "file",
 											"src": "/home/douglas/Downloads/sample.cn1.zip"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/cn1-geojson",
@@ -3138,10 +3048,7 @@
 											"type": "file",
 											"src": "/home/douglas/Downloads/growmark_asPlanted_id.dat"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/datclimate-geojson",
@@ -3184,10 +3091,7 @@
 											"type": "file",
 											"src": "/home/douglas/Downloads/TMX_AgData.zip"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/trimble-geojson",
@@ -3230,10 +3134,7 @@
 											"type": "file",
 											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-shapefile",
@@ -3276,10 +3177,7 @@
 											"type": "file",
 											"src": "sample.geojson"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-iso11783",
@@ -3322,10 +3220,7 @@
 											"type": "file",
 											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
 										}
-									],
-									"options": {
-										"formdata": {}
-									}
+									]
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-png",
@@ -3555,7 +3450,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0a5ff1e3-e016-4fcb-9518-1864786757f3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3565,7 +3459,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ea7c7158-1964-4cc9-abf8-0e7f4a753935",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3575,25 +3468,20 @@
 	],
 	"variable": [
 		{
-			"id": "b14f4810-b68c-4d52-8e1d-49f07ed7d0f1",
 			"key": "leaf_api_url",
 			"value": "api.withleaf.io"
 		},
 		{
-			"id": "901c75f7-f4d4-4402-b3c4-49d4e03f57d2",
 			"key": "leaf_auth_jd",
 			"value": "94kvge1ot0.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "b958b61d-0197-4bed-8c97-f698c0010808",
 			"key": "leaf_auth_cfv",
 			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
 		},
 		{
-			"id": "9b53d110-1617-49a6-acd8-d98ce8fd4421",
 			"key": "leaf_auth_cnhi",
 			"value": "0rtwuz7da8.execute-api.us-east-1.amazonaws.com"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
