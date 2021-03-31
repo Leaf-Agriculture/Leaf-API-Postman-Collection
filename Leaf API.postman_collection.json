@@ -1622,6 +1622,183 @@
 					]
 				},
 				{
+					"name": "Configurations",
+					"item": [
+						{
+							"name": "Leaf User",
+							"item": [
+								{
+									"name": "Create leaf user config",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"operationImageCreation\": false,\n    \"operationsSummaryCreation\": false\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/api/configs/{{leaf_user_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"api",
+												"configs",
+												"{{leaf_user_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get leaf user config",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/api/configs/{{leaf_user_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"api",
+												"configs",
+												"{{leaf_user_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete leaf user config",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/configs/:leafUserId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"configs",
+												":leafUserId"
+											],
+											"variable": [
+												{
+													"key": "leafUserId",
+													"value": "f5dadf09-4989-a9c8-b2e6-36b6e4f7e960",
+													"type": "string",
+													"description": "(Required) leafUserId"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update leaf user config",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"operationImageCreation\": false,\n    \"operationsSummaryCreation\": false\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/api/configs/{{leaf_user_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"api",
+												"configs",
+												"{{leaf_user_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Api Owner",
+							"item": [
+								{
+									"name": "Get default config",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/api/configs",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"api",
+												"configs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update default config",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"operationImageCreation\": true,\n    \"operationsSummaryCreation\": false\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/api/configs",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"api",
+												"configs"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
 					"name": "Fields",
 					"item": [
 						{
