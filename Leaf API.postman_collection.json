@@ -1814,7 +1814,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationImageCreation\": true,\n    \"operationsSummaryCreation\": false\n}"
+											"raw": "{\n    \"operationImageCreation\": true,\n    \"operationsSummaryCreation\": true,\n    \"fieldsAutoSync\" : true\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs",
