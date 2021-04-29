@@ -1699,7 +1699,7 @@
 								{
 									"name": "Update leaf user config",
 									"request": {
-										"method": "PUT",
+										"method": "PATCH",
 										"header": [
 											{
 												"key": "Content-Type",
@@ -1714,7 +1714,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationImageCreation\": false,\n    \"operationsSummaryCreation\": false\n}"
+											"raw": "{\n    \"operationsImageCreation\": true,\n    \"operationsSummaryCreation\": true,\n    \"fieldsAutoSync\": true,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"ROUND\",\n    \"geoimagesProjection\": \"EPSG:3857\"\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs/{{leaf_user_id}}",
@@ -1800,7 +1800,7 @@
 								{
 									"name": "Update default config",
 									"request": {
-										"method": "PUT",
+										"method": "PATCH",
 										"header": [
 											{
 												"key": "Content-Type",
@@ -1814,7 +1814,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationImageCreation\": true,\n    \"operationsSummaryCreation\": true,\n    \"fieldsAutoSync\" : true\n}"
+											"raw": "{\n    \"operationsImageCreation\": true,\n    \"operationsSummaryCreation\": true,\n    \"fieldsAutoSync\": true,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"ROUND\",\n    \"geoimagesProjection\": \"EPSG:3857\"\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs",
