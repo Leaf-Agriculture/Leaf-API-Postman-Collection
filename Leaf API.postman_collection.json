@@ -1467,6 +1467,26 @@
 										"api",
 										"users",
 										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Pagination parameter for selecting the page (integer)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "20",
+											"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "asc",
+											"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+											"disabled": true
+										}
 									]
 								}
 							},
