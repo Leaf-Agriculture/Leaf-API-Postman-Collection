@@ -3718,11 +3718,11 @@
 		},
 		{
 			"key": "leaf_auth_jd",
-			"value": "94kvge1ot0.execute-api.us-east-1.amazonaws.com"
+			"value": "johndeere-oauth2-helper.withleaf.io"
 		},
 		{
 			"key": "leaf_auth_cfv",
-			"value": "xrfbaf8gd1.execute-api.us-east-1.amazonaws.com"
+			"value": "cfv-oauth2-helper.withleaf.io"
 		},
 		{
 			"key": "leaf_auth_cnhi",
