@@ -1904,6 +1904,30 @@
 											"value": "ORIGINAL",
 											"description": "filter by type",
 											"disabled": true
+										},
+										{
+											"key": "beforeCreatedTime",
+											"value": "",
+											"description": "filter by createdTime before value",
+											"disabled": true
+										},
+										{
+											"key": "afterCreatedTime",
+											"value": "",
+											"description": "filter by createdTime after value",
+											"disabled": true
+										},
+										{
+											"key": "beforeUpdatedTime",
+											"value": "",
+											"description": "filter by updatedTime before value",
+											"disabled": true
+										},
+										{
+											"key": "afterUpdatedTime",
+											"value": "",
+											"description": "filter by updatedTime after value",
+											"disabled": true
 										}
 									]
 								}
