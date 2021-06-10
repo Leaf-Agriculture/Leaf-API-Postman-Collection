@@ -1908,25 +1908,25 @@
 										{
 											"key": "beforeCreatedTime",
 											"value": "",
-											"description": "filter by createdTime before value",
+											"description": "filter by createdTime before the value",
 											"disabled": true
 										},
 										{
 											"key": "afterCreatedTime",
 											"value": "",
-											"description": "filter by createdTime after value",
+											"description": "filter by createdTime after the value",
 											"disabled": true
 										},
 										{
 											"key": "beforeUpdatedTime",
 											"value": "",
-											"description": "filter by updatedTime before value",
+											"description": "filter by updatedTime before the value",
 											"disabled": true
 										},
 										{
 											"key": "afterUpdatedTime",
 											"value": "",
-											"description": "filter by updatedTime after value",
+											"description": "filter by updatedTime after the value",
 											"disabled": true
 										}
 									]
