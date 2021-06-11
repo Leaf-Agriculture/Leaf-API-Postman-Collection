@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4f7e18f6-a0aa-4878-9232-2b0db2b515f2",
+		"_postman_id": "164fd2ce-2b46-451d-b1b4-b2d9ad3f1146",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1735,7 +1735,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationsImageCreation\": false\n}"
+											"raw": "{\n    \"fieldsAutoSync\": true,\n    \"operationsImageCreation\": true,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"SQUARE\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n      \"0%\"  : [200,   0, 0],\n      \"35%\" : [255,  40, 0],\n      \"45%\" : [255, 150, 0],\n      \"55%\" : [255, 240, 0],\n      \"65%\" : [  0, 230, 0],\n      \"75%\" : [  0, 190, 0],\n      \"100%\": [  0, 130, 0],\n      \"nv\"  : [  0,   0, 0, 0]\n    }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs/{{leaf_user_id}}",
@@ -1835,7 +1835,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationsImageCreation\": true,\n    \"fieldsAutoSync\" : true\n}"
+											"raw": "{\n    \"fieldsAutoSync\": true,\n    \"operationsImageCreation\": true,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"SQUARE\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n      \"0%\"  : [200,   0, 0],\n      \"35%\" : [255,  40, 0],\n      \"45%\" : [255, 150, 0],\n      \"55%\" : [255, 240, 0],\n      \"65%\" : [  0, 230, 0],\n      \"75%\" : [  0, 190, 0],\n      \"100%\": [  0, 130, 0],\n      \"nv\"  : [  0,   0, 0, 0]\n    }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs",
