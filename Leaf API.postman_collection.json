@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2cf6c555-bd47-4044-96aa-2f2ae3307dcd",
+		"_postman_id": "d098800b-e333-4a3a-8d1a-a0aad4e7ae85",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1143,7 +1143,7 @@
 													"script": {
 														"exec": [
 															"pm.test(\"Successful DELETE request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
 															"});"
 														],
 														"type": "text/javascript"
@@ -1346,7 +1346,7 @@
 													"script": {
 														"exec": [
 															"pm.test(\"Successful DELETE request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
 															"});"
 														],
 														"type": "text/javascript"
@@ -1549,7 +1549,7 @@
 													"script": {
 														"exec": [
 															"pm.test(\"Successful DELETE request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
 															"});"
 														],
 														"type": "text/javascript"
@@ -1752,7 +1752,7 @@
 													"script": {
 														"exec": [
 															"pm.test(\"Successful DELETE request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
 															"});"
 														],
 														"type": "text/javascript"
