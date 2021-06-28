@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d098800b-e333-4a3a-8d1a-a0aad4e7ae85",
+		"_postman_id": "4649f2d0-a7a4-4c67-9908-4ec3ef773677",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1181,54 +1181,6 @@
 												}
 											},
 											"response": []
-										},
-										{
-											"name": "Get events of LeafUser credential",
-											"event": [
-												{
-													"listen": "test",
-													"script": {
-														"exec": [
-															"pm.test(\"Successful GET request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
-															"});"
-														],
-														"type": "text/javascript"
-													}
-												}
-											],
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Authorization",
-														"value": "Bearer {{leaf_token}}",
-														"type": "text"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json",
-														"type": "text"
-													}
-												],
-												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/climate-field-view-credentials/events",
-													"protocol": "https",
-													"host": [
-														"{{leaf_api_url}}"
-													],
-													"path": [
-														"services",
-														"usermanagement",
-														"api",
-														"users",
-														"{{leaf_user_id}}",
-														"climate-field-view-credentials",
-														"events"
-													]
-												}
-											},
-											"response": []
 										}
 									]
 								},
@@ -1380,54 +1332,6 @@
 														"users",
 														"{{leaf_user_id}}",
 														"john-deere-credentials"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Get events of LeafUser credential",
-											"event": [
-												{
-													"listen": "test",
-													"script": {
-														"exec": [
-															"pm.test(\"Successful GET request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
-															"});"
-														],
-														"type": "text/javascript"
-													}
-												}
-											],
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Authorization",
-														"value": "Bearer {{leaf_token}}",
-														"type": "text"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json",
-														"type": "text"
-													}
-												],
-												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/john-deere-credentials/events",
-													"protocol": "https",
-													"host": [
-														"{{leaf_api_url}}"
-													],
-													"path": [
-														"services",
-														"usermanagement",
-														"api",
-														"users",
-														"{{leaf_user_id}}",
-														"john-deere-credentials",
-														"events"
 													]
 												}
 											},
@@ -1587,54 +1491,6 @@
 												}
 											},
 											"response": []
-										},
-										{
-											"name": "Get events of LeafUser credential",
-											"event": [
-												{
-													"listen": "test",
-													"script": {
-														"exec": [
-															"pm.test(\"Successful GET request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
-															"});"
-														],
-														"type": "text/javascript"
-													}
-												}
-											],
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Authorization",
-														"value": "Bearer {{leaf_token}}",
-														"type": "text"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json",
-														"type": "text"
-													}
-												],
-												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/trimble-credentials/events",
-													"protocol": "https",
-													"host": [
-														"{{leaf_api_url}}"
-													],
-													"path": [
-														"services",
-														"usermanagement",
-														"api",
-														"users",
-														"{{leaf_user_id}}",
-														"trimble-credentials",
-														"events"
-													]
-												}
-											},
-											"response": []
 										}
 									]
 								},
@@ -1786,54 +1642,6 @@
 														"users",
 														"{{leaf_user_id}}",
 														"cnhi-credentials"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Get events of LeafUser credential Copy",
-											"event": [
-												{
-													"listen": "test",
-													"script": {
-														"exec": [
-															"pm.test(\"Successful GET request\", function () {",
-															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
-															"});"
-														],
-														"type": "text/javascript"
-													}
-												}
-											],
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Authorization",
-														"value": "Bearer {{leaf_token}}",
-														"type": "text"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json",
-														"type": "text"
-													}
-												],
-												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/cnhi-credentials/events",
-													"protocol": "https",
-													"host": [
-														"{{leaf_api_url}}"
-													],
-													"path": [
-														"services",
-														"usermanagement",
-														"api",
-														"users",
-														"{{leaf_user_id}}",
-														"cnhi-credentials",
-														"events"
 													]
 												}
 											},
