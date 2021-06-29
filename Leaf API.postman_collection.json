@@ -1033,7 +1033,7 @@
 									"name": "ClimateFieldView",
 									"item": [
 										{
-											"name": "Get credential of LeafUser",
+											"name": "Get ClimateFieldView credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1080,7 +1080,7 @@
 											"response": []
 										},
 										{
-											"name": "Add credential to LeafUser",
+											"name": "Add ClimateFieldView credentials to the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1136,7 +1136,7 @@
 											"response": []
 										},
 										{
-											"name": "Delete credential of LeafUser",
+											"name": "Delete ClimateFieldView credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1188,7 +1188,7 @@
 									"name": "JohnDeere",
 									"item": [
 										{
-											"name": "Get credential of LeafUser",
+											"name": "Get JohnDeere credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1235,7 +1235,7 @@
 											"response": []
 										},
 										{
-											"name": "Add credential to LeafUser",
+											"name": "Add JohnDeere credentials to the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1291,7 +1291,7 @@
 											"response": []
 										},
 										{
-											"name": "Delete credential of LeafUser",
+											"name": "Delete JohnDeere credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1343,7 +1343,7 @@
 									"name": "Trimble",
 									"item": [
 										{
-											"name": "Get credential of LeafUser",
+											"name": "Get Trimble credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1390,7 +1390,7 @@
 											"response": []
 										},
 										{
-											"name": "Add credential to LeafUser",
+											"name": "Add Trimble credentials to the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1446,7 +1446,7 @@
 											"response": []
 										},
 										{
-											"name": "Delete credential of LeafUser",
+											"name": "Delete Trimble credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1498,7 +1498,7 @@
 									"name": "CNHi",
 									"item": [
 										{
-											"name": "Get credential of LeafUser",
+											"name": "Get CNHi credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1545,7 +1545,7 @@
 											"response": []
 										},
 										{
-											"name": "Add credential to LeafUser",
+											"name": "Add CNHi credentials to LeafUser",
 											"event": [
 												{
 													"listen": "test",
@@ -1601,7 +1601,7 @@
 											"response": []
 										},
 										{
-											"name": "Delete credential of LeafUser",
+											"name": "Delete CNHi credentials of the LeafUser",
 											"event": [
 												{
 													"listen": "test",
