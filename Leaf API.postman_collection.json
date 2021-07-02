@@ -3980,7 +3980,7 @@
 		},
 		{
 			"key": "leaf_auth_cnhi",
-			"value": "0rtwuz7da8.execute-api.us-east-1.amazonaws.com"
+			"value": "cnhi-oauth2-helper.withleaf.io"
 		}
 	]
 }
