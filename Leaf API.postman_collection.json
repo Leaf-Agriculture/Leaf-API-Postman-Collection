@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8f9b5bd4-df9c-47ec-a131-ac6c4275c847",
+		"_postman_id": "4649f2d0-a7a4-4c67-9908-4ec3ef773677",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -531,52 +531,6 @@
 										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
 									},
 									"response": []
-								},
-								{
-									"name": "3. Add John Deere Credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"jd_credentials_id\", jsonData.id);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/john-deere-credentials",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"john-deere-credentials"
-											]
-										}
-									},
-									"response": []
 								}
 							],
 							"description": "John Deere Auth\nTo get a better sense of the authentication process with John Deere and the results, check our Medium Post (https://medium.com/leaf-agriculture/how-to-use-leafs-api-to-retrieve-machinery-data-from-john-deere-fb1ba331d089)\n1. Get John Deere auth URL\nIn Step 1 we will be generating tokens from John Deere. The goal In step 2 is we will get our john deere token_id and token_secret\n\nToken Verifier\nIn step 1 we will get a temporary \"token verifier\" from John Deere that confirms a user’s authentication of your application to access their John Deere data and generate credentials. We get that verifier by going through their authentication flow (oauth2).\nBefore generating the authentication URL, please:\nUpdate current value of \"jd_client_key\" to your app's client key on John Deere\nUpdate current value of \"jd_client_secret\" to your app's client secret on John Deere\nUpdate current value of \"jd_callback_url\" to your app's callback_url on John Deere\n\nThen, to generate the authentication URL your application will send to your user so they can authorize access to their account files you can use the included step 2 in the Postman Collection. Change \"client_key\" and \"client_secret\" variables to yours received from John Deere when you created an app on your developer account with them and redirect_uri to a uri the \"token verifier\" will be sent after the user authorizes your application.\nHit \"Send\".\nRedirect your user to the url included in the response.\nThey will authenticate and be redirected to the redirect_url\nCopy the entire url you were redirected to. It looks like:\nhttps://leafagriculture.com.br/?oauth_token=TOKEN&oauth_verifier=CODE\nPaste it in the environment variable \"jd_response_url\"\n2. Get John Deere Tokens\nAfter updating the “jd_response_url” in Postman you can submit your credentials and receive your tokens:\nHit \"Send\"\n\n\"token_id\" and \"token_secret_key\" will be automatically transferred to \"jd_token_id\" and \"jd_token_secret\" environment variables and will be used in the next step.\n\n3. Add John Deere ID\nNow we can create a Developer-User pair credentials ID that will allow you to access your user’s John Deere data. We first add the John Deere credentials to Leaf API, just:\nHit \"Send\"\nAll the info needed has already been filled automatically in Step 2.\n\nAn \"id\" for the credentials you just created will be returned. This \"id\" will be automatically transferred to the value of \"jd_credentials_id\" to be used in the next step.\n",
@@ -684,6 +638,9 @@
 										}
 									],
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "POST",
 										"header": [
 											{
@@ -732,54 +689,6 @@
 										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
 									},
 									"response": []
-								},
-								{
-									"name": "3. Add CFV credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"cfv_credentials_id\", jsonData.id);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"clientId\": \"{{cfv_client_id}}\",\n  \"clientSecret\": \"{{cfv_client_secret}}\",\n  \"apiKey\": \"{{cfv_api_key}}\",\n  \"refreshToken\": \"{{cfv_refresh_token}}\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/climate-field-view-credentials",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"climate-field-view-credentials"
-											]
-										}
-									},
-									"response": []
 								}
 							],
 							"description": "Climate Field View Auth\nTo get a better sense of the authentication process with Climate Field View and the results, check our Medium Post (https://medium.com/leaf-agriculture/how-to-use-leafs-api-to-retrieve-machinery-data-from-climate-fieldview-dda921f40291)\n\n1. Get CFV auth URL\nWe will be generating a url to redirect your user to authenticate with Climate.\nUpdate environment variables \"cfv_client_id\" and \"cfv_client_secret\" to your CFV developer account credentials\nUpdate environment variable \"cfv_redirect_url\" to your application's backend\nRedirect your user to the script's output url.\nThey will authenticate and be redirected to the redirect_uri\nA code will be sent to that cfv_redirect_url. We will need this code Step 2.\nCopy the code value \nNote: this code expires after 1 minute.\n\nPaste code value to environment variable \"cfv_code\"\n\n2. Get CFV tokens\nHit \"Send\"\n\nA lot of information will be returned. The important ones are \"access_token\" and \"refresh_token. These will be automatically transferred to \"cfv_access_token\" and \"cfv_refresh_token\" environment variables and will be used in the next step.\n\t\n3. Add CFV credentials\nNow we can create a Developer-User pair credentials ID that will allow you to access your user’s Climate data. We first add the Climate credentials to Leaf API, to do that:\nHit \"Send\"\n\nAn \"id\" for the credentials you just created will be returned. This \"id\" will be automatically transferred to the value of \"cfv_credentials_id\" to be used in the next step.",
@@ -801,257 +710,6 @@
 											""
 										]
 									}
-								}
-							]
-						},
-						{
-							"name": "Trimble auth",
-							"item": [
-								{
-									"name": "Create Trimble Credential",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"trimble_credentials_id\", jsonData.id);",
-													"",
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "  {\n    \"userName\": \"your users username\",\n    \"password\": \"your users password\",\n    \"applicationName\": \"Identity\",\n    \"serviceIdentityId\": \"your apps identity id\"\n  }"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"trimble-credentials"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Trimble Credential",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": ""
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"trimble-credentials",
-												"{{trimble_credentials_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete Trimble Credential",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([204]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": ""
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/{{trimble_credentials_id}}",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"trimble-credentials",
-												"{{trimble_credentials_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get all Trimble Credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": ""
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/trimble-credentials/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"trimble-credentials",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Leaf User Trimble",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": \"{{leaf-user-id}}\",\n    \"name\": \"{{random_name}}\",\n    \"email\": \"{{random_number}}@sharklasers.com\",\n\t\"trimbleCredentials\": \n\t{\n\t\t\"id\": \"{{trimble-credentials-id}}\"\n\t}\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"users",
-												""
-											]
-										}
-									},
-									"response": []
 								}
 							]
 						},
@@ -1130,56 +788,6 @@
 											],
 											"path": [
 												"get_token"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "3. Add CNHi Credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"cnhi_credentials_id\", jsonData.id);",
-													"",
-													"pm.test(\"Successful POST request\", function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([201]);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/cn-hi-credentials",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"cn-hi-credentials"
 											]
 										}
 									},
@@ -1418,6 +1026,631 @@
 										}
 									},
 									"response": []
+								}
+							]
+						},
+						{
+							"name": "Provider Credentials",
+							"item": [
+								{
+									"name": "ClimateFieldView",
+									"item": [
+										{
+											"name": "Get ClimateFieldView credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful GET request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/climate-field-view-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"climate-field-view-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add ClimateFieldView credentials to the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful POST request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"clientId\": \"{{cfv_client_id}}\",\n    \"clientSecret\": \"{{cfv_client_secret}}\",\n    \"apiKey\": \"{{cfv_api_key}}\",\n    \"refreshToken\": \"{{cfv_refresh_token}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/climate-field-view-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"climate-field-view-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete ClimateFieldView credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful DELETE request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/climate-field-view-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"climate-field-view-credentials"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "JohnDeere",
+									"item": [
+										{
+											"name": "Get JohnDeere credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful GET request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/john-deere-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"john-deere-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add JohnDeere credentials to the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful POST request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/john-deere-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"john-deere-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete JohnDeere credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful DELETE request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/john-deere-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"john-deere-credentials"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Trimble",
+									"item": [
+										{
+											"name": "Get Trimble credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful GET request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/trimble-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"trimble-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add Trimble credentials to the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful POST request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"applicationName\": \"{{trimble_application_name}}\",\n    \"serviceIdentityId\": \"{{trimble_service_identity_id}}\",\n    \"userName\": \"{{trimble_username}}\",\n    \"password\": \"{{trimble_password}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/trimble-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"trimble-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete Trimble credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful DELETE request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/trimble-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"trimble-credentials"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "CNHi",
+									"item": [
+										{
+											"name": "Get CNHi credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful GET request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/cnhi-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"cnhi-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add CNHi credentials to LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful POST request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/cnhi-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"cnhi-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete CNHi credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful DELETE request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/cnhi-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"cnhi-credentials"
+													]
+												}
+											},
+											"response": []
+										}
+									]
 								}
 							]
 						},
@@ -3750,7 +3983,7 @@
 		},
 		{
 			"key": "leaf_auth_cnhi",
-			"value": "0rtwuz7da8.execute-api.us-east-1.amazonaws.com"
+			"value": "cnhi-oauth2-helper.withleaf.io"
 		}
 	]
 }
