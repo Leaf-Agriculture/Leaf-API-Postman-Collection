@@ -1930,7 +1930,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationsImageCreation\": false,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"SQUARE\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n        \"0%\"  : [200,   0, 0],\n        \"35%\" : [255,  40, 0],\n        \"45%\" : [255, 150, 0],\n        \"55%\" : [255, 240, 0],\n        \"65%\" : [  0, 230, 0],\n        \"75%\" : [  0, 190, 0],\n        \"100%\": [  0, 130, 0],\n        \"nv\"  : [  0,   0, 0, 0]\n    },\n    \"fieldsAutoSync\": true,\n    \"fieldsAttachIntersection\": 10,\n    \"fieldsMergeIntersection\": 10\n}"
+											"raw": "{\n    \"operationsImageCreation\": false,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"SQUARE\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n        \"0%\"  : [200,   0, 0],\n        \"35%\" : [255,  40, 0],\n        \"45%\" : [255, 150, 0],\n        \"55%\" : [255, 240, 0],\n        \"65%\" : [  0, 230, 0],\n        \"75%\" : [  0, 190, 0],\n        \"100%\": [  0, 130, 0],\n        \"nv\"  : [  0,   0, 0, 0]\n    },\n    \"fieldsAutoSync\": true,\n    \"fieldsAttachIntersection\": 0.01,\n    \"fieldsMergeIntersection\": 0.01\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs/{{leaf_user_id}}",
@@ -1967,7 +1967,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationsImageCreation\": false,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"ROUND\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n        \"0%\"  : [200,   0, 0],\n        \"35%\" : [255,  40, 0],\n        \"45%\" : [255, 150, 0],\n        \"55%\" : [255, 240, 0],\n        \"65%\" : [  0, 230, 0],\n        \"75%\" : [  0, 190, 0],\n        \"100%\": [  0, 130, 0],\n        \"nv\"  : [  0,   0, 0, 0]\n    },\n    \"fieldsAutoSync\": true,\n    \"fieldsAttachIntersection\": 10,\n    \"fieldsMergeIntersection\": 10\n}"
+											"raw": "{\n    \"operationsImageCreation\": false,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"ROUND\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n        \"0%\"  : [200,   0, 0],\n        \"35%\" : [255,  40, 0],\n        \"45%\" : [255, 150, 0],\n        \"55%\" : [255, 240, 0],\n        \"65%\" : [  0, 230, 0],\n        \"75%\" : [  0, 190, 0],\n        \"100%\": [  0, 130, 0],\n        \"nv\"  : [  0,   0, 0, 0]\n    },\n    \"fieldsAutoSync\": true,\n    \"fieldsAttachIntersection\": 0.01,\n    \"fieldsMergeIntersection\": 0.01\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs/{{leaf_user_id}}",
@@ -2067,7 +2067,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"operationsImageCreation\": false,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"SQUARE\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n        \"0%\"  : [200,   0, 0],\n        \"35%\" : [255,  40, 0],\n        \"45%\" : [255, 150, 0],\n        \"55%\" : [255, 240, 0],\n        \"65%\" : [  0, 230, 0],\n        \"75%\" : [  0, 190, 0],\n        \"100%\": [  0, 130, 0],\n        \"nv\"  : [  0,   0, 0, 0]\n    },\n    \"fieldsAutoSync\": true,\n    \"fieldsAttachIntersection\": 10,\n    \"fieldsMergeIntersection\": 10\n}"
+											"raw": "{\n    \"operationsImageCreation\": false,\n    \"geoimagesResolution\": 0.00001,\n    \"geoimagesShape\": \"SQUARE\",\n    \"geoimagesProjection\": \"EPSG:3857\",\n    \"geoimagesColorRamp\": {\n        \"0%\"  : [200,   0, 0],\n        \"35%\" : [255,  40, 0],\n        \"45%\" : [255, 150, 0],\n        \"55%\" : [255, 240, 0],\n        \"65%\" : [  0, 230, 0],\n        \"75%\" : [  0, 190, 0],\n        \"100%\": [  0, 130, 0],\n        \"nv\"  : [  0,   0, 0, 0]\n    },\n    \"fieldsAutoSync\": true,\n    \"fieldsAttachIntersection\": 0.01,\n    \"fieldsMergeIntersection\": 0.01\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/config/api/configs",
