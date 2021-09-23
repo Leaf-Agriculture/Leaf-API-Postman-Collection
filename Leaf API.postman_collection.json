@@ -1639,7 +1639,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"clientEnvironment\": \"{{cnhi_client_environment}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}",
+													"raw": "{\n  \"clientId\": \"{{cnhi_client_id}}\" ,\n  \"clientSecret\": \"{{cnhi_client_secret}}\",\n  \"clientEnvironment\": \"{{cnhi_client_environment}}\",\n  \"subscriptionKey\": \"{{cnhi_subscription_key}}\",\n  \"refreshToken\": \"{{cnhi_refresh_token}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
