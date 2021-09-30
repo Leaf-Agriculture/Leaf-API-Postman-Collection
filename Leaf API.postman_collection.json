@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ad99cd82-f090-4bcb-aa9b-a1fef67d12ba",
+		"_postman_id": "9da8624a-8773-43dd-be27-926566f90377",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -861,235 +861,6 @@
 				{
 					"name": "Leaf User",
 					"item": [
-						{
-							"name": "Create Leaf User",
-							"item": [
-								{
-									"name": "With only JD",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"name\": \"Albert Einstein{{random_number}}\",\n  \"email\": \"Albert Einstein{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  }\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"users",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "With only CFV",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"name\": \"JohnHopkins{{random_number}}\",\n  \"email\": \"JohnHopkins{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"climateFieldViewCredentials\": {\n\t\"id\":\"{{cfv_credentials_id}}\"\n  }\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"users",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "With CFV and JD",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"name\": \"Carl Sagan{{random_number}}\",\n  \"email\": \"CarlSagan{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\",\n  \"johnDeereCredentials\": {\n  \t\"id\":\"{{jd_credentials_id}}\"\n  },\n  \"climateFieldViewCredentials\": {\n    \"id\":\"{{cfv_credentials_id}}\"\n  }\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"users",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Without credentials",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"leaf_user_id\", jsonData.id);"
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"name\": \"Ada Lovelace{{random_number}}\",\n  \"email\": \"AdaLovelace{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}"
-										},
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"usermanagement",
-												"api",
-												"users",
-												""
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
 						{
 							"name": "Provider Credentials",
 							"item": [
@@ -2021,6 +1792,62 @@
 											"value": "",
 											"disabled": true
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Leaf User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"leaf_user_id\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Ada Lovelace{{random_number}}\",\n  \"email\": \"AdaLovelace{{random_number}}@sharklasers.com\",\n  \"address\": \"New York, NY 10004, US\",\n  \"phone\": \"123-456-7890\"\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"users",
+										""
 									]
 								}
 							},
