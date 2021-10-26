@@ -2437,13 +2437,13 @@
 										},
 										{
 											"key": "operationStartTime",
-											"value": "2018-10-22T20:25",
+											"value": "2018-10-22T20:25Z",
 											"description": "ISO 8601 date-time instant that filters operations that started at it or after it (must be in the past or present)",
 											"disabled": true
 										},
 										{
 											"key": "operationEndTime",
-											"value": "2018-10-22T20:25",
+											"value": "2018-10-22T20:25Z",
 											"description": "ISO 8601 date-time instant that filters operations that ended at it or before it (must be in the past or present)",
 											"disabled": true
 										},
@@ -2900,13 +2900,13 @@
 										},
 										{
 											"key": "operationStartTime",
-											"value": "2018-10-22T20:25",
+											"value": "2018-10-22T20:25Z",
 											"description": "ISO 8601 date. Returns operations from the operationStartTime onward",
 											"disabled": true
 										},
 										{
 											"key": "operationEndTime",
-											"value": "2019-10-22T20:25",
+											"value": "2019-10-22T20:25Z",
 											"description": "ISO 8601 date. Returns operations that ended before operationEndTime",
 											"disabled": true
 										},
