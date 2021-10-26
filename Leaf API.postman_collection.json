@@ -1901,7 +1901,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/37845f49-3f74-42f1-86c9-6a42a02c439c",
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -1911,7 +1911,7 @@
 										"usermanagement",
 										"api",
 										"users",
-										"37845f49-3f74-42f1-86c9-6a42a02c439c"
+										"{{leaf_user_id}}"
 									],
 									"query": [
 										{
@@ -4063,6 +4063,308 @@
 						}
 					],
 					"description": "Register you server's URL to receive alerts from Leaf services."
+				},
+				{
+					"name": "Beta",
+					"item": [
+						{
+							"name": "Machines",
+							"item": [
+								{
+									"name": "Get all Machines",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/machines",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"machines"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+													"disabled": true
+												},
+												{
+													"key": "sort",
+													"value": "asc",
+													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get specific Machine",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/machines/{{machine_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"machines",
+												"{{machine_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Machine",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"machine_id\", jsonData.id);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/machines",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"machines"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Machine",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/machines/{{machine_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"machines",
+												"{{machine_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Machine",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/machines/{{machine_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"machines",
+												"{{machine_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
 				}
 			]
 		}
