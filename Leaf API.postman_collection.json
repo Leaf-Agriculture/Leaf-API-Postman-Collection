@@ -4513,6 +4513,142 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "Prescription",
+							"item": [
+								{
+									"name": "RavenSlingshot",
+									"item": [
+										{
+											"name": "List all prescription",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/ravenSlingshot",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescriptions",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"ravenSlingshot"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Upload prescription file",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"description": "select your file",
+															"type": "file",
+															"src": []
+														}
+													]
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/ravenSlingshot",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescriptions",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"ravenSlingshot"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "ClimateFieldView",
+									"item": [
+										{
+											"name": "Upload prescription file",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"description": "select your file",
+															"type": "file",
+															"src": []
+														}
+													]
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/climateFieldView",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescriptions",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"climateFieldView"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
 						}
 					]
 				}
