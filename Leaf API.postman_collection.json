@@ -4515,13 +4515,13 @@
 							]
 						},
 						{
-							"name": "Prescription",
+							"name": "Prescription (Beta)",
 							"item": [
 								{
 									"name": "RavenSlingshot",
 									"item": [
 										{
-											"name": "List all prescription",
+											"name": "Get RavenSlingshot prescriptions",
 											"request": {
 												"method": "GET",
 												"header": [
@@ -4554,7 +4554,7 @@
 											"response": []
 										},
 										{
-											"name": "Upload prescription file",
+											"name": "Upload RavenSlingshot prescription file",
 											"request": {
 												"method": "POST",
 												"header": [
@@ -4572,7 +4572,7 @@
 													"formdata": [
 														{
 															"key": "file",
-															"description": "select your file",
+															"description": "Select your prescription file (zip file)",
 															"type": "file",
 															"src": []
 														}
@@ -4603,7 +4603,7 @@
 									"name": "ClimateFieldView",
 									"item": [
 										{
-											"name": "Upload prescription file",
+											"name": "Upload ClimateFieldView prescription file",
 											"request": {
 												"method": "POST",
 												"header": [
@@ -4621,7 +4621,7 @@
 													"formdata": [
 														{
 															"key": "file",
-															"description": "select your file",
+															"description": "Select your prescription file (zip file)",
 															"type": "file",
 															"src": []
 														}
