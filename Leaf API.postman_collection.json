@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ad99cd82-f090-4bcb-aa9b-a1fef67d12ba",
+		"_postman_id": "eaf03f21-626f-4122-b2fa-fde789bd7ae7",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -2372,587 +2372,775 @@
 					"name": "Fields",
 					"item": [
 						{
-							"name": "Get all fields",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields?leafUserId={{leaf_user_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"fields"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"description": "your Leaf User id"
-										},
-										{
-											"key": "provider",
-											"value": "Leaf",
-											"description": "filter by provider",
-											"disabled": true
-										},
-										{
-											"key": "type",
-											"value": "ORIGINAL",
-											"description": "filter by type",
-											"disabled": true
-										},
-										{
-											"key": "beforeCreatedTime",
-											"value": "",
-											"description": "filter by createdTime before the value",
-											"disabled": true
-										},
-										{
-											"key": "afterCreatedTime",
-											"value": "",
-											"description": "filter by createdTime after the value",
-											"disabled": true
-										},
-										{
-											"key": "beforeUpdatedTime",
-											"value": "",
-											"description": "filter by updatedTime before the value",
-											"disabled": true
-										},
-										{
-											"key": "afterUpdatedTime",
-											"value": "",
-											"description": "filter by updatedTime after the value",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get a field",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"{{field_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create a Field",
-							"event": [
+							"name": "Fields",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"pm.environment.set(\"field_id\", jsonData.id);",
-											""
+									"name": "Get all fields",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
 										],
-										"type": "text/javascript"
-									}
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/fields?leafUserId={{leaf_user_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"fields"
+											],
+											"query": [
+												{
+													"key": "leafUserId",
+													"value": "{{leaf_user_id}}",
+													"description": "your Leaf User id"
+												},
+												{
+													"key": "provider",
+													"value": "Leaf",
+													"description": "filter by provider",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "ORIGINAL",
+													"description": "filter by type",
+													"disabled": true
+												},
+												{
+													"key": "beforeCreatedTime",
+													"value": "",
+													"description": "filter by createdTime before the value",
+													"disabled": true
+												},
+												{
+													"key": "afterCreatedTime",
+													"value": "",
+													"description": "filter by createdTime after the value",
+													"disabled": true
+												},
+												{
+													"key": "beforeUpdatedTime",
+													"value": "",
+													"description": "filter by updatedTime before the value",
+													"disabled": true
+												},
+												{
+													"key": "afterUpdatedTime",
+													"value": "",
+													"description": "filter by updatedTime after the value",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
 								},
 								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
+									"name": "Get a field",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
 										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"geometry\": {\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]],\n    \"type\": \"MultiPolygon\"\n  }\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}"
+											]
 										}
-									}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all operations of a field",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"{{field_id}}",
-										"operations"
-									],
-									"query": [
-										{
-											"key": "origin",
-											"value": "provider",
-											"description": "provider, merged or automerged",
-											"disabled": true
-										},
-										{
-											"key": "operationType",
-											"value": "harvested",
-											"description": "Supported values: applied, harvested, planted, other",
-											"disabled": true
-										},
-										{
-											"key": "operationCrop",
-											"value": "",
-											"description": "crop code/number of the operation. Requires `operationProvider`",
-											"disabled": true
-										},
-										{
-											"key": "operationProvider",
-											"value": "JohnDeere",
-											"description": "The name of the company provider of the operations. Supported values: ClimateFieldView, CNHI, JohnDeere, Trimble",
-											"disabled": true
-										},
-										{
-											"key": "operationStartTime",
-											"value": "2018-10-22T20:25Z",
-											"description": "ISO 8601 date-time instant that filters operations that started at it or after it (must be in the past or present)",
-											"disabled": true
-										},
-										{
-											"key": "operationEndTime",
-											"value": "2018-10-22T20:25Z",
-											"description": "ISO 8601 date-time instant that filters operations that ended at it or before it (must be in the past or present)",
-											"disabled": true
-										},
-										{
-											"key": "organizationId",
-											"value": "",
-											"description": "Grower's organization id from the provider (string)",
-											"disabled": true
-										},
-										{
-											"key": "page",
-											"value": "0",
-											"description": "Pagination parameter for selecting the page of the result (integer)",
-											"disabled": true
-										},
-										{
-											"key": "size",
-											"value": "30",
-											"description": "Pagination parameter that specifies the size of each page (integer)",
-											"disabled": true
-										},
-										{
-											"key": "sort",
-											"value": "asc",
-											"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get an operation of a field",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations/{{file_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"{{field_id}}",
-										"operations",
-										"{{file_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Fields by geometry",
-							"event": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n   }\n }\n"
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/fields/query/intersects",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
+									"name": "Create a Field",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"field_id\", jsonData.id);",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
 									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"fields",
-										"query",
-										"intersects"
-									]
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"geometry\": {\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]],\n    \"type\": \"MultiPolygon\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields"
+											]
+										}
+									},
+									"response": []
 								},
-								"description": "If there are fields that intersect with the given geometry, they will be returned."
-							},
-							"response": []
-						},
-						{
-							"name": "Get intersection of fields",
-							"event": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
-											"});"
+									"name": "Get Fields by geometry",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
 										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\"{{field_id}}\", \"{{field_id}}\"]\n\n// [\"field1 id\", \"field2 id\", \"fieldN id\"]\n\n"
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/intersect",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"intersect"
-									]
-								},
-								"description": "If there are fields that intersect with the given geometry, they will be returned."
-							},
-							"response": []
-						},
-						{
-							"name": "Delete a field",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"fields",
-										"{{field_id}}"
-									]
-								},
-								"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
-							},
-							"response": []
-						},
-						{
-							"name": "Get all farms",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/farms",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"farms"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"description": "your Leaf User id",
-											"disabled": true
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"geometry\":\n   {\n     \"type\": \"MultiPolygon\",\n     \"coordinates\": [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n   }\n }\n"
 										},
-										{
-											"key": "page",
-											"value": "0",
-											"description": "Pagination parameter for selecting the page of the result (integer)",
-											"disabled": true
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/fields/query/intersects",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"fields",
+												"query",
+												"intersects"
+											]
 										},
+										"description": "If there are fields that intersect with the given geometry, they will be returned."
+									},
+									"response": []
+								},
+								{
+									"name": "Get intersection of fields",
+									"event": [
 										{
-											"key": "size",
-											"value": "30",
-											"description": "Pagination parameter that specifies the size of each page (integer)",
-											"disabled": true
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get a farm",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/farms/{{farm_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
 									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"farms",
-										"{{farm_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all growers",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\"{{field_id}}\", \"{{field_id}}\"]\n\n// [\"field1 id\", \"field2 id\", \"fieldN id\"]\n\n"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/intersect",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"intersect"
+											]
+										},
+										"description": "If there are fields that intersect with the given geometry, they will be returned."
 									},
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/growers",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"growers"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"description": "your Leaf User id",
-											"disabled": true
+									"response": []
+								},
+								{
+									"name": "Delete a field",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}"
+											]
 										},
-										{
-											"key": "page",
-											"value": "0",
-											"description": "Pagination parameter for selecting the page of the result (integer)",
-											"disabled": true
-										},
-										{
-											"key": "size",
-											"value": "30",
-											"description": "Pagination parameter that specifies the size of each page (integer)",
-											"disabled": true
-										}
-									]
+										"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
 						},
 						{
-							"name": "Get a grower",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/growers/{{grower_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"fields",
-										"api",
-										"growers",
-										"{{grower_id}}"
-									]
+							"name": "Boundaries",
+							"item": [
+								{
+									"name": "Get all boundaries of a field",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/boundaries",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"boundaries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a boundary of a field",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/boundaries/{{boundary_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"boundaries",
+												"{{boundary_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add active boundary of a field",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/boundary",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"boundary"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update active boundary",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"geometry\": {\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]],\n    \"type\": \"MultiPolygon\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/boundary",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"boundary"
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
+						},
+						{
+							"name": "Farms",
+							"item": [
+								{
+									"name": "Get all farms",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/farms",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"farms"
+											],
+											"query": [
+												{
+													"key": "leafUserId",
+													"value": "{{leaf_user_id}}",
+													"description": "your Leaf User id",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page of the result (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "30",
+													"description": "Pagination parameter that specifies the size of each page (integer)",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a farm",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/farms/{{farm_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"farms",
+												"{{farm_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Growers",
+							"item": [
+								{
+									"name": "Get all growers",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/growers",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"growers"
+											],
+											"query": [
+												{
+													"key": "leafUserId",
+													"value": "{{leaf_user_id}}",
+													"description": "your Leaf User id",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page of the result (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "30",
+													"description": "Pagination parameter that specifies the size of each page (integer)",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a grower",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/growers/{{grower_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"growers",
+												"{{grower_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Files",
+							"item": [
+								{
+									"name": "Get an operation of a field",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations/{{file_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"operations",
+												"{{file_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all operations of a field",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/operations",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"operations"
+											],
+											"query": [
+												{
+													"key": "origin",
+													"value": "provider",
+													"description": "provider, merged or automerged",
+													"disabled": true
+												},
+												{
+													"key": "operationType",
+													"value": "harvested",
+													"description": "Supported values: applied, harvested, planted, other",
+													"disabled": true
+												},
+												{
+													"key": "operationCrop",
+													"value": "",
+													"description": "crop code/number of the operation. Requires `operationProvider`",
+													"disabled": true
+												},
+												{
+													"key": "operationProvider",
+													"value": "JohnDeere",
+													"description": "The name of the company provider of the operations. Supported values: ClimateFieldView, CNHI, JohnDeere, Trimble",
+													"disabled": true
+												},
+												{
+													"key": "operationStartTime",
+													"value": "2018-10-22T20:25Z",
+													"description": "ISO 8601 date-time instant that filters operations that started at it or after it (must be in the past or present)",
+													"disabled": true
+												},
+												{
+													"key": "operationEndTime",
+													"value": "2018-10-22T20:25Z",
+													"description": "ISO 8601 date-time instant that filters operations that ended at it or before it (must be in the past or present)",
+													"disabled": true
+												},
+												{
+													"key": "organizationId",
+													"value": "",
+													"description": "Grower's organization id from the provider (string)",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page of the result (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "30",
+													"description": "Pagination parameter that specifies the size of each page (integer)",
+													"disabled": true
+												},
+												{
+													"key": "sort",
+													"value": "asc",
+													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					],
 					"description": "Query Operations by Field\nTo query all operations that happened in a specific field (step 2), we first need to create that field (step 1). Then, Leaf will automatically detect operations of that field based on the operations' and on the field's coordinates. This process usually takes about 30 minutes.\n1. Create Field\nHere we need to specify a leafUserId (that will be the Leaf User owner of that field), a externalId (that will be the name we give to the field) and the geojson geometry of the field (location). After creating the field we can query it (step 2) \n2. Get operations' ids by Field\nTo query all operations that happened in a specific field, just update the environment variable \"field_external_id\" to the field id you want to query files\n",
