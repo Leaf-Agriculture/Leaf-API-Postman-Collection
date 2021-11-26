@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "eaf03f21-626f-4122-b2fa-fde789bd7ae7",
+		"_postman_id": "33088ddc-f365-4b34-b832-8e4fa03df85d",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -2761,7 +2761,7 @@
 									"response": []
 								},
 								{
-									"name": "Add active boundary of a field",
+									"name": "Get active boundary of a field",
 									"request": {
 										"auth": {
 											"type": "noauth"
