@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "33088ddc-f365-4b34-b832-8e4fa03df85d",
-		"name": "Leaf API",
+		"_postman_id": "4300a7c0-e9da-4875-bc72-c48d6b287b21",
+		"name": "Leaf API Copy 5",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -4406,7 +4406,7 @@
 					"name": "Beta",
 					"item": [
 						{
-							"name": "Machines",
+							"name": "Machines (Beta)",
 							"item": [
 								{
 									"name": "Get all Machines",
@@ -4695,6 +4695,77 @@
 												"{{leaf_user_id}}",
 												"machines",
 												"{{machine_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all Machine Files",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/machines/{{machine_id}}/files",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"machines",
+												"{{machine_id}}",
+												"files"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"disabled": true
+												},
+												{
+													"key": "sort",
+													"value": "id,asc",
+													"disabled": true
+												}
 											]
 										}
 									},
