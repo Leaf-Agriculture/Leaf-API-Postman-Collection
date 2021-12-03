@@ -4709,7 +4709,7 @@
 									"name": "RavenSlingshot",
 									"item": [
 										{
-											"name": "Get RavenSlingshot prescriptions",
+											"name": "Get RavenSlingshot prescription",
 											"request": {
 												"method": "GET",
 												"header": [
@@ -4723,7 +4723,7 @@
 													}
 												],
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/ravenSlingshot",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/ravenSlingshot",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -4731,7 +4731,7 @@
 													"path": [
 														"services",
 														"beta",
-														"prescriptions",
+														"prescription",
 														"api",
 														"users",
 														"{{leaf_user_id}}",
@@ -4767,7 +4767,7 @@
 													]
 												},
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/ravenSlingshot",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/ravenSlingshot",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -4775,7 +4775,7 @@
 													"path": [
 														"services",
 														"beta",
-														"prescriptions",
+														"prescription",
 														"api",
 														"users",
 														"{{leaf_user_id}}",
@@ -4816,7 +4816,7 @@
 													]
 												},
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/climateFieldView",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/climateFieldView",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -4824,7 +4824,7 @@
 													"path": [
 														"services",
 														"beta",
-														"prescriptions",
+														"prescription",
 														"api",
 														"users",
 														"{{leaf_user_id}}",
