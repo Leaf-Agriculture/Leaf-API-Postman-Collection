@@ -4835,6 +4835,88 @@
 											"response": []
 										}
 									]
+								},
+								{
+									"name": "John Deere",
+									"item": [
+										{
+											"name": "Get John Deere prescription file",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/johnDeere",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"johnDeere"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Upload John Deere prescription file",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"description": "Select your prescription file (zip file)",
+															"type": "file",
+															"src": []
+														}
+													]
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/johnDeere",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"johnDeere"
+													]
+												}
+											},
+											"response": []
+										}
+									]
 								}
 							]
 						}
