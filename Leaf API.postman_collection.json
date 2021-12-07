@@ -4840,7 +4840,7 @@
 									"name": "John Deere",
 									"item": [
 										{
-											"name": "Get John Deere prescription file",
+											"name": "Get John Deere prescriptions",
 											"request": {
 												"method": "GET",
 												"header": [
@@ -4873,7 +4873,7 @@
 											"response": []
 										},
 										{
-											"name": "Upload John Deere prescription file",
+											"name": "Upload John Deere prescription files",
 											"request": {
 												"method": "POST",
 												"header": [
