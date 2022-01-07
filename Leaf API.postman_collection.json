@@ -1175,6 +1175,161 @@
 									]
 								},
 								{
+									"name": "Stara",
+									"item": [
+										{
+											"name": "Get Stara credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful GET request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/stara-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"trimble-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add Stara credentials to the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful POST request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"apiKey\": \"{{stara_api_key}}\",\n    \"accessToken\": \"{{stara_access_token}}\",\n    \"accessTokenClient\": \"{{stara_access_token_client}}\",\n    \"refreshToken\": \"{{stara_refresh_token}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/stara-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"stara-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete Stara credentials of the LeafUser",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Successful DELETE request\", function () {",
+															"    pm.expect(pm.response.code).to.be.oneOf([204,404]);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/stara-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"stara-credentials"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
 									"name": "Trimble",
 									"item": [
 										{
