@@ -1218,7 +1218,7 @@
 														"api",
 														"users",
 														"{{leaf_user_id}}",
-														"trimble-credentials"
+														"stara-credentials"
 													]
 												}
 											},
