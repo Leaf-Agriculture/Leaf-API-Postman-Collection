@@ -840,12 +840,10 @@
 											}
 										},
 										"url": {
-											"raw": "https://raven-oauth2-helper.withleaf.io/get_token",
+											"raw": "https://{{leaf_auth_raven}}/get_token",
 											"protocol": "https",
 											"host": [
-												"raven-oauth2-helper",
-												"withleaf",
-												"io"
+												"{{leaf_auth_raven}}"
 											],
 											"path": [
 												"get_token"
