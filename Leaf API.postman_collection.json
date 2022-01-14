@@ -857,7 +857,7 @@
 							]
 						},
 						{
-							"name": "Stara",
+							"name": "Stara auth",
 							"item": [
 								{
 									"name": "Get Stara Tokens",
