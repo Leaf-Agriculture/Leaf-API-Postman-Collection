@@ -5126,7 +5126,7 @@
 													}
 												],
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{organization_id}}",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -5143,7 +5143,7 @@
 													"query": [
 														{
 															"key": "organizationId",
-															"value": "{{organization_id}}",
+															"value": "{{jd_organization_id}}",
 															"description": "The id of the organization at JohnDeere"
 														}
 													]
@@ -5177,7 +5177,7 @@
 													]
 												},
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{organization_id}}",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -5194,7 +5194,7 @@
 													"query": [
 														{
 															"key": "organizationId",
-															"value": "{{organization_id}}",
+															"value": "{{jd_organization_id}}",
 															"description": "The id of the organization at JohnDeere"
 														}
 													]
