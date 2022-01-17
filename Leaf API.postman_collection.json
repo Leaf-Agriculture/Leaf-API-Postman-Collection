@@ -840,15 +840,61 @@
 											}
 										},
 										"url": {
-											"raw": "https://raven-oauth2-helper.withleaf.io/get_token",
+											"raw": "https://{{leaf_auth_raven}}/get_token",
 											"protocol": "https",
 											"host": [
-												"raven-oauth2-helper",
-												"withleaf",
-												"io"
+												"{{leaf_auth_raven}}"
 											],
 											"path": [
 												"get_token"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Stara auth",
+							"item": [
+								{
+									"name": "Get Stara Tokens",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user\": \"{{stara_username}}\",\n    \"pwd\": \"{{stara_password}}\",\n    \"tokenimp\": \"{{stara_api_key}}\"\n}\n\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://v2apitelemetria.telemetriastara.com.br/autenticacao_user",
+											"protocol": "https",
+											"host": [
+												"v2apitelemetria",
+												"telemetriastara",
+												"com",
+												"br"
+											],
+											"path": [
+												"autenticacao_user"
 											]
 										}
 									},
@@ -5080,7 +5126,7 @@
 													}
 												],
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/johnDeere",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -5097,9 +5143,8 @@
 													"query": [
 														{
 															"key": "organizationId",
-															"value": "{{organization_id}}",
-															"description": "The id of the organization at JohnDeere",
-															"disabled": false
+															"value": "{{jd_organization_id}}",
+															"description": "The id of the organization at JohnDeere"
 														}
 													]
 												}
@@ -5132,7 +5177,7 @@
 													]
 												},
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescriptions/api/users/{{leaf_user_id}}/johnDeere",
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -5149,9 +5194,8 @@
 													"query": [
 														{
 															"key": "organizationId",
-															"value": "{{organization_id}}",
-															"description": "The id of the organization at JohnDeere",
-															"disabled": false
+															"value": "{{jd_organization_id}}",
+															"description": "The id of the organization at JohnDeere"
 														}
 													]
 												}
