@@ -4675,6 +4675,54 @@
 													"value": "asc",
 													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
 													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "Case IH  7120",
+													"description": "Filter by machine name",
+													"disabled": true
+												},
+												{
+													"key": "provider",
+													"value": "CaseIH",
+													"description": "Fitler by Provider",
+													"disabled": true
+												},
+												{
+													"key": "providerOrganizationId",
+													"value": "1722",
+													"description": "Filter by the organization id",
+													"disabled": true
+												},
+												{
+													"key": "serialNumber",
+													"value": "8205186",
+													"description": "Filter by the machine serial number",
+													"disabled": true
+												},
+												{
+													"key": "originType",
+													"value": "FILE_POOLED",
+													"description": "Filter by the origin of the machine, must be either USER_CREATED, FILE_POOLED or PROVIDER_POOLED",
+													"disabled": true
+												},
+												{
+													"key": "createdAt",
+													"value": "2022-01-10T21:28:58.764Z",
+													"description": "Filter by the exact time of the record creation",
+													"disabled": true
+												},
+												{
+													"key": "beforeCreatedAt",
+													"value": "2022-01-20T21:28:58.764Z",
+													"description": "Filters for records created before the datetime",
+													"disabled": true
+												},
+												{
+													"key": "afterCreatedAt",
+													"value": "2022-01-01T21:28:58.764Z",
+													"description": "Filters for records created after the datetime",
+													"disabled": true
 												}
 											]
 										}
@@ -4955,16 +5003,61 @@
 												{
 													"key": "page",
 													"value": "0",
+													"description": "Pagination parameter for selecting the page (integer)",
 													"disabled": true
 												},
 												{
 													"key": "size",
 													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
 													"disabled": true
 												},
 												{
 													"key": "sort",
 													"value": "id,asc",
+													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												},
+												{
+													"key": "leafFileId",
+													"value": "99999999-9999-9999-9999-999999999999",
+													"description": "Filter by the leafFile id",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2017-04-19T19:03:11Z",
+													"description": "Filter by the exact time of the start of the operation",
+													"disabled": true
+												},
+												{
+													"key": "endTime",
+													"value": "2017-04-19T19:03:34Z",
+													"description": "Filters by the exact time of the end of the operation",
+													"disabled": true
+												},
+												{
+													"key": "originType",
+													"value": "FILE_POOLED",
+													"description": "Filter by the origin of the machine, must be either USER_CREATED, FILE_POOLED or PROVIDER_POOLED",
+													"disabled": true
+												},
+												{
+													"key": "createdAt",
+													"value": "2022-01-14T19:37:10.534Z",
+													"description": "Filter by the exact time of the record creation",
+													"disabled": true
+												},
+												{
+													"key": "beforeCreatedAt",
+													"value": "2022-01-20T19:37:10.534Z",
+													"description": "Filters for records created before the datetime",
+													"disabled": true
+												},
+												{
+													"key": "afterCreatedAt",
+													"value": "2022-01-10T19:37:10.534Z",
+													"description": "Filters for records created after the datetime",
 													"disabled": true
 												}
 											]
