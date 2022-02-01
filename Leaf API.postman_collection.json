@@ -4679,49 +4679,49 @@
 												{
 													"key": "name",
 													"value": "Case IH  7120",
-													"description": "Filter by machine name",
+													"description": "Text",
 													"disabled": true
 												},
 												{
 													"key": "provider",
 													"value": "CaseIH",
-													"description": "Fitler by Provider",
+													"description": "Text (JohnDeere, CaseIH, Stara, etc)",
 													"disabled": true
 												},
 												{
 													"key": "providerOrganizationId",
 													"value": "1722",
-													"description": "Filter by the organization id",
+													"description": "Text",
 													"disabled": true
 												},
 												{
 													"key": "serialNumber",
 													"value": "8205186",
-													"description": "Filter by the machine serial number",
+													"description": "Text",
 													"disabled": true
 												},
 												{
 													"key": "originType",
 													"value": "FILE_POOLED",
-													"description": "Filter by the origin of the machine, must be either USER_CREATED, FILE_POOLED or PROVIDER_POOLED",
+													"description": "Specify the origin of the machine, must be either USER_CREATED, FILE_POOLED or PROVIDER_POOLED",
 													"disabled": true
 												},
 												{
 													"key": "createdAt",
 													"value": "2022-01-10T21:28:58.764Z",
-													"description": "Filter by the exact time of the record creation",
+													"description": "Must match exactly the time of the record creation, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
 													"key": "beforeCreatedAt",
 													"value": "2022-01-20T21:28:58.764Z",
-													"description": "Filters for records created before the datetime",
+													"description": "Filters for records created before the datetime, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
 													"key": "afterCreatedAt",
 													"value": "2022-01-01T21:28:58.764Z",
-													"description": "Filters for records created after the datetime",
+													"description": "Filters for records created after the datetime, ISO 8601 without timezone",
 													"disabled": true
 												}
 											]
@@ -5021,43 +5021,43 @@
 												{
 													"key": "leafFileId",
 													"value": "99999999-9999-9999-9999-999999999999",
-													"description": "Filter by the leafFile id",
+													"description": "UUID",
 													"disabled": true
 												},
 												{
 													"key": "startTime",
 													"value": "2017-04-19T19:03:11Z",
-													"description": "Filter by the exact time of the start of the operation",
+													"description": "Must match exactly the time of the start of the operation, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
 													"key": "endTime",
 													"value": "2017-04-19T19:03:34Z",
-													"description": "Filters by the exact time of the end of the operation",
+													"description": "Must match exactly the time of the end of the operation, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
 													"key": "originType",
 													"value": "FILE_POOLED",
-													"description": "Filter by the origin of the machine, must be either USER_CREATED, FILE_POOLED or PROVIDER_POOLED",
+													"description": "Filter by the origin of the machine file, must be either USER_CREATED, FILE_POOLED or PROVIDER_POOLED",
 													"disabled": true
 												},
 												{
 													"key": "createdAt",
 													"value": "2022-01-14T19:37:10.534Z",
-													"description": "Filter by the exact time of the record creation",
+													"description": "Must match exactly the time of the record creation, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
 													"key": "beforeCreatedAt",
 													"value": "2022-01-20T19:37:10.534Z",
-													"description": "Filters for records created before the datetime",
+													"description": "Filters for records created before the datetime, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
 													"key": "afterCreatedAt",
 													"value": "2022-01-10T19:37:10.534Z",
-													"description": "Filters for records created after the datetime",
+													"description": "Filters for records created after the datetime, ISO 8601 without timezone",
 													"disabled": true
 												}
 											]
