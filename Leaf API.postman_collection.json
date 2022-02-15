@@ -464,7 +464,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"client_id\": \"{{jd_client_id}}\",\n    \"client_secret\": \"{{jd_client_secret}}\",\n    \"client_redirect_url\": \"{{jd_redirect_url}}\"\n}",
+											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"clientRedirectUrl\": \"{{jd_redirect_url}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -511,7 +511,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"client_id\": \"{{jd_client_id}}\",\n    \"client_secret\": \"{{jd_client_secret}}\",\n    \"response_url\": \"{{jd_response_url}}\",\n    \"client_redirect_url\": \"{{jd_redirect_url}}\"\n}",
+											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"responseUrl\": \"{{jd_response_url}}\",\n    \"clientRedirectUrl\": \"{{jd_redirect_url}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1146,7 +1146,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"accessToken\": \"{{jd_access_token}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\"\n}",
+													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n  \"refreshToken\": \"{{jd_refresh_token}}\",\n  \"clientEnvironment\": \"{jd_client_environment}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
