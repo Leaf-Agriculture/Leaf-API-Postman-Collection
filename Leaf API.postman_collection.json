@@ -5298,6 +5298,173 @@
 									]
 								}
 							]
+						},
+						{
+							"name": "Input (Beta)",
+							"item": [
+								{
+									"name": "Get all varieties",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/varieties",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"varieties"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+													"disabled": true
+												},
+												{
+													"key": "sort",
+													"value": "asc",
+													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "FERT",
+													"description": "Text",
+													"disabled": true
+												},
+												{
+													"key": "crops",
+													"value": "[\"corn\"]",
+													"description": "Array[Text]",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all products",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/products",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"products"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+													"disabled": true
+												},
+												{
+													"key": "sort",
+													"value": "asc",
+													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "Captan",
+													"description": "Text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
