@@ -5377,8 +5377,8 @@
 												},
 												{
 													"key": "crops",
-													"value": "[\"corn\"]",
-													"description": "Array[Text]",
+													"value": "corn",
+													"description": "text",
 													"disabled": true
 												}
 											]
