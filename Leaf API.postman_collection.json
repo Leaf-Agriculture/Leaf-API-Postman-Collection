@@ -2874,6 +2874,44 @@
 										"description": "This will request to delete the field which its id is holded by variable `field-1-id`. You can specify a different\nfield by replacing `{{field-1-id}}` in the URL below."
 									},
 									"response": []
+								},
+								{
+									"name": "Patch a field",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sample Updated Name\",\n    \"farmId\": 1,\n    \"geometry\": {\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620629],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620629]\n    ]]],\n    \"type\": \"MultiPolygon\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
