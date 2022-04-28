@@ -5052,7 +5052,7 @@
 												},
 												{
 													"key": "sort",
-													"value": "id,asc",
+													"value": "id,machineId,leafUserId,startTime,endTime,createdAt,leaFileId,asc?|desc",
 													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
 													"disabled": true
 												},
