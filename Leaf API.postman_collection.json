@@ -4761,6 +4761,12 @@
 													"value": "2022-01-01T21:28:58.764Z",
 													"description": "Filters for records created after the datetime, ISO 8601 without timezone",
 													"disabled": true
+												},
+												{
+													"key": "vin",
+													"value": "1RW7280RVCD123456",
+													"description": "Vehicle Identification Number",
+													"disabled": true
 												}
 											]
 										}
