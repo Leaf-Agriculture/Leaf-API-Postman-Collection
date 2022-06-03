@@ -4745,19 +4745,19 @@
 													"disabled": true
 												},
 												{
-													"key": "createdAt",
+													"key": "createdTime",
 													"value": "2022-01-10T21:28:58.764Z",
 													"description": "Must match exactly the time of the record creation, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
-													"key": "beforeCreatedAt",
+													"key": "beforeCreatedTime",
 													"value": "2022-01-20T21:28:58.764Z",
 													"description": "Filters for records created before the datetime, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
-													"key": "afterCreatedAt",
+													"key": "afterCreatedTime",
 													"value": "2022-01-01T21:28:58.764Z",
 													"description": "Filters for records created after the datetime, ISO 8601 without timezone",
 													"disabled": true
@@ -5058,7 +5058,7 @@
 												},
 												{
 													"key": "sort",
-													"value": "id,machineId,leafUserId,startTime,endTime,createdAt,leaFileId,asc|desc",
+													"value": "id,machineId,leafUserId,startTime,endTime,createdTime,leaFileId,asc|desc",
 													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
 													"disabled": true
 												},
@@ -5087,19 +5087,19 @@
 													"disabled": true
 												},
 												{
-													"key": "createdAt",
+													"key": "createdTime",
 													"value": "2022-01-14T19:37:10.534Z",
 													"description": "Must match exactly the time of the record creation, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
-													"key": "beforeCreatedAt",
+													"key": "beforeCreatedTime",
 													"value": "2022-01-20T19:37:10.534Z",
 													"description": "Filters for records created before the datetime, ISO 8601 without timezone",
 													"disabled": true
 												},
 												{
-													"key": "afterCreatedAt",
+													"key": "afterCreatedTime",
 													"value": "2022-01-10T19:37:10.534Z",
 													"description": "Filters for records created after the datetime, ISO 8601 without timezone",
 													"disabled": true
