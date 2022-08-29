@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "5cd7d7ea-c09c-4f85-928a-03fab2369585",
+		"_postman_id": "84522cc6-a073-4fd0-8eea-4c337a3bdf57",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21005007"
 	},
 	"item": [
 		{
@@ -447,90 +448,133 @@
 							"name": "JohnDeere auth",
 							"item": [
 								{
-									"name": "1. Get John Deere auth URL",
-									"event": [
+									"name": "Legacy flow",
+									"item": [
 										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"clientRedirectUrl\": \"{{jd_redirect_url}}\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"name": "1. Get John Deere auth URL",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
 												}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_auth_jd}}/get_url",
-											"protocol": "https",
-											"host": [
-												"{{leaf_auth_jd}}"
 											],
-											"path": [
-												"get_url"
-											]
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"clientRedirectUrl\": \"{{jd_redirect_url}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_auth_jd}}/get_url",
+													"protocol": "https",
+													"host": [
+														"{{leaf_auth_jd}}"
+													],
+													"path": [
+														"get_url"
+													]
+												},
+												"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
+											},
+											"response": []
 										},
-										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
-									},
-									"response": []
+										{
+											"name": "2. Get John Deere Tokens",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody);",
+															"pm.environment.set(\"jd_access_token\", jsonData.access_token);",
+															"pm.environment.set(\"jd_refresh_token\", jsonData.refresh_token);"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "{{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"responseUrl\": \"{{jd_response_url}}\",\n    \"clientRedirectUrl\": \"{{jd_redirect_url}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_auth_jd}}/get_token",
+													"protocol": "https",
+													"host": [
+														"{{leaf_auth_jd}}"
+													],
+													"path": [
+														"get_token"
+													]
+												},
+												"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
+											},
+											"response": []
+										}
+									]
 								},
 								{
-									"name": "2. Get John Deere Tokens",
-									"event": [
+									"name": "One-click auth",
+									"item": [
 										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"jd_access_token\", jsonData.access_token);",
-													"pm.environment.set(\"jd_refresh_token\", jsonData.refresh_token);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"type": "text",
-												"value": "{{leaf_token}}"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"responseUrl\": \"{{jd_response_url}}\",\n    \"clientRedirectUrl\": \"{{jd_redirect_url}}\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"name": "Get Sign-in URL",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"clientEnvironment\": \"{{jd_client_environment}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/one-click-integration/JohnDeere",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"one-click-integration",
+														"JohnDeere"
+													]
 												}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_auth_jd}}/get_token",
-											"protocol": "https",
-											"host": [
-												"{{leaf_auth_jd}}"
-											],
-											"path": [
-												"get_token"
-											]
-										},
-										"description": "Access token (and refresh token) request as detailed on step 4 of the medium post"
-									},
-									"response": []
+											},
+											"response": []
+										}
+									]
 								}
 							],
 							"description": "John Deere Auth\nTo get a better sense of the authentication process with John Deere and the results, check our Medium Post (https://medium.com/leaf-agriculture/how-to-use-leafs-api-to-retrieve-machinery-data-from-john-deere-fb1ba331d089)\n1. Get John Deere auth URL\nIn Step 1 we will be generating tokens from John Deere. The goal In step 2 is we will get our john deere token_id and token_secret\n\nToken Verifier\nIn step 1 we will get a temporary \"token verifier\" from John Deere that confirms a user’s authentication of your application to access their John Deere data and generate credentials. We get that verifier by going through their authentication flow (oauth2).\nBefore generating the authentication URL, please:\nUpdate current value of \"jd_client_key\" to your app's client key on John Deere\nUpdate current value of \"jd_client_secret\" to your app's client secret on John Deere\nUpdate current value of \"jd_callback_url\" to your app's callback_url on John Deere\n\nThen, to generate the authentication URL your application will send to your user so they can authorize access to their account files you can use the included step 2 in the Postman Collection. Change \"client_key\" and \"client_secret\" variables to yours received from John Deere when you created an app on your developer account with them and redirect_uri to a uri the \"token verifier\" will be sent after the user authorizes your application.\nHit \"Send\".\nRedirect your user to the url included in the response.\nThey will authenticate and be redirected to the redirect_url\nCopy the entire url you were redirected to. It looks like:\nhttps://leafagriculture.com.br/?oauth_token=TOKEN&oauth_verifier=CODE\nPaste it in the environment variable \"jd_response_url\"\n2. Get John Deere Tokens\nAfter updating the “jd_response_url” in Postman you can submit your credentials and receive your tokens:\nHit \"Send\"\n\n\"token_id\" and \"token_secret_key\" will be automatically transferred to \"jd_token_id\" and \"jd_token_secret\" environment variables and will be used in the next step.\n\n3. Add John Deere ID\nNow we can create a Developer-User pair credentials ID that will allow you to access your user’s John Deere data. We first add the John Deere credentials to Leaf API, just:\nHit \"Send\"\nAll the info needed has already been filled automatically in Step 2.\n\nAn \"id\" for the credentials you just created will be returned. This \"id\" will be automatically transferred to the value of \"jd_credentials_id\" to be used in the next step.\n",
@@ -1146,7 +1190,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n  \"refreshToken\": \"{{jd_refresh_token}}\",\n  \"clientEnvironment\": \"{jd_client_environment}\"\n}",
+													"raw": "{\n    \"clientKey\": \"{{jd_client_id}}\",\n    \"clientSecret\": \"{{jd_client_secret}}\",\n    \"refreshToken\": \"{{jd_refresh_token}}\",\n    \"clientEnvironment\": \"{{jd_client_environment}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
