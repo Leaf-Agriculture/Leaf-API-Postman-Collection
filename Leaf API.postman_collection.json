@@ -3423,7 +3423,7 @@
 					]
 				},
 				{
-					"name": "Operation files",
+					"name": "Machine Operation Files",
 					"item": [
 						{
 							"name": "Get all files",
@@ -3860,6 +3860,292 @@
 					]
 				},
 				{
+					"name": "Field Operations",
+					"item": [
+						{
+							"name": "Get all operations",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}",
+											"description": "filter by leaf_user",
+											"disabled": true
+										},
+										{
+											"key": "provider",
+											"value": "Leaf",
+											"description": "CNHI, JohnDeere, Trimble, ClimateFieldView, AgLeader or Leaf",
+											"disabled": true
+										},
+										{
+											"key": "fieldId",
+											"value": "{{field_id}}",
+											"description": "the field where the operation happened",
+											"disabled": true
+										},
+										{
+											"key": "updatedTime",
+											"value": "2019-10-22T20:25",
+											"description": "ISO 8601 date. Returns operations from the updatedTime onward",
+											"disabled": true
+										},
+										{
+											"key": "startTime",
+											"value": "2018-10-22T20:25Z",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
+											"disabled": true
+										},
+										{
+											"key": "endTime",
+											"value": "2019-10-22T20:25Z",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
+											"disabled": true
+										},
+										{
+											"key": "operationType",
+											"value": "harvested",
+											"description": "planted, applied or harvested",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "20",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation summary",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/summary",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"summary"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation's images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/images",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"images"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation's units",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{file_id}}/units",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{file_id}}",
+										"units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crop operation by field",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"operationId\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/CropOperationByField",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"CropOperationByField"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Get Operation Files\n1. Query & access all files\nWith this endpoint you can query all files of all your users (or you can filter by user as well, or by provider, by operation_date and much more). Select and update which params (filters) you want to apply before querying files and just hit \"send\"\n2. Query & access specific file\nTo query for a specific operation file, you just have to update the value of the environment variable \"file_id\" and hit \"send\"\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
 					"name": "Satellite",
 					"item": [
 						{
@@ -4145,319 +4431,6 @@
 										"api",
 										"fields",
 										"{{sat_external_id}}"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Converters",
-					"item": [
-						{
-							"name": "Convert Shapefile to GeoJSON",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"description": "You should select your file before running",
-											"type": "file",
-											"src": []
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/shapefile-geojson",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"shapefile-geojson"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Convert CN1 to GeoJSON",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									},
-									{
-										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "/home/douglas/Downloads/sample.cn1.zip"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/cn1-geojson",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"cn1-geojson"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Convert DAT to GeoJSON",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "/home/douglas/Downloads/growmark_asPlanted_id.dat"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/datclimate-geojson",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"datclimate-geojson"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Convert Trimble to GeoJSON",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "/home/douglas/Downloads/TMX_AgData.zip"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/trimble-geojson",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"trimble-geojson"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Convert GeoJSON to Shapefile",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-shapefile",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"geojson-shapefile"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Convert GeoJSON to ISO11783",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "sample.geojson"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-iso11783",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"geojson-iso11783"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Convert GeoJSON to PNG",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "/home/douglas/leaf/postman/postman-collections/sample.geojson"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/converters/api/geojson-png",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"converters",
-										"api",
-										"geojson-png"
-									],
-									"query": [
-										{
-											"key": "leafUserId",
-											"value": "{{leaf_user_id}}",
-											"disabled": true
-										}
 									]
 								}
 							},
