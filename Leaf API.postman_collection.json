@@ -4123,7 +4123,7 @@
 							"response": []
 						}
 					],
-					"description": "Get Operation Files\n1. Query & access all files\nWith this endpoint you can query all files of all your users (or you can filter by user as well, or by provider, by operation_date and much more). Select and update which params (filters) you want to apply before querying files and just hit \"send\"\n2. Query & access specific file\nTo query for a specific operation file, you just have to update the value of the environment variable \"file_id\" and hit \"send\"\n",
+					"description": "",
 					"event": [
 						{
 							"listen": "prerequest",
