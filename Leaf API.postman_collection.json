@@ -1062,6 +1062,40 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Get ClimateFieldView credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/climate-field-view-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"climate-field-view-credentials",
+														"events"
+													]
+												}
+											},
+											"response": []
 										}
 									]
 								},
@@ -1213,6 +1247,40 @@
 														"users",
 														"{{leaf_user_id}}",
 														"john-deere-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get JohnDeere credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/john-deere-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"john-deere-credentials",
+														"events"
 													]
 												}
 											},
@@ -1372,6 +1440,40 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Get Stara credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/stara-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"stara-credentials",
+														"events"
+													]
+												}
+											},
+											"response": []
 										}
 									]
 								},
@@ -1523,6 +1625,40 @@
 														"users",
 														"{{leaf_user_id}}",
 														"trimble-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get Trimble credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/trimble-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"trimble-credentials",
+														"events"
 													]
 												}
 											},
@@ -1682,6 +1818,40 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Get CNHI credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/cnhi-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"cnhi-credentials",
+														"events"
+													]
+												}
+											},
+											"response": []
 										}
 									]
 								},
@@ -1796,6 +1966,40 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Get Raven credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/raven-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"raven-credentials",
+														"events"
+													]
+												}
+											},
+											"response": []
 										}
 									]
 								},
@@ -1832,42 +2036,6 @@
 														"users",
 														"{{leaf_user_id}}",
 														"raven-slingshot-credentials"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Get RavenSlingshot events of the LeafUser",
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-														"key": "Authorization",
-														"value": "Bearer {{leaf_token}}",
-														"type": "text"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json",
-														"type": "text"
-													}
-												],
-												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/raven-slingshot-credentials/events",
-													"protocol": "https",
-													"host": [
-														"{{leaf_api_url}}"
-													],
-													"path": [
-														"services",
-														"usermanagement",
-														"api",
-														"users",
-														"{{leaf_user_id}}",
-														"raven-slingshot-credentials",
-														"events"
 													]
 												}
 											},
@@ -1946,6 +2114,40 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Get RavenSlingshot credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/raven-slingshot-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"raven-slingshot-credentials",
+														"events"
+													]
+												}
+											},
+											"response": []
 										}
 									]
 								},
@@ -1973,7 +2175,7 @@
 													}
 												],
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/ag-leader-credentials",
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/agleader-credentials",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -2020,7 +2222,7 @@
 													"raw": "{\n  \"accessToken\": \"{{agleader_bearer_token}}\" ,\n  \"refreshToken\": \"{{agleader_refresh_token}}\",\n  \"publicKey\": \"{{agleader_public_key}}\",\n  \"privateKey\": \"{{agleader_private_key}}\"\n}"
 												},
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/ag-leader-credentials",
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/agleader-credentials",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -2057,7 +2259,7 @@
 													}
 												],
 												"url": {
-													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/ag-leader-credentials",
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/agleader-credentials",
 													"protocol": "https",
 													"host": [
 														"{{leaf_api_url}}"
@@ -2069,6 +2271,201 @@
 														"users",
 														"{{leaf_user_id}}",
 														"agleader-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get AgLeader credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/ag-leader-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"ag-leader-credentials",
+														"events"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Sentera",
+									"item": [
+										{
+											"name": "Get Sentera credentials from Leaf User",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/sentera-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"sentera-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add Sentera credentials to a Leaf User",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"{{sentera_username}}\" ,\n  \"password\": \"{{sentera_password}}\",\n  \"organizationName\": \"{{sentera_organization_name}}\"\n}"
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/sentera-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"sentera-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete Sentera credentials from a Leaf User",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/sentera-credentials",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"sentera-credentials"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get Sentera credentials Events",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{leaf_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/sentera-credentials/events",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"sentera-credentials",
+														"events"
 													]
 												}
 											},
@@ -4023,6 +4420,70 @@
 							"response": []
 						},
 						{
+							"name": "Get an operation filteredGeojson",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/filteredGeojson",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"filteredGeojson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation standardGeojson",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/standardGeojson",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"standardGeojson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Get an operation's images",
 							"request": {
 								"method": "GET",
@@ -4055,6 +4516,38 @@
 							"response": []
 						},
 						{
+							"name": "Get an operation's images v2",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/imagesV2",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"imagesV2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Get an operation's units",
 							"request": {
 								"method": "GET",
@@ -4081,6 +4574,29 @@
 										"operations",
 										"{{file_id}}",
 										"units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reprocess an operation",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/reprocess",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"reprocess"
 									]
 								}
 							},
@@ -4123,7 +4639,6 @@
 							"response": []
 						}
 					],
-					"description": "",
 					"event": [
 						{
 							"listen": "prerequest",
