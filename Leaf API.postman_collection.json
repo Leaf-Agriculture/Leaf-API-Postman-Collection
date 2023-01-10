@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5cd7d7ea-c09c-4f85-928a-03fab2369585",
+		"_postman_id": "23ffb376-3a98-4c71-9d22-c11d9c4a1f1c",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -901,6 +901,77 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "Trimble auth",
+							"item": [
+								{
+									"name": "Get Trimble auth URL",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"application_name\": \"{{trimble_app_name}}\",\n    \"client_id\": \"{{trimble_client_id}}\",\n    \"client_redirect_url\": \"{{trimble_redirect_url}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_trimble}}/get_url",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_trimble}}"
+											],
+											"path": [
+												"get_url"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Trimble Token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"trimble_refresh_token\", jsonData.refresh_token);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"client_id\": \"{{trimble_client_id}}\",\n    \"redirect_url\": \"{{trimble_redirect_url}}\",\n    \"client_secret\": \"{{trimble_client_secret}}\",\n    \"code\": \"{{trimble_code}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_trimble}}/get_token",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_raven}}"
+											],
+											"path": [
+												"get_token"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				},
@@ -1558,7 +1629,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"applicationName\": \"{{trimble_application_name}}\",\n    \"serviceIdentityId\": \"{{trimble_service_identity_id}}\",\n    \"userName\": \"{{trimble_username}}\",\n    \"password\": \"{{trimble_password}}\"\n}",
+													"raw": "{\n    \"clientId\": \"{{trimble_client_id}}\",\n    \"clientSecret\": \"{{trimble_client_secret}}\",\n    \"refreshToken\": \"{{trimble_refresh_token}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -5906,6 +5977,10 @@
 		{
 			"key": "leaf_auth_raven",
 			"value": "raven-oauth2-helper.withleaf.io"
+		},
+		{
+			"key": "leaf_auth_trimble",
+			"value": "trimble-oauth2-helper.withleaf.io"
 		}
 	]
 }
