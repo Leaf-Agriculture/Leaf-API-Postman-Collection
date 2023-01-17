@@ -3038,7 +3038,7 @@
 					]
 				},
 				{
-					"name": "Fields",
+					"name": "Field Boundary Management",
 					"item": [
 						{
 							"name": "Fields",
@@ -3891,7 +3891,7 @@
 					]
 				},
 				{
-					"name": "Machine Operation Files",
+					"name": "Machine File Conversion",
 					"item": [
 						{
 							"name": "Get all files",
@@ -4732,7 +4732,7 @@
 					]
 				},
 				{
-					"name": "Satellite",
+					"name": "Crop Monitoring",
 					"item": [
 						{
 							"name": "Create sat-monitored field",
