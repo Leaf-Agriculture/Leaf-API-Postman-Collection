@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5cd7d7ea-c09c-4f85-928a-03fab2369585",
+		"_postman_id": "d880819f-7f18-45a2-896f-c7ecc37f76e6",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -858,7 +858,20 @@
 							"name": "Stara auth",
 							"item": [
 								{
-									"name": "Get Stara Tokens",
+									"name": "Get Stara API key",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"stara_api_key\", jsonData.key);",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [
@@ -876,16 +889,22 @@
 											}
 										],
 										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"user\": \"{{stara_username}}\",\n    \"pwd\": \"{{stara_password}}\",\n    \"tokenimp\": \"{{stara_api_key}}\"\n}\n\n",
-											"options": {
-												"raw": {
-													"language": "json"
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "user",
+													"value": "{{stara_username}}",
+													"type": "text"
+												},
+												{
+													"key": "pwd",
+													"value": "{{stara_password}}",
+													"type": "text"
 												}
-											}
+											]
 										},
 										"url": {
-											"raw": "https://v2apitelemetria.telemetriastara.com.br/autenticacao_user",
+											"raw": "https://v2apitelemetria.telemetriastara.com.br/autenticacao",
 											"protocol": "https",
 											"host": [
 												"v2apitelemetria",
@@ -894,7 +913,57 @@
 												"br"
 											],
 											"path": [
-												"autenticacao_user"
+												"autenticacao"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Stara Tokens",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"stara_access_token\", jsonData.X_access_token);",
+													"pm.environment.set(\"stara_refresh_token\", jsonData.refresh_Token);",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "accessTokenClient",
+													"value": "{{stara_access_token_client}}",
+													"type": "text"
+												},
+												{
+													"key": "apiKey",
+													"value": "{{stara_api_key}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://v2apitelemetria.telemetriastara.com.br/token",
+											"protocol": "https",
+											"host": [
+												"v2apitelemetria",
+												"telemetriastara",
+												"com",
+												"br"
+											],
+											"path": [
+												"token"
 											]
 										}
 									},
@@ -959,7 +1028,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{leaf_auth_trimble}}/get_token",
+											"raw": "https://{{leaf_auth_raven}}/get_token",
 											"protocol": "https",
 											"host": [
 												"{{leaf_auth_raven}}"
