@@ -6140,6 +6140,408 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Sharing",
+					"item": [
+						{
+							"name": "Get API Owner sharing relation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/{{sharing_relation_role}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"{{sharing_relation_role}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get API Owner sharing relation status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/{{sharing_relation_role}}/{{target_api_owner}}/status",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"{{sharing_relation_role}}",
+										"{{target_api_owner}}",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an API Owner Sharing relation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"receiverApiOwner\": {{receiver_api_owner}}\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/receiver",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"receiver"
+									]
+								},
+								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
+							},
+							"response": []
+						},
+						{
+							"name": "Update an API Owner sharing relation status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"status\": {{sharing_relation_status}}\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/{{sharing_relation_role}}/{{target_api_owner}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"{{sharing_relation_role}}",
+										"{{target_api_owner}}"
+									]
+								},
+								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
+							},
+							"response": []
+						},
+						{
+							"name": "Get LeafUser permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/{{sharing_relation_role}}/{{target_api_owner}}/users-permissions/{{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"{{sharing_relation_role}}",
+										"{{target_api_owner}}",
+										"users-permissions",
+										"{{leaf_user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a LeafUser permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"permissions\": {\n        \"FIELDS\": {\n            \"actions\": [\n                \"READ\"\n            ]\n        },\n        \"OPERATIONS\": {\n            \"actions\": [\n                \"READ\"\n            ],\n            \"types\": [\n                \"PLANTED\"\n            ]\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/receiver/{{receiver_api_owner}}/users-permissions/{{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"receiver",
+										"{{receiver_api_owner}}",
+										"users-permissions",
+										"{{leaf_user_id}}"
+									]
+								},
+								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
+							},
+							"response": []
+						},
+						{
+							"name": "Update LeafUser permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"actions\": [\n        \"READ\"\n    ],\n    \"types\": [\n        \"PLANTED\",\n        \"HARVESTED\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/receiver/{{receiver_api_owner}}/users-permissions/{{leaf_user_id}}/{{sharing_relation_resource}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"receiver",
+										"{{receiver_api_owner}}",
+										"users-permissions",
+										"{{leaf_user_id}}",
+										"{{sharing_relation_resource}}"
+									]
+								},
+								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete LeafUser permissions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/{{sharing_relation_role}}/{{target_api_owner}}/users-permissions/{{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"{{sharing_relation_role}}",
+										"{{target_api_owner}}",
+										"users-permissions",
+										"{{leaf_user_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Documentation about the Sharing Endpoints that allows an API Owner to grant permission to access [Fields](https://docs.withleaf.io/docs/field_boundary_management_overview) and [Operations](https://docs.withleaf.io/docs/operations_overview) to other API Owners.\n\nEndFragmen"
 				}
 			]
 		}
