@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4655163f-a103-4b6f-a6c8-f9e895e80e4b",
+		"_postman_id": "11de2183-22ee-49eb-9320-08d790406dce",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -4076,6 +4076,211 @@
 													"key": "sort",
 													"value": "asc",
 													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Weather",
+							"item": [
+								{
+									"name": "Get Daily Forecast",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/daily",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"forecast",
+												"field",
+												"{{field_id}}",
+												"daily"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-04-20T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-04-17T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Hourly Forecast",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/hourly",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"forecast",
+												"field",
+												"{{field_id}}",
+												"hourly"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-04-20T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-04-17T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Daily Historical",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/daily",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"historical",
+												"field",
+												"{{field_id}}",
+												"daily"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-03-10T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-02-10T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Hourly Historical",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/hourly",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"historical",
+												"field",
+												"{{field_id}}",
+												"hourly"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-03-10T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-02-10T00:00Z",
 													"disabled": true
 												}
 											]
