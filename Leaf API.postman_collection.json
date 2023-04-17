@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4655163f-a103-4b6f-a6c8-f9e895e80e4b",
+		"_postman_id": "11de2183-22ee-49eb-9320-08d790406dce",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -4084,6 +4084,211 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "Weather",
+							"item": [
+								{
+									"name": "Get Daily Forecast",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/daily",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"forecast",
+												"field",
+												"{{field_id}}",
+												"daily"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-04-20T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-04-17T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Hourly Forecast",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/hourly",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"forecast",
+												"field",
+												"{{field_id}}",
+												"hourly"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-04-20T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-04-17T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Daily Historical",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/daily",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"historical",
+												"field",
+												"{{field_id}}",
+												"daily"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-03-10T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-02-10T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Hourly Historical",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/hourly",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"weather",
+												"historical",
+												"field",
+												"{{field_id}}",
+												"hourly"
+											],
+											"query": [
+												{
+													"key": "endTime",
+													"value": "2023-03-10T00:00Z",
+													"disabled": true
+												},
+												{
+													"key": "startTime",
+													"value": "2023-02-10T00:00Z",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					],
 					"description": "Query Operations by Field\nTo query all operations that happened in a specific field (step 2), we first need to create that field (step 1). Then, Leaf will automatically detect operations of that field based on the operations' and on the field's coordinates. This process usually takes about 30 minutes.\n1. Create Field\nHere we need to specify a leafUserId (that will be the Leaf User owner of that field), a externalId (that will be the name we give to the field) and the geojson geometry of the field (location). After creating the field we can query it (step 2) \n2. Get operations' ids by Field\nTo query all operations that happened in a specific field, just update the environment variable \"field_external_id\" to the field id you want to query files\n",
@@ -4953,54 +5158,7 @@
 					"name": "Crop Monitoring",
 					"item": [
 						{
-							"name": "Create sat-monitored field",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  }\n}"
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"satellite",
-										"api",
-										"fields"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all sat-monitored fields",
+							"name": "Get all satellite fields",
 							"event": [
 								{
 									"listen": "test",
@@ -5037,56 +5195,22 @@
 										"satellite",
 										"api",
 										"fields"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get sat images of field",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes?size=30",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"satellite",
-										"api",
-										"fields",
-										"{{sat_external_id}}",
-										"processes"
 									],
 									"query": [
 										{
+											"key": "page",
+											"value": "0",
+											"disabled": true
+										},
+										{
 											"key": "size",
-											"value": "30"
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "providers,asc",
+											"disabled": true
 										}
 									]
 								}
@@ -5094,7 +5218,7 @@
 							"response": []
 						},
 						{
-							"name": "Get sat-monitored field geometry",
+							"name": "Get a satellite field",
 							"event": [
 								{
 									"listen": "test",
@@ -5138,7 +5262,7 @@
 							"response": []
 						},
 						{
-							"name": "Get sat-monitored field history dates",
+							"name": "Get images of satellite field",
 							"event": [
 								{
 									"listen": "test",
@@ -5165,7 +5289,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/history?start=2020-01-01&end=2020-03-03",
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -5176,16 +5300,53 @@
 										"api",
 										"fields",
 										"{{sat_external_id}}",
-										"history"
+										"processes"
 									],
 									"query": [
 										{
-											"key": "start",
-											"value": "2020-01-01"
+											"key": "endDate",
+											"value": null,
+											"disabled": true
 										},
 										{
-											"key": "end",
-											"value": "2020-03-03"
+											"key": "endProcessedTimestamp",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "maxClouds",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "minCoverage",
+											"value": "0.0",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "SUCCESS",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "provider",
+											"value": "sentinel",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "20",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"disabled": true
 										}
 									]
 								}
@@ -5193,7 +5354,192 @@
 							"response": []
 						},
 						{
-							"name": "Delete sat-monitored field",
+							"name": "Get an image of satellite field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes/{{process_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}",
+										"processes",
+										"{{process_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get subscription for Planet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/subscription",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}",
+										"subscription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a satellite field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"assetTypes\": [\n    \"ortho_analytic_8b_sr\",  \n    \"ortho_analytic_8b\",  \n    \"ortho_analytic_8b_xml\",\n    \"ortho_udm2\"\n  ],\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  },\n  \"itemTypes\": [\n      \"PSScene\"\n  ],\n  \"providers\": [\n      \"planet\"\n  ]\n}"
+								},
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reprocess satellite images",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes/{{process_id}}/reprocess",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"satellite",
+										"api",
+										"fields",
+										"{{sat_external_id}}",
+										"processes",
+										"{{process_id}}",
+										"reprocess"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a satellite field",
 							"event": [
 								{
 									"listen": "test",
