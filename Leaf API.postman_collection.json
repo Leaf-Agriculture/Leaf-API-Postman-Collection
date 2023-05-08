@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "11de2183-22ee-49eb-9320-08d790406dce",
+		"_postman_id": "34a4fa28-d52d-4281-b6ec-fd744e3ec80e",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -4084,211 +4084,6 @@
 									"response": []
 								}
 							]
-						},
-						{
-							"name": "Weather",
-							"item": [
-								{
-									"name": "Get Daily Forecast",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/daily",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"fields",
-												"api",
-												"users",
-												"{{leaf_user_id}}",
-												"weather",
-												"forecast",
-												"field",
-												"{{field_id}}",
-												"daily"
-											],
-											"query": [
-												{
-													"key": "endTime",
-													"value": "2023-04-20T00:00Z",
-													"disabled": true
-												},
-												{
-													"key": "startTime",
-													"value": "2023-04-17T00:00Z",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Hourly Forecast",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/hourly",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"fields",
-												"api",
-												"users",
-												"{{leaf_user_id}}",
-												"weather",
-												"forecast",
-												"field",
-												"{{field_id}}",
-												"hourly"
-											],
-											"query": [
-												{
-													"key": "endTime",
-													"value": "2023-04-20T00:00Z",
-													"disabled": true
-												},
-												{
-													"key": "startTime",
-													"value": "2023-04-17T00:00Z",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Daily Historical",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/daily",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"fields",
-												"api",
-												"users",
-												"{{leaf_user_id}}",
-												"weather",
-												"historical",
-												"field",
-												"{{field_id}}",
-												"daily"
-											],
-											"query": [
-												{
-													"key": "endTime",
-													"value": "2023-03-10T00:00Z",
-													"disabled": true
-												},
-												{
-													"key": "startTime",
-													"value": "2023-02-10T00:00Z",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Hourly Historical",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{leaf_token}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/hourly",
-											"protocol": "https",
-											"host": [
-												"{{leaf_api_url}}"
-											],
-											"path": [
-												"services",
-												"fields",
-												"api",
-												"users",
-												"{{leaf_user_id}}",
-												"weather",
-												"historical",
-												"field",
-												"{{field_id}}",
-												"hourly"
-											],
-											"query": [
-												{
-													"key": "endTime",
-													"value": "2023-03-10T00:00Z",
-													"disabled": true
-												},
-												{
-													"key": "startTime",
-													"value": "2023-02-10T00:00Z",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							]
 						}
 					],
 					"description": "Query Operations by Field\nTo query all operations that happened in a specific field (step 2), we first need to create that field (step 1). Then, Leaf will automatically detect operations of that field based on the operations' and on the field's coordinates. This process usually takes about 30 minutes.\n1. Create Field\nHere we need to specify a leafUserId (that will be the Leaf User owner of that field), a externalId (that will be the name we give to the field) and the geojson geometry of the field (location). After creating the field we can query it (step 2) \n2. Get operations' ids by Field\nTo query all operations that happened in a specific field, just update the environment variable \"field_external_id\" to the field id you want to query files\n",
@@ -5473,7 +5268,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"assetTypes\": [\n    \"ortho_analytic_8b_sr\",  \n    \"ortho_analytic_8b\",  \n    \"ortho_analytic_8b_xml\",\n    \"ortho_udm2\"\n  ],\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  },\n  \"itemTypes\": [\n      \"PSScene\"\n  ],\n  \"providers\": [\n      \"planet\"\n  ]\n}"
+									"raw": "{\n  \"assetTypes\": [\n    \"ortho_analytic_8b_sr\"\n  ],\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  },\n  \"providers\": [\n      \"planet\"\n  ]\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
@@ -5592,7 +5387,96 @@
 					"name": "Alerts",
 					"item": [
 						{
-							"name": "Register webhook",
+							"name": "Get all webhooks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get webhook",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/{{webhook_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks",
+										"{{webhook_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a webhook",
 							"event": [
 								{
 									"listen": "test",
@@ -5648,96 +5532,7 @@
 							"response": []
 						},
 						{
-							"name": "Get webhook",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/{{webhook_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks",
-										"{{webhook_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all webhooks",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get webhook Copy",
+							"name": "Delete a webhook",
 							"event": [
 								{
 									"listen": "test",
@@ -6485,6 +6280,235 @@
 									]
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "Weather",
+					"item": [
+						{
+							"name": "Get Daily Forecast",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/daily",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"weather",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"weather",
+										"forecast",
+										"field",
+										"{{field_id}}",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "endTime",
+											"value": "2023-04-20T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "startTime",
+											"value": "2023-04-17T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with models: icon, gfs, arpegeArome, ifs, jma or gem.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Hourly Forecast",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/hourly",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"weather",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"weather",
+										"forecast",
+										"field",
+										"{{field_id}}",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "endTime",
+											"value": "2023-04-20T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "startTime",
+											"value": "2023-04-17T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with models: icon, gfs, arpegeArome, ifs, jma or gem.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Daily Historical",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/daily",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"weather",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"weather",
+										"historical",
+										"field",
+										"{{field_id}}",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "endTime",
+											"value": "2023-03-10T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "startTime",
+											"value": "2023-02-10T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with models: era5 or era5land",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Hourly Historical",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/hourly",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"weather",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"weather",
+										"historical",
+										"field",
+										"{{field_id}}",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "endTime",
+											"value": "2023-03-10T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "startTime",
+											"value": "2023-02-10T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with models: era5 or era5land",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
