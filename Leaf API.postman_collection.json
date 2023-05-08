@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9f96bcf7-cb7a-4b33-a9af-f09942dc5cf8",
+		"_postman_id": "8a1e910c-d9b1-4c75-a284-a718e4e5d636",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -6303,14 +6303,14 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/daily",
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/daily",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
 									],
 									"path": [
 										"services",
-										"fields",
+										"weather",
 										"api",
 										"users",
 										"{{leaf_user_id}}",
@@ -6329,6 +6329,12 @@
 										{
 											"key": "startTime",
 											"value": "2023-04-17T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem.",
 											"disabled": true
 										}
 									]
@@ -6353,14 +6359,14 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/hourly",
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/forecast/field/{{field_id}}/hourly",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
 									],
 									"path": [
 										"services",
-										"fields",
+										"weather",
 										"api",
 										"users",
 										"{{leaf_user_id}}",
@@ -6379,6 +6385,12 @@
 										{
 											"key": "startTime",
 											"value": "2023-04-17T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem.",
 											"disabled": true
 										}
 									]
@@ -6403,14 +6415,14 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/daily",
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/daily",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
 									],
 									"path": [
 										"services",
-										"fields",
+										"weather",
 										"api",
 										"users",
 										"{{leaf_user_id}}",
@@ -6429,6 +6441,12 @@
 										{
 											"key": "startTime",
 											"value": "2023-02-10T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with model: era5 or era5land",
 											"disabled": true
 										}
 									]
@@ -6453,14 +6471,14 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/hourly",
+									"raw": "https://{{leaf_api_url}}/services/weather/api/users/{{leaf_user_id}}/weather/historical/field/{{field_id}}/hourly",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
 									],
 									"path": [
 										"services",
-										"fields",
+										"weather",
 										"api",
 										"users",
 										"{{leaf_user_id}}",
@@ -6479,6 +6497,12 @@
 										{
 											"key": "startTime",
 											"value": "2023-02-10T00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "fill with the model",
+											"description": "Fill with model: era5 or era5land",
 											"disabled": true
 										}
 									]
