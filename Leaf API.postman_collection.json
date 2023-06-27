@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8a1e910c-d9b1-4c75-a284-a718e4e5d636",
+		"_postman_id": "aff008a1-577e-48dd-8c98-e8d5c0af8acf",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -1029,10 +1029,10 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{leaf_auth_raven}}/get_token",
+											"raw": "https://{{leaf_auth_trimble}}/get_token",
 											"protocol": "https",
 											"host": [
-												"{{leaf_auth_raven}}"
+												"{{leaf_auth_trimble}}"
 											],
 											"path": [
 												"get_token"
@@ -4595,7 +4595,7 @@
 										{
 											"key": "provider",
 											"value": "Leaf",
-											"description": "CNHI, JohnDeere, Trimble, ClimateFieldView, AgLeader or Leaf",
+											"description": "CNHI, JohnDeere, Trimble, ClimateFieldView, AgLeader, Stara or Leaf",
 											"disabled": true
 										},
 										{
@@ -4831,6 +4831,38 @@
 										"operations",
 										"{{operation_id}}",
 										"imagesV2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an operation's geotiff images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/operations/{{operation_id}}/geotiffImages",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"operations",
+										"{{operation_id}}",
+										"geotiffImages"
 									]
 								}
 							},
@@ -5470,6 +5502,51 @@
 										"alerts",
 										"webhooks",
 										"{{webhook_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get failed calls for webhooks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/failed-calls",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"alerts",
+										"api",
+										"alerts",
+										"webhooks",
+										"failed-calls"
 									]
 								}
 							},
@@ -6187,46 +6264,6 @@
 									"name": "John Deere",
 									"item": [
 										{
-											"name": "Get John Deere prescriptions",
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													},
-													{
-														"key": "Authorization",
-														"value": "Bearer {{leaf_token}}"
-													}
-												],
-												"url": {
-													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
-													"protocol": "https",
-													"host": [
-														"{{leaf_api_url}}"
-													],
-													"path": [
-														"services",
-														"beta",
-														"prescription",
-														"api",
-														"users",
-														"{{leaf_user_id}}",
-														"johnDeere"
-													],
-													"query": [
-														{
-															"key": "organizationId",
-															"value": "{{jd_organization_id}}",
-															"description": "The id of the organization at JohnDeere"
-														}
-													]
-												}
-											},
-											"response": []
-										},
-										{
 											"name": "Upload John Deere prescription files",
 											"request": {
 												"method": "POST",
@@ -6271,6 +6308,179 @@
 															"key": "organizationId",
 															"value": "{{jd_organization_id}}",
 															"description": "The id of the organization at JohnDeere"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get John Deere prescriptions",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"johnDeere"
+													],
+													"query": [
+														{
+															"key": "organizationId",
+															"value": "{{jd_organization_id}}",
+															"description": "The id of the organization at JohnDeere"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Download prescription from John Deere",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/johnDeere?organizationId={{jd_organization_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"johnDeere"
+													],
+													"query": [
+														{
+															"key": "organizationId",
+															"value": "{{jd_organization_id}}",
+															"description": "The id of the organization at JohnDeere"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "CNHi",
+									"item": [
+										{
+											"name": "Get CNHi prescriptions",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/cnhi?companyId={{cnhi_company_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"cnhi"
+													],
+													"query": [
+														{
+															"key": "companyId",
+															"value": "{{cnhi_company_id}}"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Upload prescription to CNHi",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"type": "file",
+															"src": []
+														}
+													]
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/cnhi?companyId={{cnhi_company_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"cnhi"
+													],
+													"query": [
+														{
+															"key": "companyId",
+															"value": "{{cnhi_company_id}}"
 														}
 													]
 												}
@@ -6860,6 +7070,53 @@
 									]
 								},
 								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
+							},
+							"response": []
+						},
+						{
+							"name": "Invalidate receiver's tokens",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/usermanagement/api/api-owners/sharing-relation/{{sharing_relation_role}}/{{target_api_owner}}/invalidate-tokens",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"usermanagement",
+										"api",
+										"api-owners",
+										"sharing-relation",
+										"{{sharing_relation_role}}",
+										"{{target_api_owner}}",
+										"invalidate-tokens"
+									]
+								}
 							},
 							"response": []
 						},
