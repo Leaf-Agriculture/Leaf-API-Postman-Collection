@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7a47cb49-b27c-49eb-86a3-839fceb876de",
+		"_postman_id": "10bb9c0e-bbb5-480f-9568-ab314385b79a",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -6533,12 +6533,12 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-04-20T00:00Z",
+											"value": "2023-04-20",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-04-17T00:00Z",
+											"value": "2023-04-17",
 											"disabled": true
 										},
 										{
@@ -6595,12 +6595,12 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-04-20T00:00Z",
+											"value": "2023-04-20",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-04-17T00:00Z",
+											"value": "2023-04-17",
 											"disabled": true
 										},
 										{
@@ -6654,12 +6654,12 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-04-20T00:00Z",
+											"value": "2023-04-20",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-04-17T00:00Z",
+											"value": "2023-04-17",
 											"disabled": true
 										},
 										{
@@ -6713,12 +6713,12 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-04-20T00:00Z",
+											"value": "2023-04-20",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-04-17T00:00Z",
+											"value": "2023-04-17",
 											"disabled": true
 										},
 										{
@@ -6775,18 +6775,18 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-03-10T00:00Z",
+											"value": "2023-03-10",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-02-10T00:00Z",
+											"value": "2023-02-10",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5land",
+											"description": "Fill with model: era5 or era5Land",
 											"disabled": true
 										},
 										{
@@ -6837,18 +6837,18 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-03-10T00:00Z",
+											"value": "2023-03-10",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-02-10T00:00Z",
+											"value": "2023-02-10",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5land",
+											"description": "Fill with model: era5 or era5Land",
 											"disabled": true
 										},
 										{
@@ -6896,18 +6896,18 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-03-10T00:00Z",
+											"value": "2023-03-10",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-02-10T00:00Z",
+											"value": "2023-02-10",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5land",
+											"description": "Fill with model: era5 or era5Land",
 											"disabled": true
 										},
 										{
@@ -6955,18 +6955,18 @@
 									"query": [
 										{
 											"key": "endTime",
-											"value": "2023-03-10T00:00Z",
+											"value": "2023-03-10",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
-											"value": "2023-02-10T00:00Z",
+											"value": "2023-02-10",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5land",
+											"description": "Fill with model: era5 or era5Land",
 											"disabled": true
 										},
 										{
