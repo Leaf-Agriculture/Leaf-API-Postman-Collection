@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "10bb9c0e-bbb5-480f-9568-ab314385b79a",
+		"_postman_id": "0e35608c-d479-481e-af6f-838c2b02c174",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -2761,6 +2761,77 @@
 											"response": []
 										}
 									]
+								},
+								{
+									"name": "Provider Organizations List",
+									"item": [
+										{
+											"name": "Get John Deere Organizations List",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/organizations/JohnDeere",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"organizations",
+														"JohnDeere"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get Trimble Organizations List",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/users/{{leaf_user_id}}/organizations/Trimble",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"organizations",
+														"Trimble"
+													]
+												}
+											},
+											"response": []
+										}
+									]
 								}
 							]
 						},
@@ -3304,7 +3375,7 @@
 												{
 													"key": "type",
 													"value": "ORIGINAL",
-													"description": "filter by type",
+													"description": "JohnDeere, ClimateFieldView, Leaf, CNHi, AgLeader or Trimble",
 													"disabled": true
 												},
 												{
@@ -3425,6 +3496,65 @@
 												"users",
 												"{{leaf_user_id}}",
 												"fields"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload Field to Provider",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/fields/{{field_id}}/integration/{{provider_name}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"fields",
+												"{{field_id}}",
+												"integration",
+												"{{provider_name}}"
+											],
+											"query": [
+												{
+													"key": "organizationId",
+													"value": null,
+													"description": "fill with the John Deere organization Id",
+													"disabled": true
+												}
 											]
 										}
 									},
@@ -4158,7 +4288,7 @@
 										{
 											"key": "provider",
 											"value": "Leaf",
-											"description": "JohnDeere, ClimateFieldView, Leaf, CNHi or Trimble",
+											"description": "JohnDeere, ClimateFieldView, Leaf, CNHi, AgLeader or Trimble",
 											"disabled": true
 										},
 										{
@@ -4354,6 +4484,54 @@
 										"files",
 										"{{file_id}}",
 										"units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all uncovered files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/operations/api/files/uncoveredFiles?leafUserId={{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"operations",
+										"api",
+										"files",
+										"uncoveredFiles"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}"
+										}
 									]
 								}
 							},
@@ -5660,7 +5838,7 @@
 					"name": "Beta",
 					"item": [
 						{
-							"name": "Machines (Beta)",
+							"name": "Machines",
 							"item": [
 								{
 									"name": "Get all Machines",
@@ -5725,7 +5903,7 @@
 												},
 												{
 													"key": "sort",
-													"value": "id,leafUserId,name,provider,providerOrganizationId,providerMachineId,serialNumber,vin,model,make,category,asc|desc",
+													"value": "",
 													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
 													"disabled": true
 												},
@@ -5737,8 +5915,8 @@
 												},
 												{
 													"key": "provider",
-													"value": "CaseIH",
-													"description": "Text (JohnDeere, CaseIH, Stara, etc)",
+													"value": "CNHI",
+													"description": "JohnDeere, CNHI, Stara",
 													"disabled": true
 												},
 												{
@@ -6127,7 +6305,154 @@
 							]
 						},
 						{
-							"name": "Prescription (Beta)",
+							"name": "Layers",
+							"item": [
+								{
+									"name": "Get all layers",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/layers",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"layers"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": null,
+													"description": "TASSEL_COUNT, STAND_COUNT, NDVI or RGB",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Pagination parameter for selecting the page of the result (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer)",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload a layer to Climate Field View",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"src": []
+												}
+											]
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/layers/climateFieldView?uploadType=RGB",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"layers",
+												"climateFieldView"
+											],
+											"query": [
+												{
+													"key": "uploadType",
+													"value": "RGB",
+													"description": "only true color image (RGB) files are supported"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Prescription",
 							"item": [
 								{
 									"name": "RavenSlingshot",
@@ -6488,6 +6813,361 @@
 											"response": []
 										}
 									]
+								},
+								{
+									"name": "Trimble",
+									"item": [
+										{
+											"name": "Get CNHi prescriptions",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"type": "file",
+															"src": []
+														}
+													]
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/trimble?organizationId=123456&rateColumn=columnRateName&rateUnits=gal/ac",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"prescription",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"trimble"
+													],
+													"query": [
+														{
+															"key": "organizationId",
+															"value": "123456",
+															"description": "fill with your organizationId"
+														},
+														{
+															"key": "rateColumn",
+															"value": "columnRateName",
+															"description": "fill in the name of the rate column in the file"
+														},
+														{
+															"key": "rateUnits",
+															"value": "gal/ac",
+															"description": "fill with the following values: gal/ac, l/ha, lbs/ac, ton/ac, kg/ha, t/ha, kS/ac, kS/ha, lbs(N)/ac, kg(N)/ha, S/ha or S/ha"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Implements",
+							"item": [
+								{
+									"name": "Get All Implements",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/implements",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"implements"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+													"disabled": true
+												},
+												{
+													"key": "sort",
+													"value": "id,leafUserId,name,provider,providerOrganizationId,serialNumber,vin,model,make,category,asc|desc",
+													"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "Case IH  7120",
+													"description": "implement name",
+													"disabled": true
+												},
+												{
+													"key": "provider",
+													"value": "JohnDeere",
+													"description": "JohnDeere or Trimble",
+													"disabled": true
+												},
+												{
+													"key": "providerOrganizationId",
+													"value": "1722",
+													"description": "Text",
+													"disabled": true
+												},
+												{
+													"key": "createdTime",
+													"value": "2022-01-10T21:28:58.764Z",
+													"description": "Must match exactly the time of the record creation, ISO 8601 without timezone",
+													"disabled": true
+												},
+												{
+													"key": "providerImplementId",
+													"value": "Implement1",
+													"description": "provider implement id",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get An Implement",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/implements/{{implement_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"implements",
+												"{{implement_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Operators",
+							"item": [
+								{
+									"name": "Get All Operators",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/operators",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"operators"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Pagination parameter for selecting the page (integer)",
+													"disabled": true
+												},
+												{
+													"key": "size",
+													"value": "20",
+													"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+													"disabled": true
+												},
+												{
+													"key": "provider",
+													"value": "JohnDeere",
+													"description": "JohnDeere",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get An Operator",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/operators/{{operator_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"operators",
+												"{{operator_id}}"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						}
@@ -6534,17 +7214,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-04-20",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-04-17",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem.",
+											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem. The default is gfs.",
 											"disabled": true
 										},
 										{
@@ -6596,17 +7278,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-04-20",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-04-17",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem.",
+											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem. The default is gfs.",
 											"disabled": true
 										},
 										{
@@ -6655,17 +7339,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-04-20",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-04-17",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem.",
+											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem. The default is gfs.",
 											"disabled": true
 										},
 										{
@@ -6714,17 +7400,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-04-20",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-04-17",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem.",
+											"description": "Fill with model: icon, gfs, arpegeArome, ifs, jma or gem. The default is gfs.",
 											"disabled": true
 										},
 										{
@@ -6776,17 +7464,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-03-10",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-02-10",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5Land",
+											"description": "Fill with model: era5 or era5Land. The default is era5",
 											"disabled": true
 										},
 										{
@@ -6838,17 +7528,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-03-10",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-02-10",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5Land",
+											"description": "Fill with model: era5 or era5Land. The default is era5",
 											"disabled": true
 										},
 										{
@@ -6897,17 +7589,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-03-10",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-02-10",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5Land",
+											"description": "Fill with model: era5 or era5Land. The default is era5",
 											"disabled": true
 										},
 										{
@@ -6956,17 +7650,19 @@
 										{
 											"key": "endTime",
 											"value": "2023-03-10",
+											"description": "ISO 8601 date. Returns operations that ended before endTime",
 											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": "2023-02-10",
+											"description": "ISO 8601 date. Returns operations from the startTime onward",
 											"disabled": true
 										},
 										{
 											"key": "model",
 											"value": "fill with the model",
-											"description": "Fill with model: era5 or era5Land",
+											"description": "Fill with model: era5 or era5Land. The default is era5",
 											"disabled": true
 										},
 										{
@@ -8546,6 +9242,641 @@
 									]
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "Magic Link",
+					"item": [
+						{
+							"name": "Provider",
+							"item": [
+								{
+									"name": "Get All Provider Magic Link",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/provider",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"provider"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a Provider Magic Link",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/provider/{{magic_link_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"provider",
+												"{{magic_link_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a Provider Magic Link",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"expiresIn\": 900,\n  \"allowedProviders\": [\n    \"provider_name\"\n  ],\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/user/{{leaf_user_id}}/provider",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"user",
+												"{{leaf_user_id}}",
+												"provider"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a Provider Magic Link",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/provider/{{magic_link_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"provider",
+												"{{magic_link_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Authentication",
+							"item": [
+								{
+									"name": "Get All Authentication Magic Link",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/authentication",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"authentication"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get An Authentication Magic Link",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/authentication/{{magic_link_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"authentication",
+												"{{magic_link_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create An Authentication Magic Link",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"expiresIn\": 900,\n  \"provider\": \"providerName\",\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/user/{{leaf_user_id}}/authentication",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"user",
+												"{{leaf_user_id}}",
+												"authentication"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete An Authentication Magic Link",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/authentication/{{magic_link_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"authentication",
+												"{{magic_link_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "File Upload",
+							"item": [
+								{
+									"name": "Get All File Upload Magic Link",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/file-upload",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"file-upload"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a File Upload Magic Link",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/file-upload/{{magic_link_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"file-upload",
+												"{{magic_link_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a File Upload Magic Link",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"expiresIn\": 900,\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/user/{{leaf_user_id}}/file-upload",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"user",
+												"{{leaf_user_id}}",
+												"file-upload"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a File Upload Magic Link",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/file-upload/{{magic_link_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"file-upload",
+												"{{magic_link_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Magic Link with Leaf User Creation",
+							"item": [
+								{
+									"name": "Create a Provider Magic Link",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"user_name\",\n  \"email\": \"user_email\",\n  \"externalId\": \"external_id\",\n  \"expiresIn\": 900,\n  \"allowedProviders\": [\n    \"provider_name\"\n  ],\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/provider",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"provider"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a Authentication Magic Link",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"user_name\",\n  \"email\": \"user_email\",\n  \"externalId\": \"external_id\",\n  \"expiresIn\": 900,\n  \"provider\": \"provider_name\",\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/authentication",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"authentication"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a File Upload Magic Link",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"user_name\",\n  \"email\": \"user_email\",\n  \"externalId\": \"external_id\",\n  \"expiresIn\": 900,\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/file-upload",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"widgets",
+												"api",
+												"magic-link",
+												"file-upload"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Integrations",
+					"item": [
+						{
+							"name": "Get Integrations Resources",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/integrations/api/resources",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"integrations",
+										"api",
+										"resources"
+									],
+									"query": [
+										{
+											"key": "leafUserId",
+											"value": "{{leaf_user_id}}",
+											"description": "filter by leaf_user",
+											"disabled": true
+										},
+										{
+											"key": "provider",
+											"value": "JohnDeere",
+											"description": "JohnDeere, ClimateFieldView, Leaf, CNHi, AgLeader or Trimble",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Pagination parameter for selecting the page of the result (integer)",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "100",
+											"description": "Pagination parameter that specifies the size of each page (integer)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
