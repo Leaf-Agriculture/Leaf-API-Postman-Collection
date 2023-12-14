@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0e35608c-d479-481e-af6f-838c2b02c174",
+		"_postman_id": "918f7f72-2bfb-4c14-a737-49f6aed66ff0",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -5510,7 +5510,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"assetTypes\": [\n    \"ortho_analytic_8b_sr\"\n  ],\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \n    [[[\n        [-89.84392762184143,39.72439389620628],\n        [-89.84388470649719,39.71943436012731],\n        [-89.83928203582764,39.71951688444436],\n        [-89.83936786651611,39.725392361998416],\n        [-89.84392762184143,39.72439389620628]\n    ]]]\n  },\n  \"providers\": [\n      \"planet\"\n  ]\n}"
+									"raw": "{\n  \"assetTypes\": [\n    \"ortho_analytic_8b_sr\"\n  ],\n  \"externalId\": \"{{sat_external_id}}\",\n  \"daysBefore\": 30,\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": [\n      [\n        [\n          [\n            -48.95275447,\n            -22.49608\n          ],\n          [\n            -48.95379286,\n            -22.49675703\n          ],\n          [\n            -48.9591836,\n            -22.50310243\n          ],\n          [\n            -48.96225525,\n            -22.5067235\n          ],\n          [\n            -48.94852019,\n            -22.50648371\n          ],\n          [\n            -48.94780839,\n            -22.49693998\n          ],\n          [\n            -48.95275447,\n            -22.49608\n          ]\n        ]\n      ]\n    ]\n  },\n  \"providers\": [\n    \"planet\"\n  ]\n}"
 								},
 								"url": {
 									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields",
@@ -5869,6 +5869,858 @@
 				{
 					"name": "Beta",
 					"item": [
+						{
+							"name": "Input Database",
+							"item": [
+								{
+									"name": "Products",
+									"item": [
+										{
+											"name": "Get all products",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products"
+													],
+													"query": [
+														{
+															"key": "leafUserId",
+															"value": "{{leaf_user_id}}",
+															"disabled": true
+														},
+														{
+															"key": "provider",
+															"value": "JohnDeere",
+															"disabled": true
+														},
+														{
+															"key": "size",
+															"value": "100",
+															"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+															"disabled": true
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Pagination parameter for selecting the page (integer)",
+															"disabled": true
+														},
+														{
+															"key": "sort",
+															"value": "",
+															"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get summarized products",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/products/summary",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"products",
+														"summary"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "",
+															"description": "part of the product name",
+															"disabled": true
+														},
+														{
+															"key": "size",
+															"value": "100",
+															"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+															"disabled": true
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Pagination parameter for selecting the page (integer)",
+															"disabled": true
+														},
+														{
+															"key": "sort",
+															"value": "",
+															"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Search for products",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products/search",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products",
+														"search"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "",
+															"description": "part of the product name to be searched (required)",
+															"disabled": true
+														},
+														{
+															"key": "maxResults",
+															"value": "",
+															"description": "the number of results that should be returned (max value is 20). The default is 10",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get a product",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products/{product_id}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products",
+														"{product_id}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get matching products from an operation",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products/matching/operations/{{operation_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products",
+														"matching",
+														"operations",
+														"{{operation_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Updated product matches",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products/matching/operations/{{operation_id}}/matches/{{match_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products",
+														"matching",
+														"operations",
+														"{{operation_id}}",
+														"matches",
+														"{{match_id}}"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "VALIDATED",
+															"disabled": true
+														},
+														{
+															"key": "productId",
+															"value": "{{product_id_expected}}",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get product matches historical",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products/matching/operations/{{operation_id}}/matches/{{match_id}}/historical",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products",
+														"matching",
+														"operations",
+														"{{operation_id}}",
+														"matches",
+														"{{match_id}}",
+														"historical"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Varieties",
+									"item": [
+										{
+											"name": "Get all varieties",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/varieties",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"varieties"
+													],
+													"query": [
+														{
+															"key": "leafUserId",
+															"value": "{{leaf_user_id}}",
+															"disabled": true
+														},
+														{
+															"key": "provider",
+															"value": "JohnDeere",
+															"disabled": true
+														},
+														{
+															"key": "size",
+															"value": "100",
+															"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+															"disabled": true
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Pagination parameter for selecting the page (integer)",
+															"disabled": true
+														},
+														{
+															"key": "sort",
+															"value": "",
+															"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get summarized varieties",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/users/{{leaf_user_id}}/varieties/summary",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"users",
+														"{{leaf_user_id}}",
+														"varieties",
+														"summary"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "",
+															"description": "part of the variety name",
+															"disabled": true
+														},
+														{
+															"key": "size",
+															"value": "100",
+															"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+															"disabled": true
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Pagination parameter for selecting the page (integer)",
+															"disabled": true
+														},
+														{
+															"key": "sort",
+															"value": "",
+															"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+															"disabled": true
+														},
+														{
+															"key": "crops",
+															"value": "",
+															"description": "desired crop name",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Search for varieties",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/products/search",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"products",
+														"search"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "",
+															"description": "part of the variety name to be searched (required)",
+															"disabled": true
+														},
+														{
+															"key": "maxResults",
+															"value": "20",
+															"description": "the number of results that should be returned (max value is 20). The default is 10",
+															"disabled": true
+														},
+														{
+															"key": "crop",
+															"value": null,
+															"description": "the name of the crop of the varieties of interest",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Tank Mixes",
+									"item": [
+										{
+											"name": "Get all tank mixes",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/tankMixes",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"tankMixes"
+													],
+													"query": [
+														{
+															"key": "leafUserId",
+															"value": "{{leaf_user_id}}",
+															"disabled": true
+														},
+														{
+															"key": "provider",
+															"value": "JohnDeere",
+															"disabled": true
+														},
+														{
+															"key": "size",
+															"value": "100",
+															"description": "Pagination parameter that specifies the size of each page (integer), default is 20, maximum is 100",
+															"disabled": true
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Pagination parameter for selecting the page (integer)",
+															"disabled": true
+														},
+														{
+															"key": "sort",
+															"value": "",
+															"description": "Sorting order of the results. Can be multivalue, the former takes precedence over the later. Can also specify order as `asc` or `desc` with `asc` being the default. Example: id,desc",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Search for tank mixes",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/beta/api/tankMixes/search",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"beta",
+														"api",
+														"tankMixes",
+														"search"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "",
+															"description": "part of the tank mix name to be searched (required)",
+															"disabled": true
+														},
+														{
+															"key": "maxResults",
+															"value": "",
+															"description": "the number of results that should be returned (max value is 20). The default is 10",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
 						{
 							"name": "Machines",
 							"item": [
