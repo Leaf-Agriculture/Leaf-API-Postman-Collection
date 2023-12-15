@@ -6237,6 +6237,10 @@
 														"value": "application/json"
 													}
 												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"VALIDATED\"\n}"
+												},
 												"url": {
 													"raw": "https://{{leaf_api_url}}/services/beta/api/products/matching/operations/{{operation_id}}/matches/{{match_id}}",
 													"protocol": "https",
@@ -6253,18 +6257,6 @@
 														"{{operation_id}}",
 														"matches",
 														"{{match_id}}"
-													],
-													"query": [
-														{
-															"key": "status",
-															"value": "VALIDATED",
-															"disabled": true
-														},
-														{
-															"key": "productId",
-															"value": "{{product_id_expected}}",
-															"disabled": true
-														}
 													]
 												}
 											},
