@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "918f7f72-2bfb-4c14-a737-49f6aed66ff0",
+		"_postman_id": "b72972fd-920a-48ec-9978-e12ed7f913ec",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -3333,6 +3333,174 @@
 							"name": "Fields",
 							"item": [
 								{
+									"name": "Upload field file",
+									"item": [
+										{
+											"name": "Upload a field file",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody);",
+															"pm.environment.set(\"upload_field_id\", jsonData.id);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"type": "file",
+															"src": []
+														}
+													]
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/uploadservice/api/upload?leafUserId={{leaf_user_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"uploadservice",
+														"api",
+														"upload"
+													],
+													"query": [
+														{
+															"key": "leafUserId",
+															"value": "{{leaf_user_id}}"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get all uploads",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/uploadservice/api/upload",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"uploadservice",
+														"api",
+														"upload"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get an upload",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/uploadservice/api/upload/{{upload_field_id}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"uploadservice",
+														"api",
+														"upload",
+														"{{upload_field_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get the upload entries",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/uploadservice/api/upload/{{upload_field_id}}/entries",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"uploadservice",
+														"api",
+														"upload",
+														"{{upload_field_id}}",
+														"entries"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
 									"name": "Get all fields",
 									"request": {
 										"method": "GET",
@@ -4662,7 +4830,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/operations/api/batch/{{batch_id}}",
+									"raw": "https://{{leaf_api_url}}/services/operations/api/batch",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -4671,8 +4839,7 @@
 										"services",
 										"operations",
 										"api",
-										"batch",
-										"{{batch_id}}"
+										"batch"
 									]
 								}
 							},
