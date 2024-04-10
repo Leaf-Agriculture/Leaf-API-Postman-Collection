@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "b72972fd-920a-48ec-9978-e12ed7f913ec",
+		"_postman_id": "4c51a12b-eb49-4431-8100-061fb2a11de3",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "17589544"
+		"_exporter_id": "31093199"
 	},
 	"item": [
 		{
@@ -3040,7 +3040,7 @@
 									"script": {
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
-											"pm.environment.set(\"leaf_user_id\", jsonData.id);"
+											"pm.environment.set(\"leaf_user_id\", jsonData.leafUserId);"
 										],
 										"type": "text/javascript"
 									}
@@ -4168,6 +4168,81 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Create a farm",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Farm 01\",\n  \"growerId\": 123\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/farms",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"farms"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update a farm",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Farm 01\",\n  \"growerId\": 123\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/farms/{{farm_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"farms",
+												"{{farm_id}}"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
@@ -4246,6 +4321,81 @@
 												"services",
 												"fields",
 												"api",
+												"growers",
+												"{{grower_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a grower",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Example Grower Name\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/growers",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"growers"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update a grower",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Example Grower Name\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/users/{{leaf_user_id}}/growers/{{grower_id}}",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
 												"growers",
 												"{{grower_id}}"
 											]
@@ -4492,7 +4642,7 @@
 										{
 											"key": "operationType",
 											"value": "harvested",
-											"description": "planted, applied or harvested",
+											"description": "planted, applied, harvested or tillage",
 											"disabled": true
 										},
 										{
@@ -5002,7 +5152,7 @@
 										{
 											"key": "operationType",
 											"value": "harvested",
-											"description": "planted, applied or harvested",
+											"description": "planted, applied, harvested or tillage",
 											"disabled": true
 										},
 										{
@@ -5791,247 +5941,6 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "Alerts",
-					"item": [
-						{
-							"name": "Get all webhooks",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get webhook",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/{{webhook_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks",
-										"{{webhook_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get failed calls for webhooks",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{leaf_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/failed-calls",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks",
-										"failed-calls"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create a webhook",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Successful POST request\", function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
-											"});",
-											"var location = pm.response.headers.get('Location');",
-											"var location_split = location.split('/');",
-											"var webhook_id = location_split[location_split.length - 1];",
-											"pm.environment.set(\"webhook_id\", webhook_id);",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"name\": \"listener of uploaded files\",\n  \"url\": \"https://webhook.site/cf446e16-79ee-434d-9f59-cd64f2ae82ff\",\n  \"secret\": \"<your secret, for auth>\",\n  \"events\": [\n    \"fieldCreated\"\n  ]\n}"
-								},
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks"
-									]
-								},
-								"description": "Register the URL of your webhook, specifying which events do you want to be alerted about.\n\nThe id of the resource created is returned in the Location header."
-							},
-							"response": []
-						},
-						{
-							"name": "Delete a webhook",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/alerts/api/alerts/webhooks/{{webhook_id}}",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"alerts",
-										"api",
-										"alerts",
-										"webhooks",
-										"{{webhook_id}}"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"description": "Register you server's URL to receive alerts from Leaf services."
 				},
 				{
 					"name": "Beta",
@@ -8722,6 +8631,115 @@
 					]
 				},
 				{
+					"name": "Irrigation",
+					"item": [
+						{
+							"name": "Get as-applied irrigation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/applied-irrigation",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"irrigation",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"irrigation",
+										"applied-irrigation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all irrigated fields",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/irrigation/fields",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"irrigation",
+										"api",
+										"irrigation",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an irrigated field",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields/{{field_id}}",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"irrigation",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"irrigation",
+										"fields",
+										"{{field_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Leaf Connect",
 					"item": [
 						{
@@ -10283,6 +10301,203 @@
 											"response": []
 										}
 									]
+								},
+								{
+									"name": "Raven Slingshot",
+									"item": [
+										{
+											"name": "Get all RavenSlingshot app information",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/RavenSlingshot",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"RavenSlingshot"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get a RavenSlingshot app information",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/RavenSlingshot/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"RavenSlingshot",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Create a RavenSlingshot app information",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"apiKey\": \"{{ravenslingshot_api_key}}\",\n  \"sharedSecret\": \"{{ravenslingshot_shared_secret}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/RavenSlingshot/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"RavenSlingshot",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update a RavenSlingshot app information",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"apiKey\": \"{{ravenslingshot_api_key}}\",\n  \"sharedSecret\": \"{{ravenslingshot_shared_secret}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/RavenSlingshot/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"RavenSlingshot",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete a RavenSlingshot app information",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/RavenSlingshot/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"RavenSlingshot",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
 								}
 							]
 						}
@@ -10382,7 +10597,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"expiresIn\": 900,\n  \"allowedProviders\": [\n    \"provider_name\"\n  ],\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+											"raw": "{\n  \"expiresIn\": 900,\n  \"allowedProviders\": [\n    \"All\"\n  ],\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/users/{{leaf_user_id}}/provider",
@@ -10743,6 +10958,18 @@
 							"item": [
 								{
 									"name": "Create a Provider Magic Link",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.leafUserId);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [
@@ -10760,7 +10987,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"user_name\",\n  \"email\": \"user_email\",\n  \"externalId\": \"external_id\",\n  \"expiresIn\": 900,\n  \"allowedProviders\": [\n    \"provider_name\"\n  ],\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+											"raw": "{\n  \"name\": \"user_name\",\n  \"email\": \"user_email\",\n  \"externalId\": \"external_id\",\n  \"expiresIn\": 900,\n  \"allowedProviders\": [\n    \"All\"\n  ],\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/provider",
@@ -10781,6 +11008,18 @@
 								},
 								{
 									"name": "Create a Authentication Magic Link",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.leafUserId);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [
@@ -10819,6 +11058,18 @@
 								},
 								{
 									"name": "Create a File Upload Magic Link",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"leaf_user_id\", jsonData.leafUserId);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [
