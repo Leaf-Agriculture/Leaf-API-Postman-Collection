@@ -3425,9 +3425,10 @@
 									"script": {
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
-											"pm.environment.set(\"leaf_user_id\", jsonData.leafUserId);"
+											"pm.environment.set(\"leaf_user_id\", jsonData.id);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -3436,7 +3437,8 @@
 										"exec": [
 											"pm.environment.set(\"random_number\", _.random(1073741824, 2147483648))"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
