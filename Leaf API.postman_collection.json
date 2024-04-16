@@ -9091,6 +9091,41 @@
 							"response": []
 						},
 						{
+							"name": "Get all irrigation equipment",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation-equipment/",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"irrigation",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"irrigation-equipment",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Get an irrigated field",
 							"request": {
 								"method": "GET",
