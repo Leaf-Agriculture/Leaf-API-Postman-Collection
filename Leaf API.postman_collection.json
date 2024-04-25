@@ -1042,6 +1042,92 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "Lindsay auth",
+							"item": [
+								{
+									"name": "1. Get Lindsay auth URL",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"lindsay_code_verifier\", jsonData.codeVerifier);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"clientId\": \"{{lindsay_client_id}}\",\n    \"redirectUri\": \"{{lindsay_redirect_uri}}\",\n    \"environment\": \"STAGE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_helper}}/lindsay/url",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_helper}}"
+											],
+											"path": [
+												"lindsay",
+												"url"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "2. Get Lindsay Token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"trimble_refresh_token\", jsonData.refresh_token);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"clientId\": \"{{lindsay_client_id}}\",\n    \"clientSecret\": \"{{lindsay_client_secret}}\",\n    \"redirectUri\": \"{{lindsay_redirect_uri}}\",\n    \"responseUrl\": \"{{lindsay_response_url}}\",\n    \"codeVerifier\": \"{{lindsay_code_verifier}}\",\n    \"environment\": \"STAGE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_auth_helper}}/get_token",
+											"protocol": "https",
+											"host": [
+												"{{leaf_auth_helper}}"
+											],
+											"path": [
+												"get_token"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				},
@@ -2011,7 +2097,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"clientId\": \"{{lindsay_client_id}}\",\n    \"clientSecret\": \"{{lindsay_client_secret}}\",\n    \"refreshToken\": \"{{lindsay_refresh_token}}\"\n}",
+													"raw": "{\n    \"clientId\": \"{{lindsay_client_id}}\",\n    \"clientSecret\": \"{{lindsay_client_secret}}\",\n    \"refreshToken\": \"{{lindsay_refresh_token}}\",\n    \"clientEnvironment\": \"STAGE\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -11655,6 +11741,11 @@
 		{
 			"key": "leaf_auth_trimble",
 			"value": "trimble-oauth2-helper.withleaf.io"
+		},
+		{
+			"key": "leaf_auth_helper",
+			"value": "oauth2-helper.withleaf.io",
+			"type": "string"
 		}
 	]
 }
