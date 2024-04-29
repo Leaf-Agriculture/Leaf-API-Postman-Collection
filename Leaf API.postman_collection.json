@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5da5df7b-d842-4548-bd0e-bb7db9bb8be1",
+		"_postman_id": "876ba292-936a-434e-b254-26a07b38df56",
 		"name": "Leaf API",
 		"description": "Leaf API Postman Collection\n\n\n- Import Postman Collection\n- Import Environment Variables\n- Register with Leaf \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersion 0.0.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -1115,13 +1115,14 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{leaf_auth_helper}}/get_token",
+											"raw": "https://{{leaf_auth_helper}}/lindsay/token",
 											"protocol": "https",
 											"host": [
 												"{{leaf_auth_helper}}"
 											],
 											"path": [
-												"get_token"
+												"lindsay",
+												"token"
 											]
 										}
 									},
@@ -8303,6 +8304,55 @@
 											"response": []
 										}
 									]
+								}
+							]
+						},
+						{
+							"name": "AgLeader",
+							"item": [
+								{
+									"name": "Upload AgLeader prescription file",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"description": "Select your prescription file (zip file)",
+													"type": "file",
+													"src": []
+												}
+											]
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/beta/prescription/api/users/{{leaf_user_id}}/agLeader",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"beta",
+												"prescription",
+												"api",
+												"users",
+												"{{leaf_user_id}}",
+												"agLeader"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
