@@ -9157,76 +9157,6 @@
 					"name": "Irrigation",
 					"item": [
 						{
-							"name": "Get as-applied irrigation",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/applied-irrigation",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"irrigation",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"irrigation",
-										"applied-irrigation"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all irrigated fields",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{leaf_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields",
-									"protocol": "https",
-									"host": [
-										"{{leaf_api_url}}"
-									],
-									"path": [
-										"services",
-										"irrigation",
-										"api",
-										"users",
-										"{{leaf_user_id}}",
-										"irrigation",
-										"fields"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Get all irrigation equipment",
 							"request": {
 								"method": "GET",
@@ -9243,7 +9173,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation-equipment/",
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation-equipment/?providerEquipmentId&provider",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -9256,6 +9186,18 @@
 										"{{leaf_user_id}}",
 										"irrigation-equipment",
 										""
+									],
+									"query": [
+										{
+											"key": "providerEquipmentId",
+											"value": null,
+											"description": "Provider equipment ID"
+										},
+										{
+											"key": "provider",
+											"value": null,
+											"description": "Lindsay or Valley"
+										}
 									]
 								}
 							},
@@ -9297,6 +9239,110 @@
 							"response": []
 						},
 						{
+							"name": "Get as-applied irrigation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/applied-irrigation?provider&startTime&endTime",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"irrigation",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"irrigation",
+										"applied-irrigation"
+									],
+									"query": [
+										{
+											"key": "provider",
+											"value": null,
+											"description": "Lindsay or Valley"
+										},
+										{
+											"key": "startTime",
+											"value": null,
+											"description": "Returns irrigation data from the startTime onward"
+										},
+										{
+											"key": "endTime",
+											"value": null,
+											"description": "Returns irrigation data until the endTime"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all irrigated fields",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields?equipmentId&startTime&endTime",
+									"protocol": "https",
+									"host": [
+										"{{leaf_api_url}}"
+									],
+									"path": [
+										"services",
+										"irrigation",
+										"api",
+										"users",
+										"{{leaf_user_id}}",
+										"irrigation",
+										"fields"
+									],
+									"query": [
+										{
+											"key": "equipmentId",
+											"value": null,
+											"description": "Leaf equipment ID"
+										},
+										{
+											"key": "startTime",
+											"value": null,
+											"description": "Returns irrigation data from the startTime onward"
+										},
+										{
+											"key": "endTime",
+											"value": null,
+											"description": "Returns irrigation data until the endTime"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Get an irrigated field",
 							"request": {
 								"method": "GET",
@@ -9313,7 +9359,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields/{{field_id}}",
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields/{{field_id}}?irrigationId&provider&startTime&endTime",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -9327,6 +9373,28 @@
 										"irrigation",
 										"fields",
 										"{{field_id}}"
+									],
+									"query": [
+										{
+											"key": "irrigationId",
+											"value": null,
+											"description": "As-applied irrigation ID"
+										},
+										{
+											"key": "provider",
+											"value": null,
+											"description": "Lindsay or Valley"
+										},
+										{
+											"key": "startTime",
+											"value": null,
+											"description": "Returns irrigation data from the startTime onward"
+										},
+										{
+											"key": "endTime",
+											"value": null,
+											"description": "Returns irrigation data until the endTime"
+										}
 									]
 								}
 							},
