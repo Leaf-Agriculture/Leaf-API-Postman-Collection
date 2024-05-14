@@ -9173,7 +9173,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation-equipment/?providerEquipmentId&provider",
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation-equipment/",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -9190,13 +9190,15 @@
 									"query": [
 										{
 											"key": "providerEquipmentId",
-											"value": null,
-											"description": "Provider equipment ID"
+											"value": "",
+											"description": "Provider equipment ID",
+											"disabled": true
 										},
 										{
 											"key": "provider",
-											"value": null,
-											"description": "Lindsay or Valley"
+											"value": "",
+											"description": "Lindsay or Valley",
+											"disabled": true
 										}
 									]
 								}
@@ -9255,7 +9257,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/applied-irrigation?provider&startTime&endTime",
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/applied-irrigation",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -9273,17 +9275,20 @@
 										{
 											"key": "provider",
 											"value": null,
-											"description": "Lindsay or Valley"
+											"description": "Lindsay or Valley",
+											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": null,
-											"description": "Returns irrigation data from the startTime onward"
+											"description": "Returns irrigation data from the startTime onward",
+											"disabled": true
 										},
 										{
 											"key": "endTime",
 											"value": null,
-											"description": "Returns irrigation data until the endTime"
+											"description": "Returns irrigation data until the endTime",
+											"disabled": true
 										}
 									]
 								}
@@ -9307,7 +9312,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields?equipmentId&startTime&endTime",
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -9325,17 +9330,20 @@
 										{
 											"key": "equipmentId",
 											"value": null,
-											"description": "Leaf equipment ID"
+											"description": "Leaf equipment ID",
+											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": null,
-											"description": "Returns irrigation data from the startTime onward"
+											"description": "Returns irrigation data from the startTime onward",
+											"disabled": true
 										},
 										{
 											"key": "endTime",
 											"value": null,
-											"description": "Returns irrigation data until the endTime"
+											"description": "Returns irrigation data until the endTime",
+											"disabled": true
 										}
 									]
 								}
@@ -9359,7 +9367,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields/{{field_id}}?irrigationId&provider&startTime&endTime",
+									"raw": "https://{{leaf_api_url}}/services/irrigation/api/users/{{leaf_user_id}}/irrigation/fields/{{field_id}}",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -9378,22 +9386,26 @@
 										{
 											"key": "irrigationId",
 											"value": null,
-											"description": "As-applied irrigation ID"
+											"description": "As-applied irrigation ID",
+											"disabled": true
 										},
 										{
 											"key": "provider",
 											"value": null,
-											"description": "Lindsay or Valley"
+											"description": "Lindsay or Valley",
+											"disabled": true
 										},
 										{
 											"key": "startTime",
 											"value": null,
-											"description": "Returns irrigation data from the startTime onward"
+											"description": "Returns irrigation data from the startTime onward",
+											"disabled": true
 										},
 										{
 											"key": "endTime",
 											"value": null,
-											"description": "Returns irrigation data until the endTime"
+											"description": "Returns irrigation data until the endTime",
+											"disabled": true
 										}
 									]
 								}
