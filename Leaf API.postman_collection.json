@@ -1129,52 +1129,6 @@
 									"response": []
 								}
 							]
-						},
-						{
-							"name": "Agrimatics auth",
-							"item": [
-								{
-									"name": "1. Get Agrimatics Token",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var jsonData = JSON.parse(responseBody);",
-													"pm.environment.set(\"trimble_refresh_token\", jsonData.refresh_token);"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"clientId\": \"{{agrimatics_client_id}}\",\n    \"clientSecret\": \"{{agrimatics_client_secret}}\",\n    \"accountCode\": \"{{agrimatics_account_code}}\",\n    \"environment\": \"STAGE\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://{{leaf_auth_helper}}/agrimatics/token",
-											"protocol": "https",
-											"host": [
-												"{{leaf_auth_helper}}"
-											],
-											"path": [
-												"agrimatics",
-												"token"
-											]
-										}
-									},
-									"response": []
-								}
-							]
 						}
 					]
 				},
@@ -5459,7 +5413,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -5497,7 +5452,7 @@
 										{
 											"key": "provider",
 											"value": "Leaf",
-											"description": "JohnDeere, ClimateFieldView, Leaf, CNHi, AgLeader or Trimble",
+											"description": "CNHI, JohnDeere, Trimble, ClimateFieldView, AgLeader, RavenSlingshot, Stara or Leaf",
 											"disabled": true
 										},
 										{
@@ -5973,7 +5928,7 @@
 							"response": []
 						}
 					],
-					"description": "Get Operation Files\n1. Query & access all files\nWith this endpoint you can query all files of all your users (or you can filter by user as well, or by provider, by operation_date and much more). Select and update which params (filters) you want to apply before querying files and just hit \"send\"\n2. Query & access specific file\nTo query for a specific operation file, you just have to update the value of the environment variable \"file_id\" and hit \"send\"\n",
+					"description": "Get Operation Files\n\n1. Query & access all files  \n    With this endpoint you can query all files of all your users (or you can filter by user as well, or by provider, by operation_date and much more). Select and update which params (filters) you want to apply before querying files and just hit \"send\"\n    \n2. Query & access specific file  \n    To query for a specific operation file, you just have to update the value of the environment variable \"file_id\" and hit \"send\"",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -11642,6 +11597,198 @@
 											"response": []
 										}
 									]
+								},
+								{
+									"name": "Stara",
+									"item": [
+										{
+											"name": "Get all Stara app information",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/Stara",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"Stara"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get a Stara app information",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/Stara/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"Stara",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Create a Stara app information",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accessTokenClient\": \"{{stara_access_token_client}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/Stara/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"Stara",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update a Stara app information",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accessTokenClient\": \"{{stara_access_token_client}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/Stara/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"Stara",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete a Stara app information",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer {{leaf_token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "https://{{leaf_api_url}}/services/usermanagement/api/app-keys/Stara/{{app_name}}",
+													"protocol": "https",
+													"host": [
+														"{{leaf_api_url}}"
+													],
+													"path": [
+														"services",
+														"usermanagement",
+														"api",
+														"app-keys",
+														"Stara",
+														"{{app_name}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
 								}
 							]
 						}
@@ -12196,7 +12343,8 @@
 													"var jsonData = JSON.parse(responseBody);",
 													"pm.environment.set(\"leaf_user_id\", jsonData.leafUserId);"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -12216,7 +12364,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"user_name\",\n  \"email\": \"user_email\",\n  \"externalId\": \"external_id\",\n  \"expiresIn\": 900,\n  \"settings\": {\n    \"backgroundColor\": \"#F5F5F5\",\n    \"headerImage\": \"URL\",\n    \"companyLogo\": \"URL\",\n    \"companyName\": \"companyName\",\n    \"showLeafUserName\": \"false\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
+											"raw": "{\n  \"name\": \"Cristin\",\n  \"email\": \"cristin@precisionriskmanagement.com\",\n  \"externalId\": \"PRM001\",\n  \"expiresIn\": 90000,\n  \"settings\": {\n    \"backgroundColor\": \"#FFFFFF\",\n    \"headerImage\": \"https://precisionriskmanagement.com/wp-content/uploads/2022/10/prm-logo-header.png.webp\",\n    \"companyLogo\": \"https://precisionriskmanagement.com/wp-content/uploads/2022/10/prm-logo-header.png.webp\",\n    \"companyName\": \"PRM\",\n    \"showLeafUserName\": \"true\",\n    \"disconnectEnabled\": \"false\"\n  }\n}"
 										},
 										"url": {
 											"raw": "https://{{leaf_api_url}}/services/widgets/api/magic-link/file-upload",
