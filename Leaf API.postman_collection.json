@@ -5247,6 +5247,42 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Enable preview fields by grower",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{leaf_token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"growerIds\": []\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{leaf_api_url}}/services/fields/api/growers/enableSync",
+											"protocol": "https",
+											"host": [
+												"{{leaf_api_url}}"
+											],
+											"path": [
+												"services",
+												"fields",
+												"api",
+												"growers",
+												"enableSync"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
@@ -11686,7 +11722,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"accessTokenClient\": \"{{stara_access_token_client}}\"\n}",
+													"raw": "{\n  \"user\": \"{{stara_username}}\",\n  \"pwd\": \"{{stara_password}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
