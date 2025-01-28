@@ -12485,6 +12485,161 @@
 							"response": []
 						}
 					]
+				},
+				{
+                    "name": "Usage Tracking",
+                    "item": [
+                        {
+                            "name": "List contracts",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{leaf_token}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api.withleaf.io"
+                                    ],
+                                    "path": [
+                                        "services",
+                                        "billingapplication",
+                                        "api",
+                                        "billing",
+                                        "contracts"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get contract by id",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{leaf_token}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api.withleaf.io"
+                                    ],
+                                    "path": [
+                                        "services",
+                                        "billingapplication",
+                                        "api",
+                                        "billing",
+                                        "contracts",
+                                        "{{contract_id}}"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get contract consumption",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{leaf_token}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api.withleaf.io"
+                                    ],
+                                    "path": [
+                                        "services",
+                                        "billingapplication",
+                                        "api",
+                                        "billing",
+                                        "contracts",
+                                        "{{contract_id}}",
+                                        "consumption"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get contract consumption range for api owner",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{leaf_token}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption/api-owner",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api.withleaf.io"
+                                    ],
+                                    "path": [
+                                        "services",
+                                        "billingapplication",
+                                        "api",
+                                        "billing",
+                                        "contracts",
+                                        "{{contract_id}}",
+                                        "consumption",
+                                        "api-owner"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get contract consumption range for leaf user",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{leaf_token}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption/leaf-user/{{leaf_user_id}}",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api.withleaf.io"
+                                    ],
+                                    "path": [
+                                        "services",
+                                        "billingapplication",
+                                        "api",
+                                        "billing",
+                                        "contracts",
+                                        "{{contract_id}}",
+                                        "consumption",
+                                        "leaf-user",
+                                        "{{leaf_user_id}}"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
 				}
 			]
 		}
