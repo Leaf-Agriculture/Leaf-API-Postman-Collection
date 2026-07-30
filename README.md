@@ -23,7 +23,7 @@ accept changed (OAuth2 access token instead of the old JWT).
 
 1. On Postman, import the Collection and the Environment.
 1. Fill `leaf_email` and `leaf_pass` (and, for non‑prod, adjust `auth_url`,
-   `client_id`, `api_url`).
+   `client_id`, `leaf_api_url`).
 1. Run **Quickstart → Get Access Token** (or **External API → Leaf Auth → Get
    Access Token**). It performs a Direct Grant (password) login and stores
    `access_token`, `refresh_token` and `id_token` in the environment.
@@ -73,7 +73,7 @@ Key variables (see the environment file for the full list):
 
 | Variable | Purpose | Default |
 |---|---|---|
-| `api_url` | Product API gateway host | `api-v2.withleaf.io` |
+| `leaf_api_url` | Product API gateway host | `api-v2.withleaf.io` |
 | `auth_url` | OAuth2 server base (realm included) | `auth.withleaf.io/realms/leaf` |
 | `client_id` | Public client for external login | `dashboard-ui-prd` |
 | `internal_client_id` | Confidential client for Leaf Admin | `leaf-internal-prd` |
