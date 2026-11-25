@@ -6787,7 +6787,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/processes/{{process_id}}/reprocess",
+									"raw": "https://{{leaf_api_url}}/services/satellite/api/fields/{{sat_external_id}}/process/{{process_id}}/reprocess",
 									"protocol": "https",
 									"host": [
 										"{{leaf_api_url}}"
@@ -6798,7 +6798,7 @@
 										"api",
 										"fields",
 										"{{sat_external_id}}",
-										"processes",
+										"process",
 										"{{process_id}}",
 										"reprocess"
 									]
