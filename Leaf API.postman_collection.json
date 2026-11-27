@@ -11,45 +11,72 @@
 			"name": "Quickstart",
 			"item": [
 				{
-					"name": "Get your Leaf Token",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"pm.environment.set(\"leaf_token\", jsonData.id_token);",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Get Access Token",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
-						},
 						"url": {
-							"raw": "https://{{leaf_api_url}}/api/authenticate",
+							"raw": "https://{{auth_url}}/protocol/openid-connect/token",
 							"protocol": "https",
 							"host": [
-								"{{leaf_api_url}}"
+								"{{auth_url}}"
 							],
 							"path": [
-								"api",
-								"authenticate"
+								"protocol",
+								"openid-connect",
+								"token"
 							]
-						}
+						},
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "username",
+									"value": "{{leaf_email}}"
+								},
+								{
+									"key": "password",
+									"value": "{{leaf_pass}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid"
+								}
+							]
+						},
+						"auth": {
+							"type": "noauth"
+						},
+						"description": "Keycloak Direct Grant (password) login for external users. Realm `leaf` at {{auth_url}}. Saves access_token, refresh_token and id_token to the environment. This access_token is the Bearer used by all External API requests."
 					},
-					"response": []
+					"response": [],
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var json = pm.response.json();",
+									"pm.environment.set(\"access_token\", json.access_token);",
+									"if (json.refresh_token) { pm.environment.set(\"refresh_token\", json.refresh_token); }",
+									"if (json.id_token) { pm.environment.set(\"id_token\", json.id_token); }"
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Get all fields",
@@ -372,74 +399,141 @@
 			]
 		},
 		{
-			"name": "API Reference",
+			"name": "External API",
 			"item": [
 				{
-					"name": "Leaf auth",
+					"name": "Leaf Auth",
 					"item": [
 						{
-							"name": "Get your Leaf Token",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"pm.environment.set(\"leaf_token\", jsonData.id_token);",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
+							"name": "Get Access Token",
 							"request": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/x-www-form-urlencoded"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"username\": \"{{leaf_email}}\",\n  \"password\": \"{{leaf_pass}}\",\n  \"rememberMe\": true\n}\n// if rememberMe = \"true\", your Leaf Token lasts 30 days. If \"false\", your Leaf Token lasts 24h."
-								},
 								"url": {
-									"raw": "https://{{leaf_api_url}}/api/authenticate",
+									"raw": "https://{{auth_url}}/protocol/openid-connect/token",
 									"protocol": "https",
 									"host": [
-										"{{leaf_api_url}}"
+										"{{auth_url}}"
 									],
 									"path": [
-										"api",
-										"authenticate"
+										"protocol",
+										"openid-connect",
+										"token"
 									]
-								}
+								},
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "password"
+										},
+										{
+											"key": "client_id",
+											"value": "{{client_id}}"
+										},
+										{
+											"key": "username",
+											"value": "{{leaf_email}}"
+										},
+										{
+											"key": "password",
+											"value": "{{leaf_pass}}"
+										},
+										{
+											"key": "scope",
+											"value": "openid"
+										}
+									]
+								},
+								"auth": {
+									"type": "noauth"
+								},
+								"description": "Keycloak Direct Grant (password) login for external users. Realm `leaf` at {{auth_url}}. Saves access_token, refresh_token and id_token to the environment. This access_token is the Bearer used by all External API requests."
 							},
-							"response": []
-						}
-					],
-					"description": "Leaf Auth\nGet Leaf Token\nAfter registering with Leaf, you can get your Leaf token, which must be included in all requests to Leaf’s API as an authorization header.\n\tHow to get your Leaf Token:\nUpdate current value of \"leaf_email\" variable to your Leaf account email\nUpdate current value of \"leaf_pass\" variable to your Leaf account password\nHit \"Send\"\n\nAn \"id_token\" should be returned. It will be automatically transferred to the current value of \"leaf_token\" to be used in all calls to Leaf's API",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
+							"response": [],
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var json = pm.response.json();",
+											"pm.environment.set(\"access_token\", json.access_token);",
+											"if (json.refresh_token) { pm.environment.set(\"refresh_token\", json.refresh_token); }",
+											"if (json.id_token) { pm.environment.set(\"id_token\", json.id_token); }"
+										]
+									}
+								}
+							]
 						},
 						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
+							"name": "Refresh Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/protocol/openid-connect/token",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								},
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token"
+										},
+										{
+											"key": "client_id",
+											"value": "{{client_id}}"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}"
+										}
+									]
+								},
+								"auth": {
+									"type": "noauth"
+								},
+								"description": "Exchange the refresh_token for a new access_token (grant_type=refresh_token)."
+							},
+							"response": [],
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var json = pm.response.json();",
+											"pm.environment.set(\"access_token\", json.access_token);",
+											"if (json.refresh_token) { pm.environment.set(\"refresh_token\", json.refresh_token); }",
+											"if (json.id_token) { pm.environment.set(\"id_token\", json.id_token); }"
+										]
+									}
+								}
+							]
 						}
-					]
+					],
+					"description": "Keycloak OAuth2 login (Direct Grant / password) for external users. Replaces the legacy /api/authenticate JWT flow."
 				},
 				{
 					"name": "Providers auth",
@@ -12487,161 +12581,950 @@
 					]
 				},
 				{
-                    "name": "Usage Tracking",
-                    "item": [
-                        {
-                            "name": "List contracts",
-                            "request": {
-                                "method": "GET",
-                                "header": [
-                                    {
-                                        "key": "Authorization",
-                                        "value": "Bearer {{leaf_token}}",
-                                        "type": "text"
-                                    }
-                                ],
-                                "url": {
-                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts",
-                                    "protocol": "https",
-                                    "host": [
-                                        "api.withleaf.io"
-                                    ],
-                                    "path": [
-                                        "services",
-                                        "billingapplication",
-                                        "api",
-                                        "billing",
-                                        "contracts"
-                                    ]
-                                }
-                            },
-                            "response": []
-                        },
-                        {
-                            "name": "Get contract by id",
-                            "request": {
-                                "method": "GET",
-                                "header": [
-                                    {
-                                        "key": "Authorization",
-                                        "value": "Bearer {{leaf_token}}",
-                                        "type": "text"
-                                    }
-                                ],
-                                "url": {
-                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}",
-                                    "protocol": "https",
-                                    "host": [
-                                        "api.withleaf.io"
-                                    ],
-                                    "path": [
-                                        "services",
-                                        "billingapplication",
-                                        "api",
-                                        "billing",
-                                        "contracts",
-                                        "{{contract_id}}"
-                                    ]
-                                }
-                            },
-                            "response": []
-                        },
-                        {
-                            "name": "Get contract consumption",
-                            "request": {
-                                "method": "GET",
-                                "header": [
-                                    {
-                                        "key": "Authorization",
-                                        "value": "Bearer {{leaf_token}}",
-                                        "type": "text"
-                                    }
-                                ],
-                                "url": {
-                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption",
-                                    "protocol": "https",
-                                    "host": [
-                                        "api.withleaf.io"
-                                    ],
-                                    "path": [
-                                        "services",
-                                        "billingapplication",
-                                        "api",
-                                        "billing",
-                                        "contracts",
-                                        "{{contract_id}}",
-                                        "consumption"
-                                    ]
-                                }
-                            },
-                            "response": []
-                        },
-                        {
-                            "name": "Get contract consumption range for api owner",
-                            "request": {
-                                "method": "GET",
-                                "header": [
-                                    {
-                                        "key": "Authorization",
-                                        "value": "Bearer {{leaf_token}}",
-                                        "type": "text"
-                                    }
-                                ],
-                                "url": {
-                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption/api-owner",
-                                    "protocol": "https",
-                                    "host": [
-                                        "api.withleaf.io"
-                                    ],
-                                    "path": [
-                                        "services",
-                                        "billingapplication",
-                                        "api",
-                                        "billing",
-                                        "contracts",
-                                        "{{contract_id}}",
-                                        "consumption",
-                                        "api-owner"
-                                    ]
-                                }
-                            },
-                            "response": []
-                        },
-                        {
-                            "name": "Get contract consumption range for leaf user",
-                            "request": {
-                                "method": "GET",
-                                "header": [
-                                    {
-                                        "key": "Authorization",
-                                        "value": "Bearer {{leaf_token}}",
-                                        "type": "text"
-                                    }
-                                ],
-                                "url": {
-                                    "raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption/leaf-user/{{leaf_user_id}}",
-                                    "protocol": "https",
-                                    "host": [
-                                        "api.withleaf.io"
-                                    ],
-                                    "path": [
-                                        "services",
-                                        "billingapplication",
-                                        "api",
-                                        "billing",
-                                        "contracts",
-                                        "{{contract_id}}",
-                                        "consumption",
-                                        "leaf-user",
-                                        "{{leaf_user_id}}"
-                                    ]
-                                }
-                            },
-                            "response": []
-                        }
-                    ]
+					"name": "Usage Tracking",
+					"item": [
+						{
+							"name": "List contracts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts",
+									"protocol": "https",
+									"host": [
+										"api.withleaf.io"
+									],
+									"path": [
+										"services",
+										"billingapplication",
+										"api",
+										"billing",
+										"contracts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get contract by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}",
+									"protocol": "https",
+									"host": [
+										"api.withleaf.io"
+									],
+									"path": [
+										"services",
+										"billingapplication",
+										"api",
+										"billing",
+										"contracts",
+										"{{contract_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get contract consumption",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption",
+									"protocol": "https",
+									"host": [
+										"api.withleaf.io"
+									],
+									"path": [
+										"services",
+										"billingapplication",
+										"api",
+										"billing",
+										"contracts",
+										"{{contract_id}}",
+										"consumption"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get contract consumption range for api owner",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption/api-owner",
+									"protocol": "https",
+									"host": [
+										"api.withleaf.io"
+									],
+									"path": [
+										"services",
+										"billingapplication",
+										"api",
+										"billing",
+										"contracts",
+										"{{contract_id}}",
+										"consumption",
+										"api-owner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get contract consumption range for leaf user",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{leaf_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.withleaf.io/services/billingapplication/api/billing/contracts/{{contract_id}}/consumption/leaf-user/{{leaf_user_id}}",
+									"protocol": "https",
+									"host": [
+										"api.withleaf.io"
+									],
+									"path": [
+										"services",
+										"billingapplication",
+										"api",
+										"billing",
+										"contracts",
+										"{{contract_id}}",
+										"consumption",
+										"leaf-user",
+										"{{leaf_user_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Member (/me)",
+					"item": [
+						{
+							"name": "List my organizations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/me/organizations",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"me",
+										"organizations"
+									]
+								},
+								"description": "List the organizations the current user belongs to."
+							},
+							"response": []
+						},
+						{
+							"name": "List members of an organization",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/me/organizations/{{organization_id}}/members?first=0&max=20",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"me",
+										"organizations",
+										"{{organization_id}}",
+										"members"
+									],
+									"query": [
+										{
+											"key": "first",
+											"value": "0"
+										},
+										{
+											"key": "max",
+											"value": "20"
+										}
+									]
+								},
+								"description": "List members of one of the current user's organizations. Query: username, isApiOwner, first, max, exact."
+							},
+							"response": []
+						},
+						{
+							"name": "Get selected org / API owner",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/me/selected-org-api-owner",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"me",
+										"selected-org-api-owner"
+									]
+								},
+								"description": "Read the currently selected organization / API owner context stored on the user."
+							},
+							"response": []
+						},
+						{
+							"name": "Set selected org / API owner",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/me/selected-org-api-owner",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"me",
+										"selected-org-api-owner"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"organizationId\": \"{{organization_id}}\",\n  \"apiOwnerId\": \"{{api_owner_id}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Select the active organization / API owner context. Re-login or refresh the token afterwards so it carries the new context."
+							},
+							"response": []
+						},
+						{
+							"name": "Clear selected org / API owner",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/me/selected-org-api-owner",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"me",
+										"selected-org-api-owner"
+									]
+								},
+								"description": "Clear the selected organization / API owner context."
+							},
+							"response": []
+						}
+					],
+					"description": "Member self-service endpoints served by Keycloak (realm `leaf`). Any authenticated user. Base: {{auth_url}}/me"
+				},
+				{
+					"name": "Org Admin (/org-admin)",
+					"item": [
+						{
+							"name": "List organization users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/users?search=&first=0&max=20",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": ""
+										},
+										{
+											"key": "first",
+											"value": "0"
+										},
+										{
+											"key": "max",
+											"value": "20"
+										}
+									]
+								},
+								"description": "List users in the admin's organization. Query: email, search, username, firstName, lastName, first, max, exact."
+							},
+							"response": []
+						},
+						{
+							"name": "Create user in organization",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/users",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"users"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"new.user\",\n  \"email\": \"new.user@example.com\",\n  \"firstName\": \"New\",\n  \"lastName\": \"User\",\n  \"enabled\": true,\n  \"emailVerified\": false,\n  \"tempPassword\": \"ChangeMe123!\",\n  \"temporaryPassword\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Create a user scoped to the admin's organization."
+							},
+							"response": []
+						},
+						{
+							"name": "Get user roles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/users/{{org_user_id}}/roles",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"users",
+										"{{org_user_id}}",
+										"roles"
+									]
+								},
+								"description": "Get assigned + organization-specific roles for a user."
+							},
+							"response": []
+						},
+						{
+							"name": "List allowed base roles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/allowed-roles",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"allowed-roles"
+									]
+								},
+								"description": "Roles that can be used as composites for organization roles."
+							},
+							"response": []
+						},
+						{
+							"name": "List organization roles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/roles",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"roles"
+									]
+								},
+								"description": "Roles scoped to the current user's organization."
+							},
+							"response": []
+						},
+						{
+							"name": "Create organization role",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/roles",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"roles"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"my-org-role\",\n  \"roles\": [\n    \"ROLE_USER\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Create/update an organization-prefixed role with composite roles."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete organization role",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/roles/{{role_id}}",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"roles",
+										"{{role_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign role to user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/set-user-role/{{org_user_id}}/{{role_id}}",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"set-user-role",
+										"{{org_user_id}}",
+										"{{role_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove role from user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/unset-user-role/{{org_user_id}}/{{role_id}}",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"unset-user-role",
+										"{{org_user_id}}",
+										"{{role_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invite member",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/invitations",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"invitations"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"invitee@example.com\",\n  \"firstName\": \"Invited\",\n  \"lastName\": \"Member\",\n  \"roleIds\": [\n    \"{{role_id}}\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Create a pending member and send an invitation email for password setup."
+							},
+							"response": []
+						},
+						{
+							"name": "Sync organizations billing",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/organizations/sync-billing",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"organizations",
+										"sync-billing"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sync organization api-owners",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/org-admin/organizations/{{organization_name}}/api-owners/sync",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"org-admin",
+										"organizations",
+										"{{organization_name}}",
+										"api-owners",
+										"sync"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Organization administration endpoints served by Keycloak (realm `leaf`). Requires ROLE_ORG_ADMIN + resolved org context. Base: {{auth_url}}/org-admin"
 				}
-			]
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"description": "Requests for Leaf customers/partners. Authenticated with a Keycloak user access_token (folder-level Bearer)."
+		},
+		{
+			"name": "Internal (Leaf Admin)",
+			"item": [
+				{
+					"name": "Leaf Admin Auth",
+					"item": [
+						{
+							"name": "Get Leaf Admin Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/protocol/openid-connect/token",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								},
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "password"
+										},
+										{
+											"key": "client_id",
+											"value": "{{internal_client_id}}"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{internal_client_secret}}"
+										},
+										{
+											"key": "username",
+											"value": "{{leaf_admin_email}}"
+										},
+										{
+											"key": "password",
+											"value": "{{leaf_admin_pass}}"
+										},
+										{
+											"key": "scope",
+											"value": "openid"
+										}
+									]
+								},
+								"auth": {
+									"type": "noauth"
+								},
+								"description": "Keycloak Direct Grant (password) login for Leaf internal admins using the confidential client `leaf-internal-prd`. The user must hold realm role ROLE_LEAF_ADMIN. Saves leaf_admin_access_token / leaf_admin_refresh_token."
+							},
+							"response": [],
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var json = pm.response.json();",
+											"pm.environment.set(\"leaf_admin_access_token\", json.access_token);",
+											"if (json.refresh_token) { pm.environment.set(\"leaf_admin_refresh_token\", json.refresh_token); }"
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Refresh Leaf Admin Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/protocol/openid-connect/token",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								},
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token"
+										},
+										{
+											"key": "client_id",
+											"value": "{{internal_client_id}}"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{internal_client_secret}}"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{leaf_admin_refresh_token}}"
+										}
+									]
+								},
+								"auth": {
+									"type": "noauth"
+								}
+							},
+							"response": [],
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var json = pm.response.json();",
+											"pm.environment.set(\"leaf_admin_access_token\", json.access_token);",
+											"if (json.refresh_token) { pm.environment.set(\"leaf_admin_refresh_token\", json.refresh_token); }"
+										]
+									}
+								}
+							]
+						}
+					],
+					"description": "Keycloak OAuth2 login for Leaf internal admins (confidential client, ROLE_LEAF_ADMIN)."
+				},
+				{
+					"name": "Leaf Admin (/leaf-admin)",
+					"item": [
+						{
+							"name": "Import user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/leaf-admin/import-user",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"leaf-admin",
+										"import-user"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username_to_import}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Import one user from the legacy DB into native Keycloak storage."
+							},
+							"response": []
+						},
+						{
+							"name": "Import batch",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/leaf-admin/import-batch",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"leaf-admin",
+										"import-batch"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"usernames\": [\n    \"user1\",\n    \"user2\",\n    \"user3\"\n  ],\n  \"continueOnError\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Import multiple users from the legacy DB."
+							},
+							"response": []
+						},
+						{
+							"name": "Import all users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/leaf-admin/import-all?offset=0&limit=100",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"leaf-admin",
+										"import-all"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "100"
+										}
+									]
+								},
+								"description": "Import all legacy users in pages (offset/limit)."
+							},
+							"response": []
+						},
+						{
+							"name": "Sync user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{auth_url}}/leaf-admin/sync-user",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"leaf-admin",
+										"sync-user"
+									]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username_to_import}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"description": "Re-sync one existing Keycloak user from the legacy DB."
+							},
+							"response": []
+						},
+						{
+							"name": "Status / health",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/leaf-admin/status",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"leaf-admin",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User migration status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{auth_url}}/leaf-admin/user-status?username={{username_to_import}}",
+									"protocol": "https",
+									"host": [
+										"{{auth_url}}"
+									],
+									"path": [
+										"leaf-admin",
+										"user-status"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "{{username_to_import}}"
+										}
+									]
+								},
+								"description": "Migration status for a user (e.g. legacyPasswordMigrationPending)."
+							},
+							"response": []
+						}
+					],
+					"description": "Internal Leaf admin endpoints served by Keycloak (realm `leaf`). Requires ROLE_LEAF_ADMIN. Base: {{auth_url}}/leaf-admin"
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{leaf_admin_access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"description": "Internal Leaf-only requests. Authenticated with the internal confidential client + a ROLE_LEAF_ADMIN user (leaf_admin_access_token)."
 		}
 	],
 	"auth": {
@@ -12649,7 +13532,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "{{leaf_token}}",
+				"value": "{{access_token}}",
 				"type": "string"
 			}
 		]
@@ -12677,7 +13560,19 @@
 	"variable": [
 		{
 			"key": "leaf_api_url",
-			"value": "api.withleaf.io"
+			"value": "api-v2.withleaf.io"
+		},
+		{
+			"key": "auth_url",
+			"value": "auth.withleaf.io/realms/leaf"
+		},
+		{
+			"key": "client_id",
+			"value": "dashboard-ui-prd"
+		},
+		{
+			"key": "internal_client_id",
+			"value": "leaf-internal-prd"
 		},
 		{
 			"key": "leaf_auth_jd",
